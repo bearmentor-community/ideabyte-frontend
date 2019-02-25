@@ -1,15 +1,16 @@
 import React from 'react'
 
+import Page from './Page'
 import HeaderSearch from '../components/HeaderSearch'
 import Footer from '../components/Footer'
 
 const PageSearch = ({ children }) => {
   return (
-    <main>
+    <Page>
       <HeaderSearch />
       {children}
       <Footer />
-    </main>
+    </Page>
   )
 }
 

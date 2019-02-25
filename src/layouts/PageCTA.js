@@ -1,15 +1,16 @@
 import React from 'react'
 
+import Page from './Page'
 import HeaderCTA from '../components/HeaderCTA'
 import Footer from '../components/Footer'
 
 const PageCTA = ({ children }) => {
   return (
-    <main>
+    <Page>
       <HeaderCTA />
       {children}
       <Footer />
-    </main>
+    </Page>
   )
 }
 
