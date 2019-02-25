@@ -1,9 +1,12 @@
 import React from 'react'
+
 import PageSpecial from '../layouts/PageSpecial'
+import Meta from '../layouts/Meta'
 
 const About = () => {
   return (
     <PageSpecial>
+      <Meta title="About Us" />
       <h1>About</h1>
       <div>
         <p>

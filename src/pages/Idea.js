@@ -1,9 +1,12 @@
 import React from 'react'
+
+import Meta from '../layouts/Meta'
 import PageSimple from '../layouts/PageSimple'
 
 const Idea = () => {
   return (
     <PageSimple>
+      <Meta title="Idea Name" />
       <section>
         <div>
           <h2>Idea Name</h2>

@@ -1,10 +1,12 @@
 import React from 'react'
 
+import Meta from '../layouts/Meta'
 import PageSimple from '../layouts/PageSimple'
 
 const Post = () => {
   return (
     <PageSimple>
+      <Meta title="Post New Idea" />
       <section>
         <h1>Post your idea</h1>
 

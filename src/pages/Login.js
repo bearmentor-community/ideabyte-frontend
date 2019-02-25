@@ -1,11 +1,13 @@
 import React from 'react'
 
+import Meta from '../layouts/Meta'
 import PageSimple from '../layouts/PageSimple'
 import Link from '../components/Link'
 
 const Login = () => {
   return (
     <PageSimple>
+      <Meta title="Login Account" />
       <section>
         <h1>Login to your account</h1>
 

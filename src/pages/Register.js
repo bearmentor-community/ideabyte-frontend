@@ -1,11 +1,13 @@
 import React from 'react'
 
+import Meta from '../layouts/Meta'
 import PageSimple from '../layouts/PageSimple'
 import Link from '../components/Link'
 
 const Register = () => {
   return (
     <PageSimple>
+      <Meta title="Register New Account" />
       <section>
         <h2>Register for new account</h2>
 
