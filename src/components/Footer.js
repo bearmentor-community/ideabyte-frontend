@@ -1,10 +1,20 @@
 import React from 'react'
 
+import styled from '@emotion/styled'
+
+const StyledFooter = styled.footer`
+  background: #333;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  margin-top: 50px;
+`
+
 const Footer = () => {
   return (
-    <footer>
-      <small>Idea Byte &copy; 2019 </small>
-    </footer>
+    <StyledFooter>
+      <p>Idea Byte &copy; 2019 </p>
+    </StyledFooter>
   )
 }
 

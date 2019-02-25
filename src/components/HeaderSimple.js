@@ -1,12 +1,13 @@
 import React from 'react'
 
+import Header from './Header'
 import Navigation from './Navigation'
 
 const HeaderSimple = () => {
   return (
-    <header>
+    <Header>
       <Navigation />
-    </header>
+    </Header>
   )
 }
 

@@ -1,19 +1,23 @@
 import React from 'react'
 
+import Header from './Header'
 import Navigation from './Navigation'
+import Heading from './Heading'
+import CTA from './CTA'
 import SearchBar from './SearchBar'
 
 const HeaderCTA = () => {
   return (
-    <header>
+    <Header>
       <Navigation />
-      <h1>Share and improve your ideas with the world</h1>
-      <div>
-        <button>Get Started</button>
-        <button>Explore Ideas</button>
-      </div>
+      <Heading size={1}>
+        Share and improve your ideas
+        <br />
+        with the world
+      </Heading>
+      <CTA />
       <SearchBar />
-    </header>
+    </Header>
   )
 }
 

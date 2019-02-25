@@ -1,11 +1,37 @@
 import React from 'react'
 
+import styled from '@emotion/styled'
+
+const SearchBarForm = styled.form`
+  background: #333;
+  display: flex;
+  justify-content: center;
+`
+
+const SearchSubmit = styled.input`
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 0 10px;
+`
+
+const SearchText = styled.input`
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+  width: 300px;
+`
+
 const SearchBar = () => {
   return (
-    <form>
-      <input type="submit" value="Search" />
-      <input type="text" name="search" placeholder="Search Bar" />
-    </form>
+    <SearchBarForm autoComplete="off">
+      <SearchSubmit type="submit" value="S" />
+      <SearchText type="text" name="search" placeholder="Search for ideas..." />
+    </SearchBarForm>
   )
 }
 

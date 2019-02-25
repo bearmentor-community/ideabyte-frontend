@@ -2,20 +2,23 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from '@emotion/styled'
 
-const StyledMain = styled.main`
+const Container = styled.div`
   font-family: 'Fira Sans', Helvetica, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 `
 
 const Page = ({ children }) => {
   return (
-    <StyledMain>
+    <Container>
       <Helmet>
         <html lang="en" />
         <meta charSet="utf-8" />
       </Helmet>
 
       {children}
-    </StyledMain>
+    </Container>
   )
 }
 

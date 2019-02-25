@@ -1,36 +1,84 @@
 import React from 'react'
+import styled from '@emotion/styled'
 
 import Link from '../components/Link'
+import Anchor from '../components/Anchor'
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: center;
+`
+
+const NavUl = styled.ul`
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+`
+
+const NavLi = styled.li`
+  display: inline;
+  margin: 0 50px;
+  font-weight: bold;
+`
+
+const Logo = styled.img`
+  height: 80px;
+`
 
 const Navigation = () => {
+  const isLoggedIn = false
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
+    <Nav>
+      <NavUl>
+        <NavLi>
           <Link to="/">
-            <img src="/assets/logo/ideabyte-logo.png" alt="Idea Byte Logo" />
+            <Anchor>Home</Anchor>
           </Link>
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/post">Post Idea</Link>
-        </li>
-        <li>
-          <Link to="/profile">My Profile</Link>
-        </li>
-      </ul>
-    </nav>
+        </NavLi>
+        <NavLi>
+          <Link to="/about">
+            <Anchor>About</Anchor>
+          </Link>
+        </NavLi>
+        <NavLi>
+          <Link to="/">
+            <Logo
+              src="/assets/logo/ideabyte-logo-white.svg"
+              alt="Idea Byte Logo"
+            />
+          </Link>
+        </NavLi>
+        {!isLoggedIn && (
+          <NavLi>
+            <Link to="/register">
+              <Anchor>Register</Anchor>
+            </Link>
+          </NavLi>
+        )}
+        {!isLoggedIn && (
+          <NavLi>
+            <Link to="/login">
+              <Anchor>Login</Anchor>
+            </Link>
+          </NavLi>
+        )}
+        {isLoggedIn && (
+          <NavLi>
+            <Link to="/post">
+              <Anchor>Post Idea</Anchor>
+            </Link>
+          </NavLi>
+        )}
+        {isLoggedIn && (
+          <NavLi>
+            <Link to="/profile">
+              <Anchor>My Profile</Anchor>
+            </Link>
+          </NavLi>
+        )}
+      </NavUl>
+    </Nav>
   )
 }
 
