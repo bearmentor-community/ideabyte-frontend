@@ -1,0 +1,1 @@
+cp .env.schema .env
