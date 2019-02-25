@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import PageSpecial from '../layouts/PageSpecial'
 import Meta from '../layouts/Meta'
 import Heading from '../components/Heading'
+import HorizontalRule from '../components/HorizontalRule'
 
 const Sections = styled.section`
   display: flex;
@@ -15,11 +16,6 @@ const Sections = styled.section`
 
 const Section = styled.section`
   width: 600px;
-`
-
-const HorizontalRule = styled.hr`
-  border: 1px solid hsla(45, 86%, 62%, 1);
-  max-width: 300px;
 `
 
 const About = () => {

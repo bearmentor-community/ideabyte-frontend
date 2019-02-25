@@ -33,12 +33,12 @@ const Navigation = () => {
       <NavUl>
         <NavLi>
           <Link to="/">
-            <Span>Home</Span>
+            <Span scheme="dark">Home</Span>
           </Link>
         </NavLi>
         <NavLi>
           <Link to="/about">
-            <Span>About</Span>
+            <Span scheme="dark">About</Span>
           </Link>
         </NavLi>
         <NavLi>
@@ -52,28 +52,28 @@ const Navigation = () => {
         {!isLoggedIn && (
           <NavLi>
             <Link to="/register">
-              <Span>Register</Span>
+              <Span scheme="dark">Register</Span>
             </Link>
           </NavLi>
         )}
         {!isLoggedIn && (
           <NavLi>
             <Link to="/login">
-              <Span>Login</Span>
+              <Span scheme="dark">Login</Span>
             </Link>
           </NavLi>
         )}
         {isLoggedIn && (
           <NavLi>
             <Link to="/post">
-              <Span>Post Idea</Span>
+              <Span scheme="dark">Post Idea</Span>
             </Link>
           </NavLi>
         )}
         {isLoggedIn && (
           <NavLi>
             <Link to="/profile">
-              <Span>My Profile</Span>
+              <Span scheme="dark">My Profile</Span>
             </Link>
           </NavLi>
         )}

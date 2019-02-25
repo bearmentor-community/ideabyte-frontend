@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx, css } from '@emotion/core'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 const Heading = ({ size, align, scheme, margin, children }) => {
