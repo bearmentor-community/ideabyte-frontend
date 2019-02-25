@@ -3,11 +3,13 @@ import React from 'react'
 import PageSpecial from '../layouts/PageSpecial'
 import Meta from '../layouts/Meta'
 
+import Heading from '../components/Heading'
+
 const About = () => {
   return (
     <PageSpecial>
       <Meta title="About Us" />
-      <h1>About</h1>
+      <Heading size={1}>About Idea Byte</Heading>
       <div>
         <p>
           <span role="img" aria-label="bulb">

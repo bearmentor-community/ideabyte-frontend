@@ -10,7 +10,7 @@ const Explore = () => {
   return (
     <PageSearch>
       <Meta title="Explore Ideas" />
-      <h1>Explore</h1>
+      <h1>Explore Ideas</h1>
       <section>
         {IDEAS.map((item, index) => {
           return <IdeaCard key={index} id={item} />
