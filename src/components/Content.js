@@ -3,7 +3,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Main = styled.main`
-  width: 800px;
+  width: 1000px;
   margin: 0 auto;
   flex: 1;
 `

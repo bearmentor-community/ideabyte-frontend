@@ -13,18 +13,20 @@ import Post from './pages/Post'
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path={`/`} component={Home} />
-          <Route path={`/about`} component={About} />
-          <Route path={`/explore`} component={Explore} />
-          <Route path={`/ideas/:id`} component={Idea} />
-          <Route path={`/register`} component={Register} />
-          <Route path={`/login`} component={Login} />
-          <Route path={`/profile`} component={Profile} />
-          <Route path={`/post`} component={Post} />
-        </Switch>
-      </Router>
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path={`/`} component={Home} />
+            <Route path={`/about`} component={About} />
+            <Route path={`/explore`} component={Explore} />
+            <Route path={`/ideas/:id`} component={Idea} />
+            <Route path={`/register`} component={Register} />
+            <Route path={`/login`} component={Login} />
+            <Route path={`/profile`} component={Profile} />
+            <Route path={`/post`} component={Post} />
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }

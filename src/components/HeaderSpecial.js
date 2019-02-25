@@ -8,7 +8,7 @@ const HeaderSpecial = () => {
   return (
     <Header>
       <Navigation />
-      <Heading size={1}>
+      <Heading size={1} scheme="dark">
         Share and improve your ideas
         <br />
         with the world

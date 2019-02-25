@@ -23,12 +23,17 @@ const SearchText = styled.input`
   font-size: 16px;
   font-weight: bold;
   padding: 20px;
-  width: 300px;
+  width: 400px;
 `
 
 const SearchBar = () => {
   return (
-    <SearchBarForm autoComplete="off">
+    <SearchBarForm
+      autoComplete="off"
+      onSubmit={event => {
+        event.preventDefault()
+      }}
+    >
       <SearchSubmit type="submit" value="S" />
       <SearchText type="text" name="search" placeholder="Search for ideas..." />
     </SearchBarForm>

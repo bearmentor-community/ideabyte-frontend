@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 const Footer = () => {
   return (
     <StyledFooter>
-      <p>Idea Byte &copy; 2019 </p>
+      <p>Idea Byte (PT. Ideabyte Teknologi Edukasi) &copy; 2019 </p>
     </StyledFooter>
   )
 }

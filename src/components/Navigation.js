@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import Link from '../components/Link'
-import Anchor from '../components/Anchor'
+import Span from './Span'
 
 const Nav = styled.nav`
   display: flex;
@@ -33,12 +33,12 @@ const Navigation = () => {
       <NavUl>
         <NavLi>
           <Link to="/">
-            <Anchor>Home</Anchor>
+            <Span>Home</Span>
           </Link>
         </NavLi>
         <NavLi>
           <Link to="/about">
-            <Anchor>About</Anchor>
+            <Span>About</Span>
           </Link>
         </NavLi>
         <NavLi>
@@ -52,28 +52,28 @@ const Navigation = () => {
         {!isLoggedIn && (
           <NavLi>
             <Link to="/register">
-              <Anchor>Register</Anchor>
+              <Span>Register</Span>
             </Link>
           </NavLi>
         )}
         {!isLoggedIn && (
           <NavLi>
             <Link to="/login">
-              <Anchor>Login</Anchor>
+              <Span>Login</Span>
             </Link>
           </NavLi>
         )}
         {isLoggedIn && (
           <NavLi>
             <Link to="/post">
-              <Anchor>Post Idea</Anchor>
+              <Span>Post Idea</Span>
             </Link>
           </NavLi>
         )}
         {isLoggedIn && (
           <NavLi>
             <Link to="/profile">
-              <Anchor>My Profile</Anchor>
+              <Span>My Profile</Span>
             </Link>
           </NavLi>
         )}
