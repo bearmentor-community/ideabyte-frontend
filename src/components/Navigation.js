@@ -26,7 +26,7 @@ const Logo = styled.img`
 `
 
 const Navigation = () => {
-  const isLoggedIn = false
+  const isAuthenticated = false
 
   return (
     <Nav>
@@ -49,31 +49,35 @@ const Navigation = () => {
             />
           </Link>
         </NavLi>
-        {!isLoggedIn && (
+        {!isAuthenticated && (
           <NavLi>
             <Link to="/register">
               <Span scheme="dark">Register</Span>
             </Link>
           </NavLi>
         )}
-        {!isLoggedIn && (
+        {!isAuthenticated && (
           <NavLi>
             <Link to="/login">
               <Span scheme="dark">Login</Span>
             </Link>
           </NavLi>
         )}
-        {isLoggedIn && (
+        {isAuthenticated && (
           <NavLi>
             <Link to="/post">
-              <Span scheme="dark">Post Idea</Span>
+              <Span scheme="dark" color="#6FCF97">
+                Post Idea
+              </Span>
             </Link>
           </NavLi>
         )}
-        {isLoggedIn && (
+        {isAuthenticated && (
           <NavLi>
             <Link to="/profile">
-              <Span scheme="dark">My Profile</Span>
+              <Span scheme="dark" color="#F2C94C">
+                My Profile
+              </Span>
             </Link>
           </NavLi>
         )}

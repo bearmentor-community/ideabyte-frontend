@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 const MenuSpan = styled.span`
   color: ${props => (props.scheme === 'dark' ? '#fff' : '#333')};
+  color: ${props => props.color};
   transition: 0.5s;
 
   &:hover {
@@ -28,11 +29,25 @@ const ExtraSpan = styled.span`
   }
 `
 
-const Span = ({ type, scheme, children }) => {
+const Span = ({ type, scheme, color, children }) => {
   if (type === 'extra') {
-    return <ExtraSpan scheme={scheme}>{children}</ExtraSpan>
+    return (
+      <ExtraSpan scheme={scheme} color={color}>
+        {children}
+      </ExtraSpan>
+    )
+  } else if (type === 'menu') {
+    return (
+      <MenuSpan scheme={scheme} color={color}>
+        {children}
+      </MenuSpan>
+    )
   } else {
-    return <MenuSpan scheme={scheme}>{children}</MenuSpan>
+    return (
+      <MenuSpan scheme={scheme} color={color}>
+        {children}
+      </MenuSpan>
+    )
   }
 }
 

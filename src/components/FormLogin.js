@@ -71,7 +71,7 @@ const FormLogin = () => {
 
         <FormFieldSet>
           <Label>Your password:</Label>
-          <Input type="password" />
+          <Input type="password" placeholder="your_secret_passsword" />
         </FormFieldSet>
 
         <InputSubmit type="submit" value="Login" />
