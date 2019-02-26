@@ -4,10 +4,13 @@ export default class Header extends React.component {
   render() {
     return (
       <div>
-        <h1>Header</h1>
+        <nav>
+          <li>Home</li>
+          <li>About</li>
+          <li>Register</li>
+          <li>Login</li>
+        </nav>
       </div>
     )
   }
 }
-
-export default Header

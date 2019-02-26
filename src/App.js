@@ -6,7 +6,13 @@ import Footer from './components/Footer'
 
 class App extends React.Component {
   render() {
-    return <div>Idea Byte</div>
+    return (
+      <div>
+        <Header />
+        <Content />
+        <Footer />
+      </div>
+    )
   }
 }
 
