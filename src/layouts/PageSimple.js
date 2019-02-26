@@ -5,11 +5,11 @@ import HeaderSimple from '../components/HeaderSimple'
 import Content from '../components/Content'
 import Footer from '../components/Footer'
 
-const PageSimple = ({ children }) => {
+const PageSimple = ({ width, children }) => {
   return (
     <Page>
       <HeaderSimple />
-      <Content width="600px">{children}</Content>
+      <Content width={width ? width : '600px'}>{children}</Content>
       <Footer />
     </Page>
   )

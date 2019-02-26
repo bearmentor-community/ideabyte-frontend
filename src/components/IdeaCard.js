@@ -59,7 +59,7 @@ const IdeaCard = ({ index }) => {
   }
 
   return (
-    <Link to="/">
+    <Link to="/ideas/1">
       <Card>
         <CardImage src={`/assets/images/traveling.jpg`} alt="Card Image" />
         <CardData>

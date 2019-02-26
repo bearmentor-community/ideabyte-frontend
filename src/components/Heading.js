@@ -27,6 +27,8 @@ const Heading = ({ size, align, scheme, margin, children }) => {
     return <Heading2 scheme={scheme}>{children}</Heading2>
   } else if (size === 3) {
     return <Heading3 scheme={scheme}>{children}</Heading3>
+  } else {
+    return <Heading1 scheme={scheme}>{children}</Heading1>
   }
 }
 
