@@ -6,7 +6,7 @@ const Heading = ({ size, align, scheme, margin, children }) => {
   const base = css`
     text-align: ${align ? 'left' : 'center'};
     color: ${scheme === 'dark' ? '#fff' : '#333'};
-    margin: ${margin ? margin : '30px 0'};
+    margin: ${margin ? margin : '40px 0'};
   `
 
   const Heading1 = styled.h1`

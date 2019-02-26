@@ -1,0 +1,21 @@
+{
+  "filesFailed": [],
+  "filesUploaded": [
+    {
+      "filename": "ideabyte-avatar.png",
+      "handle": "abcdefghijklmnopqrst",
+      "mimetype": "image/png",
+      "originalFile": {
+        "name": "ideabyte-avatar.png",
+        "type": "image/png",
+        "size": 1234
+      },
+      "originalPath": "ideabyte-avatar.png",
+      "size": 1234,
+      "source": "local_file_system",
+      "status": "Stored",
+      "uploadId": "47da16453ba0847ff19c38bbc167735d",
+      "url": "https://cdn.filestackcontent.com/pjZa1LgOTY6mjmriZJNT"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactFilestack from 'filestack-react'
 
 import Heading from './Heading'
 import HorizontalRule from './HorizontalRule'
@@ -9,8 +10,23 @@ import {
   Label,
   Input,
   TextArea,
+  ButtonUpload,
   InputSubmit
 } from './FormStyledComponents'
+
+const filestackApiKey = process.env.REACT_APP_FILESTACK_API_KEY
+
+const filestackOptions = {
+  accept: 'image/*',
+  maxFiles: 5
+}
+
+const handleSuccess = result => {
+  console.log(result)
+}
+const handleError = error => {
+  console.log(error) // an Object
+}
 
 const FormPost = () => {
   return (
@@ -40,7 +56,18 @@ const FormPost = () => {
 
         <FormFieldSet>
           <Label>Images and photos:</Label>
-          <Input disabled type="text" />
+          <ReactFilestack
+            apikey={filestackApiKey} // preconfigured
+            options={filestackOptions} // preconfigured
+            onSuccess={handleSuccess} // preconfigured
+            onError={handleError} // preconfigured
+            preload={true}
+            render={({ onPick }) => (
+              <div>
+                <ButtonUpload onClick={onPick}>Pick Images</ButtonUpload>
+              </div>
+            )}
+          />
         </FormFieldSet>
 
         <FormFieldSet>
@@ -49,7 +76,7 @@ const FormPost = () => {
         </FormFieldSet>
 
         <InputSubmit backgroundColor="green" type="submit" value="Post Idea" />
-        <InputSubmit backgroundColor="red" type="button" value="Cancel" />
+        <InputSubmit color="red" type="button" value="Cancel" />
       </FormContent>
     </form>
   )

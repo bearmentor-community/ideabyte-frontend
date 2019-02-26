@@ -23,7 +23,7 @@ const CTAButton = styled.button`
   font-weight: bold;
   margin: 10px;
   padding: 10px 40px;
-  transition: 0.5s;
+  transition: 0.2s;
 
   &:hover {
     background: ${props =>

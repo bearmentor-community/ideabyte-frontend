@@ -34,6 +34,19 @@ export const TextArea = styled.textarea`
   width: 100%;
 `
 
+export const ButtonUpload = styled.button`
+  background: hsla(0, 0%, 20%, 1);
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 15px 20px;
+  transition: 0.2s;
+`
+
 export const InputSubmit = styled.input`
   background: ${props =>
     props.backgroundColor === 'green'
@@ -42,14 +55,26 @@ export const InputSubmit = styled.input`
       ? 'hsla(45, 86%, 62%, 1)'
       : props.backgroundColor === 'red'
       ? 'hsla(0, 79%, 63%, 1)'
-      : 'hsla(0, 0%, 20%, 1)'};
+      : props.backgroundColor === 'black'
+      ? 'hsla(0, 0%, 20%, 1)'
+      : 'none'};
+  color: ${props =>
+    props.color === 'green'
+      ? 'hsla(145, 50%, 62%, 1)'
+      : props.color === 'yellow'
+      ? 'hsla(45, 86%, 62%, 1)'
+      : props.color === 'red'
+      ? 'hsla(0, 79%, 63%, 1)'
+      : props.color === 'black'
+      ? 'hsla(0, 0%, 20%, 1)'
+      : 'none'};
   padding: 15px 20px;
   border: none;
   font-size: 14px;
   font-weight: bold;
   border-radius: 4px;
   margin-top: 10px;
-  transition: 0.5s;
+  transition: 0.2s;
   cursor: pointer;
   width: ${props => (props.block ? '100%' : '')};
   margin-right: ${props => (!props.block ? '30px' : '')};
@@ -62,7 +87,9 @@ export const InputSubmit = styled.input`
         ? 'hsla(45, 86%, 72%, 1)'
         : props.backgroundColor === 'red'
         ? 'hsla(0, 79%, 73%, 1)'
-        : 'hsla(0, 0%, 30%, 1)'};
+        : props.backgroundColor === 'black'
+        ? 'hsla(0, 0%, 30%, 1)'
+        : 'none'};
   }
 `
 

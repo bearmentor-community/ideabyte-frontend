@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 const MenuSpan = styled.span`
   color: ${props => (props.scheme === 'dark' ? '#fff' : '#333')};
   color: ${props => props.color};
-  transition: 0.5s;
+  transition: 0.2s;
 
   &:hover {
     color: ${props =>
