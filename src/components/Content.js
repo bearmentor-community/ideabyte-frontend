@@ -1,28 +1,33 @@
 import React from 'react'
-// import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
 
-// const ContentCard = props => {
-//   return (
-//     <div>
-//       <b>Cards</b>
-//       {/* <Card>
-//         <CardImg
-//           top
-//           width="100%"
-//           src="https://unsplash.com/photos/UZzZt2zeFzc&w=318&&h=180"
-//           alt="Card image cap"
-//         />
-//         <CardBody>
-//           <CardTitle>Tripvesto</CardTitle>
-//           <CardText>App to plan and gather your friends to travel</CardText>
-//         </CardBody>
-//       </Card> */}
-//     </div>
-//   )
-// }
+const ContentCard = props => {
+  return (
+    <div>
+      <img
+        width="300px"
+        src="/assets/card-image.jpg"
+        alt="Card image caption"
+      />
+      <div>
+        <h3>Tripvesto</h3>
+        <p>App to plan and gather your friends to travel</p>
+      </div>
+    </div>
+  )
+}
 
 export default class Content extends React.Component {
   render() {
-    return <div> this is content </div>
+    return (
+      <div>
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+      </div>
+    )
   }
 }
