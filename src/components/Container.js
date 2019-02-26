@@ -109,7 +109,7 @@ class Container extends Component {
             </p>
             <p>
               {' '}
-              <b> with the word</b>
+              <b> with the world</b>
             </p>
           </PararagraphHeader>
 
