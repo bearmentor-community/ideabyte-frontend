@@ -1,14 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
+import ObjectID from 'bson-objectid'
 
 import Heading from './Heading'
+import Paragraph from './Paragraph'
 
 const Card = styled.div`
   background: #fafafa;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   width: 300px;
   margin: 10px;
+  color: #333;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+
+  &:hover {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+  }
 `
 
 const CardImage = styled.img`
@@ -37,28 +46,42 @@ const Icon = styled.span`
   margin-right: 10px;
 `
 
-const IdeaCard = ({ id }) => {
+const IdeaCard = ({ index }) => {
+  const item = {
+    _id: ObjectID(),
+    id: index + 1,
+    title: `Tripvesto ${index}`,
+    short: `App to plan and gather your friends to travel. Let's join us!`,
+    author: 'Joen Doe',
+    date: '25 February 2019',
+    location: 'Jakarta, Indonesia',
+    path: ''
+  }
+
   return (
-    <Card>
-      <CardImage src={`/assets/images/traveling.jpg`} alt="Card Image" />
-      <CardData>
-        <Heading size={3} align="left" margin="0">
-          Tripvesto {id}
-        </Heading>
-        <p>App to plan and gather your friends to travel. Let's join us!</p>
-      </CardData>
-      <CardMetas>
-        <CardMeta>
-          <Icon>⬤</Icon> Joen Doe
-        </CardMeta>
-        <CardMeta>
-          <Icon>⬤</Icon> 25 February 2019
-        </CardMeta>
-        <CardMeta>
-          <Icon>⬤</Icon> Jakarta, Indonesia
-        </CardMeta>
-      </CardMetas>
-    </Card>
+    <Link to="/">
+      <Card>
+        <CardImage src={`/assets/images/traveling.jpg`} alt="Card Image" />
+        <CardData>
+          <Heading size={3} align="left" margin="0">
+            {item.title}
+          </Heading>
+          <Paragraph>{item.short}</Paragraph>
+        </CardData>
+        <CardMetas>
+          <CardMeta>
+            <Icon>⬤</Icon> {item.author}
+          </CardMeta>
+          <CardMeta>
+            <Icon>⬤</Icon> {item.date}
+          </CardMeta>
+          <CardMeta>
+            <Icon>⬤</Icon> {item.location}
+          </CardMeta>
+        </CardMetas>
+        {/* <p>{JSON.stringify(item)}</p> */}
+      </Card>
+    </Link>
   )
 }
 

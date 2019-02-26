@@ -15,7 +15,7 @@ const IdeaCards = ({ amount }) => {
   return (
     <Section>
       {IDEAS.map((item, index) => {
-        return <IdeaCard key={index} id={item} />
+        return <IdeaCard key={index} item={item} index={index} />
       })}
     </Section>
   )

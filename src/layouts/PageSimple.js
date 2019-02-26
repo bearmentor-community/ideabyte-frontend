@@ -9,7 +9,7 @@ const PageSimple = ({ children }) => {
   return (
     <Page>
       <HeaderSimple />
-      <Content>{children}</Content>
+      <Content width="600px">{children}</Content>
       <Footer />
     </Page>
   )

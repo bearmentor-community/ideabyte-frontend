@@ -3,13 +3,13 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Main = styled.main`
-  width: 1000px;
+  width: ${props => (props.width ? props.width : '1000px')};
   margin: 0 auto;
   flex: 1;
 `
 
-const Content = ({ children }) => {
-  return <Main>{children}</Main>
+const Content = ({ width, children }) => {
+  return <Main width={width}>{children}</Main>
 }
 
 export default Content

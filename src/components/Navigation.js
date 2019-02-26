@@ -17,7 +17,7 @@ const NavUl = styled.ul`
 
 const NavLi = styled.li`
   display: inline;
-  margin: 0 50px;
+  margin: 0 20px;
   font-weight: bold;
 `
 
@@ -26,7 +26,7 @@ const Logo = styled.img`
 `
 
 const Navigation = () => {
-  const isAuthenticated = false
+  const isAuthenticated = true
 
   return (
     <Nav>
