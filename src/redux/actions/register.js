@@ -8,8 +8,7 @@ export const registerUserSuccess = response => {
   return {
     type: 'REGISTER_USER_SUCCESS',
     payload: {
-      ...state,
-      latestResponse: response
+      response
     }
   }
 }
@@ -17,8 +16,7 @@ export const registerUserSuccess = response => {
 export const registerUserFailure = error => ({
   type: 'REGISTER_USER_FAILED',
   payload: {
-    ...state,
-    latestError: error
+    error
   }
 })
 
@@ -35,11 +33,12 @@ export const registerUser = payload => {
       data: payload
     })
       .then(response => {
-        console.warn('response:', response)
+        console.info('response:', response)
         dispatch(registerUserSuccess(response))
         return response
       })
       .catch(error => {
+        console.error('error:', error)
         dispatch(registerUserFailure(error))
       })
   }

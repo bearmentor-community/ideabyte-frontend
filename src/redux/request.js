@@ -14,7 +14,7 @@ const request = async ({ method, url, data }) => {
     const response = await axiosInstance({
       method: method || 'get', // either get, post, delete, put
       url: url || '/',
-      data: data || null
+      data: data || {}
     })
     return response
   } catch (error) {

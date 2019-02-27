@@ -16,6 +16,8 @@ import {
   Extra
 } from './FormStyledComponents'
 
+import { registerUser } from '../redux/actions/register'
+
 const FormRegister = props => {
   // React Hooks
   // So we can use state without having to use class/extends syntax
@@ -30,18 +32,16 @@ const FormRegister = props => {
 
     // If all fields are exist
     if (name && email && password) {
-      // create action object to be used in dispatch()
-      const action = {
-        type: 'REGISTER_USER',
-        payload: {
+      // dispatch payload object to Redux action
+      // it calls the reducer function
+      props.dispatch(
+        // this is a thunk in actions
+        registerUser({
           name: name,
           email: email,
           password: password
-        }
-      }
-      // dispatch action object to Redux reducer
-      // it calls the reducer function in App.js
-      props.dispatch(action)
+        })
+      )
     } else {
       console.error('One of the register fields are not entered yet')
     }

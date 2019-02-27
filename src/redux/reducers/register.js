@@ -1,7 +1,7 @@
 const initialState = {
-  isLoading: null,
-  latestResponse: null,
-  latestError: null
+  isLoading: false,
+  latestResponse: false,
+  latestError: false
 }
 
 const registerReducer = (state = initialState, action) => {
@@ -12,7 +12,7 @@ const registerReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        latestError: null
+        latestError: ''
       }
     }
 
