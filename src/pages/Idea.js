@@ -36,7 +36,7 @@ const base = css`
   margin: 0 auto;
 
   @media all and (min-width: 1024px) {
-    width: ${props => (props.width ? props.width : '1000px')};
+    width: 1000px;
   }
   @media all and (min-width: 768px) and (max-width: 1024px) {
     width: 600px;

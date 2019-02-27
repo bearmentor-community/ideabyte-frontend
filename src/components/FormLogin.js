@@ -5,7 +5,6 @@ import Heading from './Heading'
 import Link from './Link'
 import HorizontalRule from './HorizontalRule'
 import Span from './Span'
-
 import {
   Form,
   FormContent,
@@ -17,9 +16,12 @@ import {
 } from './FormStyledComponents'
 
 const FormLogin = props => {
+  // React Hooks
+  // So we can use state without having to use class/extends syntax
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  // Submit function
   const onSubmit = event => {
     // Prevent page reload because of form
     event.preventDefault()
