@@ -11,11 +11,11 @@ const filestackOptions = {
 }
 
 const handleSuccess = result => {
-  console.log(result)
+  console.info(result)
 }
 
 const handleError = error => {
-  console.log(error)
+  console.error(error)
 }
 
 const FormPost = () => {

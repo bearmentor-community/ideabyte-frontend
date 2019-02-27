@@ -34,7 +34,7 @@ const SearchBar = () => {
         event.preventDefault()
       }}
     >
-      <SearchSubmit type="submit" value="S" />
+      <SearchSubmit type="submit" value="🔍" />
       <SearchText type="text" name="search" placeholder="Search for ideas..." />
     </SearchBarForm>
   )

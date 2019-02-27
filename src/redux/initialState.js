@@ -12,13 +12,16 @@ export const initialState = {
   },
 
   //////////////////////////////////////////////////////////////////////////////
-  // will be used if fetching is still ongoing
-  isFetching: true,
   // latest response object for debugging purpose
   latestResponse: null,
+  // error object if request is failed
+  latestError: null,
 
   //////////////////////////////////////////////////////////////////////////////
-  // before we're logged in, the conditions are false
+  // will be used if fetching is still ongoing
+  isFetching: false,
+
+  // before we're logged in, the auth/admin conditions are false
   isAuthenticated: false, // will be true after we're logged in
   isAdmin: false, // will be true after we're logged in as admin
 
