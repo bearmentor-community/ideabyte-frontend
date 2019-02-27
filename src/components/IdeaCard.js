@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
+import dayjs from 'dayjs'
 
 import Heading from './Heading'
 import Paragraph from './Paragraph'
@@ -61,7 +62,7 @@ const IdeaCard = ({ item }) => {
             <Icon>⬤</Icon> {item.author}
           </CardMeta>
           <CardMeta>
-            <Icon>⬤</Icon> {item.date}
+            <Icon>⬤</Icon> {dayjs(item.date).format('DD MMMM YYYY')}
           </CardMeta>
           <CardMeta>
             <Icon>⬤</Icon> {item.location}
