@@ -1,5 +1,7 @@
 import request from '../request'
 
+// We made all the actions separated to ease us to inspect the flow
+
 export const registerUserBegin = () => ({
   type: 'REGISTER_USER_BEGIN'
 })

@@ -1,9 +1,9 @@
 const initialState = {
   //////////////////////////////////////////////////////////////////////////////
   // latest response object for debugging purpose
-  latestResponse: false,
+  latestResponse: null,
   // error object if request is failed
-  latestError: false,
+  latestError: null,
 
   //////////////////////////////////////////////////////////////////////////////
   // will be used if still loading
@@ -17,7 +17,7 @@ const initialState = {
 
   //////////////////////////////////////////////////////////////////////////////
   // after we're logged in, we have a JSON Web Token (JWT)
-  token: '' // a string of JWT
+  token: null // a string of JWT
 }
 
 const initialReducer = (state = initialState, action) => {
