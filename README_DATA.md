@@ -29,7 +29,7 @@ const idea = {
   _id: ObjectID(),
   id: 1,
   title: "Tripvesto Trip Planner",
-  short: "App to plan and gather your friends to travel. Let"s join us!",
+  description: "App to plan and gather your friends to travel. Let"s join us!",
   author: "Joen Doe",
   date: "2019/02/25",
   location: "Jakarta, Indonesia",

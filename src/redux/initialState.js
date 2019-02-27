@@ -19,7 +19,8 @@ export const initialState = {
       _id: ObjectID(),
       id: 1,
       title: 'Tripvesto Trip Planner 1',
-      short: "App to plan and gather your friends to travel. Let's join us!",
+      description:
+        "App to plan and gather your friends to travel. Let's join us!",
       author: 'Joen Doe',
       date: '2019/02/25',
       location: 'Jakarta, Indonesia',
@@ -29,13 +30,14 @@ export const initialState = {
         '/assets/images/traveling.jpg',
         '/assets/images/traveling.jpg'
       ],
-      detail: ''
+      details: ''
     },
     {
       _id: ObjectID(),
       id: 2,
       title: 'Tripvesto Trip Planner 2',
-      short: "App to plan and gather your friends to travel. Let's join us!",
+      description:
+        "App to plan and gather your friends to travel. Let's join us!",
       author: 'Joen Doe',
       date: '2019/02/25',
       location: 'Jakarta, Indonesia',
@@ -45,13 +47,14 @@ export const initialState = {
         '/assets/images/traveling.jpg',
         '/assets/images/traveling.jpg'
       ],
-      detail: ''
+      details: ''
     },
     {
       _id: ObjectID(),
       id: 3,
       title: 'Tripvesto Trip Planner 3',
-      short: "App to plan and gather your friends to travel. Let's join us!",
+      description:
+        "App to plan and gather your friends to travel. Let's join us!",
       author: 'Joen Doe',
       date: '2019/02/25',
       location: 'Jakarta, Indonesia',
@@ -61,7 +64,7 @@ export const initialState = {
         '/assets/images/traveling.jpg',
         '/assets/images/traveling.jpg'
       ],
-      detail: ''
+      details: ''
     }
   ]
 }

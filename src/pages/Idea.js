@@ -65,7 +65,7 @@ const item = {
   _id: ObjectID(),
   id: 1,
   title: `Tripvesto`,
-  short: `App to plan and gather your friends to travel. Let's join us!`,
+  description: `App to plan and gather your friends to travel. Let's join us!`,
   author: 'Joen Doe',
   date: '25 February 2019',
   location: 'Jakarta, Indonesia',
@@ -75,7 +75,7 @@ const item = {
     '/assets/images/traveling.jpg',
     '/assets/images/traveling.jpg'
   ],
-  detail: `<p>
+  details: `<p>
             App to plan and gather your friends to travel. So it would be a very
             fun experience.
           </p>
