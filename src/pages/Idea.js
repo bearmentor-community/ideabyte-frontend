@@ -84,7 +84,28 @@ const Idea = () => {
       </IdeaCover>
 
       <Section>
-        <div>{/* DETAIL */}</div>
+        <div>
+          <p>
+            App to plan and gather your friends to travel. So it would be a very
+            fun experience.
+          </p>
+          <ol>
+            <li>Search for existing trip plans</li>
+            <li>Create your own planned trip</li>
+            <li>Determine how many people can join</li>
+            <li>Set up the place and list of activities</li>
+            <li>Schedule for date and time</li>
+            <li>Post the trip to Tripvesto</li>
+            <li>Wait and watch until anyone’s interested join your trip</li>
+            <li>Enjoy your trip with new friends</li>
+          </ol>
+          <p>Hopefully this idea really resonates with you!</p>
+          <p>Please send a feedback to tripvesto@gmail.com</p>
+          <p>
+            Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
+            more.
+          </p>
+        </div>
       </Section>
     </PageSimple>
   )
