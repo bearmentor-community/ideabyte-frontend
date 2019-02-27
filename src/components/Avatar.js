@@ -10,7 +10,7 @@ const StyledAvatar = styled.img`
 `
 
 const Avatar = props => {
-  return <StyledAvatar src={props.image} alt={props.alt} />
+  return <StyledAvatar src={props.src} alt={props.alt} />
 }
 
 export default Avatar

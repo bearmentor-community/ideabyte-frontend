@@ -14,6 +14,7 @@ import Profile from './pages/Profile'
 import Post from './pages/Post'
 
 // REDUX INITIAL STATE
+// Prepare dummy data when the app starts
 
 const initialState = {
   // before we're logged in, the condition is false
@@ -64,6 +65,7 @@ const initialState = {
 }
 
 // REDUX REDUCER
+// Will be called when dispatch is called
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -78,6 +80,25 @@ const reducer = (state = initialState, action) => {
     case 'GET_IDEAS':
       return {
         ideas: state.ideas
+      }
+    case 'REGISTER_USER':
+      return {
+        // user: state.user,
+        // ideas: state.ideas,
+        // we can make is simpler with spread ... operator
+        ...state,
+        isAuthenticated: state.isAuthenticated
+      }
+    case 'LOGIN_USER':
+      console.log(action.payload)
+      return {
+        ...state,
+        isAuthenticated: true
+      }
+    case 'LOGOUT_USER':
+      return {
+        ...state,
+        isAuthenticated: false
       }
     default:
       return state

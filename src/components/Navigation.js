@@ -51,7 +51,7 @@ const Logo = styled.img`
 `
 
 const Navigation = props => {
-  const isAuthenticated = props.isAuthenticated // checkToken()
+  const isAuthenticated = props.isAuthenticated // from Redux state
 
   return (
     <Nav>
@@ -82,6 +82,7 @@ const Navigation = props => {
           </Link>
         </NavLi>
 
+        {/* if isAuthenticated is false, show the register link */}
         {!isAuthenticated && (
           <NavLi>
             <Link to="/register">
@@ -89,6 +90,7 @@ const Navigation = props => {
             </Link>
           </NavLi>
         )}
+        {/* if isAuthenticated is false, show the login link */}
         {!isAuthenticated && (
           <NavLi>
             <Link to="/login">
@@ -96,6 +98,8 @@ const Navigation = props => {
             </Link>
           </NavLi>
         )}
+
+        {/* if isAuthenticated is true, show the post link */}
         {isAuthenticated && (
           <NavLi>
             <Link to="/post">
@@ -105,6 +109,7 @@ const Navigation = props => {
             </Link>
           </NavLi>
         )}
+        {/* if isAuthenticated is true, show the profile link */}
         {isAuthenticated && (
           <NavLi>
             <Link to="/profile">

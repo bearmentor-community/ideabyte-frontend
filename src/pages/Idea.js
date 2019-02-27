@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import ObjectID from 'bson-objectid'
 
 import Meta from '../layouts/Meta'
 import PageSimple from '../layouts/PageSimple'
@@ -35,45 +36,55 @@ const Section = styled.section`
   margin: 0 auto;
 `
 
+const item = {
+  _id: ObjectID(),
+  id: 1,
+  title: `Tripvesto`,
+  short: `App to plan and gather your friends to travel. Let's join us!`,
+  author: 'Joen Doe',
+  date: '25 February 2019',
+  location: 'Jakarta, Indonesia',
+  slug: 'tripvesto-trip-planner',
+  detail: `<p>
+            App to plan and gather your friends to travel. So it would be a very
+            fun experience.
+          </p>
+          <ol>
+            <li>Search for existing trip plans</li>
+            <li>Create your own planned trip</li>
+            <li>Determine how many people can join</li>
+            <li>Set up the place and list of activities</li>
+            <li>Schedule for date and time</li>
+            <li>Post the trip to Tripvesto</li>
+            <li>Wait and watch until anyone’s interested join your trip</li>
+            <li>Enjoy your trip with new friends</li>
+          </ol>
+          <p>Hopefully this idea really resonates with you!</p>
+          <p>Please send a feedback to tripvesto@gmail.com</p>
+          <p>
+            Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
+            more.
+          </p>`
+}
+
 const Idea = () => {
   return (
     <PageSimple width="100%">
-      <Meta title="Idea Name" />
+      <Meta title={item.title} />
 
       <IdeaCover>
         <IdeaHeader>
-          <IdeaHeading>Idea Name</IdeaHeading>
+          <IdeaHeading>{item.title}</IdeaHeading>
           <IdeaMeta>
-            <li>Joen Doe</li>
-            <li>25 February 2019</li>
-            <li>Jakarta, Indonesia</li>
+            <li>{item.author}</li>
+            <li>{item.date}</li>
+            <li>{item.location}</li>
           </IdeaMeta>
         </IdeaHeader>
       </IdeaCover>
 
       <Section>
-        <div>
-          <p>
-            App to plan and gather your friends to travel. So it would be a very
-            fun experience.
-          </p>
-          <p>
-            <ol>
-              <li>1. Search for existing trip plans</li>
-              <li>2. Create your own planned trip</li>
-              <li>3. Determine how many people can join</li>
-              <li>4. Set up the place and list of activities</li>
-              <li>5. Schedule for date and time</li>
-              <li>6. Post the trip to Tripvesto</li>
-              <li>
-                7. Wait and watch until anyone’s interested join your trip
-              </li>
-              <li>8. Enjoy your trip with new friends</li>
-            </ol>
-          </p>
-          <p>Hopefully this idea really resonates with you!</p>
-          <p>Please send a feedback to tripvesto@gmail.com</p>
-        </div>
+        <div>{/* DETAIL */}</div>
       </Section>
     </PageSimple>
   )

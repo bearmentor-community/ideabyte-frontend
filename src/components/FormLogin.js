@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Heading from './Heading'
 import Link from './Link'
@@ -14,11 +15,23 @@ import {
   Extra
 } from './FormStyledComponents'
 
-const FormLogin = () => {
+const FormLogin = props => {
   return (
     <form
       onSubmit={event => {
         event.preventDefault()
+
+        // create action object
+        const action = {
+          type: 'LOGIN_USER',
+          payload: {
+            email: 'email@example',
+            password: 'password'
+          }
+        }
+        // dispatch action object to Redux
+        // call the reducer function's switch case from App.js
+        props.dispatch(action)
       }}
     >
       <Heading size={2} scheme="light">
@@ -28,6 +41,8 @@ const FormLogin = () => {
       <HorizontalRule color="yellow" />
 
       <FormContent>
+        <h1>{props.user.name}</h1>
+
         <FormFieldSet>
           <Label>Your email address:</Label>
           <Input type="email" placeholder="yourname@domain.com" />
@@ -65,4 +80,12 @@ const FormLogin = () => {
   )
 }
 
-export default FormLogin
+// GET DATA FROM REDUX STORE
+// Function to map the specified state to componet's props
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(FormLogin)
