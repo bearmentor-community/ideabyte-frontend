@@ -1,4 +1,10 @@
-const registerReducer = (state = {}, action) => {
+const initialState = {
+  isLoading: null,
+  latestResponse: null,
+  latestError: null
+}
+
+const registerReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'REGISTER_USER_BEGIN': {
       // Mark the state as "loading" so we can show a spinner or something

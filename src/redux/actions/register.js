@@ -8,6 +8,7 @@ export const registerUserSuccess = response => {
   return {
     type: 'REGISTER_USER_SUCCESS',
     payload: {
+      ...state,
       latestResponse: response
     }
   }
@@ -16,6 +17,7 @@ export const registerUserSuccess = response => {
 export const registerUserFailure = error => ({
   type: 'REGISTER_USER_FAILED',
   payload: {
+    ...state,
     latestError: error
   }
 })
