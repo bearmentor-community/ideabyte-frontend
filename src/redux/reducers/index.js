@@ -1,5 +1,4 @@
 import initialState from '../initialState'
-import request from '../request'
 
 // Reducers are pure functions
 // They should not have any side effects nor mutate the state
@@ -19,34 +18,10 @@ const reducer = (state = initialState, action) => {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    case 'REGISTER_USER': {
-      // Get the payload from the action
-      const payload = action.payload
-
-      // Get the response after requesting to backend API
-      // It's a slow process
-      // Use Promise instead of async/await because it's tricky in reducer
-      const result = request({
-        method: 'post',
-        url: '/users/register',
-        data: payload
-      })
-        .then(response => {
-          return {
-            ...state,
-            latestResponse: response
-          }
-        })
-        .catch(error => {
-          return {
-            ...state,
-            latestError: error
-          }
-        })
-
+    case 'GET_IDEAS': {
       return {
         ...state,
-        latestResponse: result.then(result => result)
+        ideas: state.ideas
       }
     }
 

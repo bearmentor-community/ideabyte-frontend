@@ -1,4 +1,4 @@
-export default function authReducer(state, action) {
+const registerReducer = (state = {}, action) => {
   switch (action.type) {
     case 'REGISTER_USER_BEGIN': {
       // Mark the state as "loading" so we can show a spinner or something
@@ -6,7 +6,7 @@ export default function authReducer(state, action) {
       return {
         ...state,
         isLoading: true,
-        error: null
+        latestError: null
       }
     }
 
@@ -31,7 +31,7 @@ export default function authReducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error,
+        latestError: action.payload.error,
         latestResponse: {}
       }
     }
@@ -42,3 +42,5 @@ export default function authReducer(state, action) {
     }
   }
 }
+
+export default registerReducer
