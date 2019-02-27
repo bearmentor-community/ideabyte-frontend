@@ -52,6 +52,9 @@ const UserProfile = () => {
       </Section>
 
       <Section>
+        <Button backgroundColor="green" color="white">
+          Post Idea
+        </Button>
         <Button backgroundColor="red" color="white">
           Logout
         </Button>
