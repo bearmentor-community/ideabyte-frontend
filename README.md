@@ -2,6 +2,21 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b455ba2f-b8b4-4637-baa2-9bd90f146de4/deploy-status)](https://app.netlify.com/sites/ideabyte/deploys)
 
+## Setup
+
+Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.
+
+```sh
+./create-env.sh
+```
+
+Then you fill the env variables. To get the Filestack API Key, go to https://www.filestack.com then **Sign Up Free** for an account. After logged in, you can get your API Key.
+
+```txt
+REACT_APP_BACKEND_API_URL=http://localhost:0000 # change this
+REACT_APP_FILESTACK_API_KEY=your_api_key_from_filestack_here # change this
+```
+
 ## Development
 
 ```sh
@@ -9,6 +24,8 @@ yarn start
 ```
 
 Then open `http://localhost:3000`.
+
+This repo is configured to use `react-app-rewired`, not a regular `react-scripts`. The benefit is to hot reload the changes in the components quickly, without a full page reload.
 
 ## Building
 
@@ -22,7 +39,16 @@ Then open `http://localhost:5000`.
 
 In deployment server such as Netlify, this build process should run automatically and the port is assigned by them (not `5000`).
 
-## Project Setup
+## Deploying
+
+You can use Netlify to deploy. After which, you have to configure the environment variables as well.
+
+```txt
+REACT_APP_BACKEND_API_URL=
+REACT_APP_FILESTACK_API_KEY=
+```
+
+## Project Development Steps
 
 ```sh
 mkdir projectname-frontend
@@ -32,6 +58,7 @@ npm install -g create-react-app
 create-react-app .
 ```
 
+- Make sure the React app setup is done.
 - Change the `title` in `index.html`
 - Delete all unnecessary contents and components
 - Start your React server

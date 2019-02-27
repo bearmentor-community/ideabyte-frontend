@@ -24,8 +24,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build && ./create-redirects.sh",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject",
-    "postinstall": "./create-env.sh"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
