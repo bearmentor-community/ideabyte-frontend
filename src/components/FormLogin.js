@@ -26,17 +26,22 @@ const FormLogin = props => {
     // Prevent page reload because of form
     event.preventDefault()
 
-    // create action object to be used in dispatch()
-    const action = {
-      type: 'LOGIN_USER',
-      payload: {
-        email: email,
-        password: password
+    // If all fields are exist
+    if (email && password) {
+      // create action object to be used in dispatch()
+      const action = {
+        type: 'LOGIN_USER',
+        payload: {
+          email: email,
+          password: password
+        }
       }
+      // dispatch action object to Redux reducer
+      // it calls the reducer function in App.js
+      props.dispatch(action)
+    } else {
+      console.error('One of the login fields are not entered yet')
     }
-    // dispatch action object to Redux reducer
-    // it calls the reducer function in App.js
-    props.dispatch(action)
   }
 
   return (

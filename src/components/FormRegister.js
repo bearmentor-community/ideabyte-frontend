@@ -28,18 +28,23 @@ const FormRegister = props => {
     // Prevent page reload because of form
     event.preventDefault()
 
-    // create action object to be used in dispatch()
-    const action = {
-      type: 'REGISTER_USER',
-      payload: {
-        name: name,
-        email: email,
-        password: password
+    // If all fields are exist
+    if (name && email && password) {
+      // create action object to be used in dispatch()
+      const action = {
+        type: 'REGISTER_USER',
+        payload: {
+          name: name,
+          email: email,
+          password: password
+        }
       }
+      // dispatch action object to Redux reducer
+      // it calls the reducer function in App.js
+      props.dispatch(action)
+    } else {
+      console.error('One of the register fields are not entered yet')
     }
-    // dispatch action object to Redux reducer
-    // it calls the reducer function in App.js
-    props.dispatch(action)
   }
 
   return (

@@ -18,7 +18,9 @@ export const initialState = {
   latestError: null,
 
   //////////////////////////////////////////////////////////////////////////////
-  // will be used if fetching is still ongoing
+  // will be used if still loading
+  isLoading: false,
+  // will be used if data fetching to API is still ongoing
   isFetching: false,
 
   // before we're logged in, the auth/admin conditions are false

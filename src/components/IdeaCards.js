@@ -11,13 +11,21 @@ const Section = styled.section`
 `
 
 const IdeaCards = props => {
-  return (
-    <Section>
-      {props.ideas.map((item, index) => {
-        return <IdeaCard key={index} item={item} />
-      })}
-    </Section>
-  )
+  if (props.ideas) {
+    return (
+      <Section>
+        {props.ideas.map((item, index) => {
+          return <IdeaCard key={index} item={item} />
+        })}
+      </Section>
+    )
+  } else {
+    return (
+      <Section>
+        <span>LOADING IDEAS...</span>
+      </Section>
+    )
+  }
 }
 
 const mapStateToProps = state => {
