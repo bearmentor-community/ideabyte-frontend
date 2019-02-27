@@ -67,6 +67,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'GET_IS_AUTHENTICATED':
+      return {
+        isAuthenticated: state.isAuthenticated
+      }
     case 'GET_PROFILE':
       return {
         user: state.user

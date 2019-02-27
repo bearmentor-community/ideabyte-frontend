@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { connect } from 'react-redux'
 
 import Link from '../components/Link'
 import Span from './Span'
@@ -49,8 +50,8 @@ const Logo = styled.img`
   }
 `
 
-const Navigation = () => {
-  const isAuthenticated = true // checkToken()
+const Navigation = props => {
+  const isAuthenticated = props.isAuthenticated // checkToken()
 
   return (
     <Nav>
@@ -118,4 +119,27 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.isAuthenticated
+    // accessible through props.isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(Navigation)
+
+/**
+ * 1. Connect is a Higher Order Function
+ * connect(function)(Component)
+ *
+ * 2. Connect function can return other function
+ * const connect = (Component) => {
+ *   // ...
+ *
+ *   const newComponent = (Component) => {
+ *     // ...
+ *   }
+ *
+ *   return newComponent
+ * }
+ */
