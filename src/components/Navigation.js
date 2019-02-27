@@ -50,7 +50,7 @@ const Logo = styled.img`
 `
 
 const Navigation = () => {
-  const isAuthenticated = true
+  const isAuthenticated = true // checkToken()
 
   return (
     <Nav>

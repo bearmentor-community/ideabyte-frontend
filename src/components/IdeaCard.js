@@ -55,7 +55,7 @@ const IdeaCard = ({ index }) => {
     author: 'Joen Doe',
     date: '25 February 2019',
     location: 'Jakarta, Indonesia',
-    path: ''
+    slug: 'tripvesto-trip-planner'
   }
 
   return (

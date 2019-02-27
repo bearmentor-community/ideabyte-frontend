@@ -37,10 +37,10 @@ const FormRegister = () => {
           <Input type="email" placeholder="yourname@domain.com" />
         </FormFieldSet>
 
-        <FormFieldSet>
+        {/* <FormFieldSet>
           <Label>Confirm your email address:</Label>
           <Input type="email" placeholder="yourname@domain.com" />
-        </FormFieldSet>
+        </FormFieldSet> */}
 
         <FormFieldSet>
           <Label>Your password:</Label>

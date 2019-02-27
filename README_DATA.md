@@ -1,5 +1,8 @@
 # Data
 
+- Users
+-
+
 ## Users
 
 Backend Database:
@@ -16,6 +19,8 @@ Backend Database:
 ```
 
 Backend API:
+
+`http://backend.com/user/:id`
 
 ```json
 {
@@ -41,12 +46,14 @@ const user = {
 
 Backend Database & API:
 
+`http://backend.com/ideas`
+
 ```json
 {
   "_id": ObjectID(),
   "id": 1,
   "title": "Tripvesto Trip Planner",
-  "short": "App to plan and gather your friends to travel. Let"s join us!",
+  "short": "App to plan and gather your friends to travel. Let's join us!",
   "author": "Joen Doe",
   "date": "2019/02/25",
   "location": "Jakarta, Indonesia",
@@ -80,6 +87,7 @@ const store = {
     name: "Joen Doe",
     email: "joendoe@example.com"
   },
+
   // Ideas from API
   ideas: [
     {

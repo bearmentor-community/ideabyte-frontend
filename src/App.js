@@ -1,5 +1,8 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React from 'react' // a component, so it's TitleCase
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom' // a component, so it's TitleCase
+import { createStore } from 'redux' // a function, so it's camelCase
+import { Provider } from 'react-redux' // a component, so it's TitleCase
+import ObjectID from 'bson-objectid' // create fake ObjectID
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -10,10 +13,88 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
 
+// REDUX INITIAL STATE
+
+const initialState = {
+  // before we're logged in, the condition is false
+  isAuthenticated: false, // will be true after we're logged in
+
+  // this specific user will be retrieved from the backend /users/:id
+  user: {
+    _id: ObjectID(),
+    id: 1,
+    avatar: '/assets/images/avatar.jpg',
+    name: 'Joen Doe',
+    email: 'joendoe@example.com'
+  },
+
+  // these ideas will be retrieved from the backend /ideas
+  ideas: [
+    {
+      _id: ObjectID(),
+      id: 1,
+      title: 'Tripvesto Trip Planner 1',
+      short: "App to plan and gather your friends to travel. Let's join us!",
+      author: 'Joen Doe',
+      date: '2019/02/25',
+      location: 'Jakarta, Indonesia',
+      slug: 'tripvesto-trip-planner'
+    },
+    {
+      _id: ObjectID(),
+      id: 2,
+      title: 'Tripvesto Trip Planner 2',
+      short: "App to plan and gather your friends to travel. Let's join us!",
+      author: 'Joen Doe',
+      date: '2019/02/25',
+      location: 'Jakarta, Indonesia',
+      slug: 'tripvesto-trip-planner'
+    },
+    {
+      _id: ObjectID(),
+      id: 3,
+      title: 'Tripvesto Trip Planner 3',
+      short: "App to plan and gather your friends to travel. Let's join us!",
+      author: 'Joen Doe',
+      date: '2019/02/25',
+      location: 'Jakarta, Indonesia',
+      slug: 'tripvesto-trip-planner'
+    }
+  ]
+}
+
+// REDUX REDUCER
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'GET_PROFILE':
+      return {
+        user: state.user
+      }
+    case 'GET_IDEAS':
+      return {
+        ideas: state.ideas
+      }
+    default:
+      return state
+  }
+}
+
+// REDUX CREATE STORE
+
+const reduxStore = createStore(
+  reducer,
+  // Add Redux DevTools Extension
+  // https://github.com/zalmoxisus/redux-devtools-extension#11-basic-store
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+// REACT APP COMPONENT
+
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <Provider store={reduxStore}>
         <Router>
           <Switch>
             <Route exact path={`/`} component={Home} />
@@ -26,7 +107,7 @@ class App extends React.Component {
             <Route path={`/post`} component={Post} />
           </Switch>
         </Router>
-      </div>
+      </Provider>
     )
   }
 }
