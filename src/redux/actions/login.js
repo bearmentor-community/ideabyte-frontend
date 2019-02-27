@@ -7,14 +7,14 @@ import request from '../request'
 // These are called action creators
 
 // action creator
-export const registerUserBegin = () => ({
-  type: 'REGISTER_USER_BEGIN'
+export const loginUserBegin = () => ({
+  type: 'LOGIN_USER_BEGIN'
 })
 
 // action creator
-export const registerUserSuccess = response => {
+export const loginUserSuccess = response => {
   return {
-    type: 'REGISTER_USER_SUCCESS',
+    type: 'LOGIN_USER_SUCCESS',
     payload: {
       response
     }
@@ -22,40 +22,40 @@ export const registerUserSuccess = response => {
 }
 
 // action creator
-export const registerUserError = error => ({
-  type: 'REGISTER_USER_ERROR',
+export const loginUserError = error => ({
+  type: 'LOGIN_USER_ERROR',
   payload: {
     error
   }
 })
 
-// registerUser is a thunk, because it:
-// - delay the process
+// loginUser is a thunk, because it:
+// - delay the process for the next operation
 // - return another function to be processed again
-export const registerUser = payload => {
+export const loginUser = payload => {
   return dispatch => {
-    // REGISTER_USER_BEGIN
-    dispatch(registerUserBegin())
+    // LOGIN_USER_BEGIN
+    dispatch(loginUserBegin())
 
     // Get the response after requesting to backend API
     // Use Promise instead of async/await because it's tricky in thunk
     request({
       method: 'post',
-      url: '/users/register',
+      url: '/users/login',
       data: payload
     })
       .then(response => {
         console.info('response:', response)
-        // REGISTER_USER_SUCCESS
-        dispatch(registerUserSuccess(response))
+        // LOGIN_USER_SUCCESS
+        dispatch(loginUserSuccess(response))
 
         // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
-        // Redirect to login page after register is success
-        dispatch(push('/login'))
+        // Redirect to profile page after login is success
+        dispatch(push('/profile'))
 
         // Notify visitor with toast
         toast.success(
-          `Hello ${payload.name}, you are registered! Let's login`,
+          `${payload.email}, you are logged in! This is your profile`,
           {
             position: 'top-center',
             autoClose: 3000,
@@ -71,8 +71,8 @@ export const registerUser = payload => {
       })
       .catch(error => {
         console.error('error:', error)
-        // REGISTER_USER_ERROR
-        dispatch(registerUserError(error))
+        // LOGIN_USER_ERROR
+        dispatch(loginUserError(error))
 
         // Notify visitor with toast
         toast.error(`Sorry ${payload.name}, there's something wrong`, {

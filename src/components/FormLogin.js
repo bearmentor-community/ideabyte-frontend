@@ -15,6 +15,9 @@ import {
   Extra
 } from './FormStyledComponents'
 
+// Import login action thuk
+import { loginUser } from '../redux/actions/login'
+
 const FormLogin = props => {
   // React Hooks
   // So we can use state without having to use class/extends syntax
@@ -28,19 +31,17 @@ const FormLogin = props => {
 
     // If all fields are exist
     if (email && password) {
-      // create action object to be used in dispatch()
-      const action = {
-        type: 'LOGIN_USER',
-        payload: {
+      // dispatch payload object to Redux action
+      // it calls the reducer function
+      props.dispatch(
+        // this is a thunk in actions
+        loginUser({
           email: email,
           password: password
-        }
-      }
-      // dispatch action object to Redux reducer
-      // it calls the reducer function in App.js
-      props.dispatch(action)
+        })
+      )
     } else {
-      console.error('One of the login fields are not entered yet')
+      console.error('One of the register fields are not entered yet')
     }
   }
 
@@ -108,7 +109,7 @@ const FormLogin = props => {
 
 const mapStateToProps = state => {
   return {
-    latestResponse: state.latestResponse
+    login: state.latestResponse
   }
 }
 

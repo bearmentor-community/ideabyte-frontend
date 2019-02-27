@@ -5,7 +5,6 @@ import Heading from './Heading'
 import Link from './Link'
 import HorizontalRule from './HorizontalRule'
 import Span from './Span'
-
 import {
   Form,
   FormContent,
@@ -16,6 +15,7 @@ import {
   Extra
 } from './FormStyledComponents'
 
+// Import register action thuk
 import { registerUser } from '../redux/actions/register'
 
 const FormRegister = props => {
@@ -125,7 +125,7 @@ const FormRegister = props => {
 
 const mapStateToProps = state => {
   return {
-    latestResponse: state.latestResponse
+    register: state.latestResponse
   }
 }
 
