@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
 import Heading from './Heading'
 import Link from './Link'
@@ -39,11 +40,6 @@ const FormRegister = props => {
     // dispatch action object to Redux reducer
     // it calls the reducer function in App.js
     props.dispatch(action)
-
-    // Set name, email, password to empty again
-    setName('')
-    setEmail('')
-    setPassword('')
   }
 
   return (
@@ -51,42 +47,50 @@ const FormRegister = props => {
       <Heading size={2} scheme="light">
         Register for new account
       </Heading>
+
       <HorizontalRule color="green" />
 
       <FormContent>
+        {/* FULL NAME */}
         <FormFieldSet>
           <Label>Your full name:</Label>
           <Input
             type="text"
             placeholder="First Last"
+            value={name}
             onChange={event => {
               setName(event.target.value)
             }}
           />
         </FormFieldSet>
 
+        {/* EMAIL */}
         <FormFieldSet>
           <Label>Your email address:</Label>
           <Input
             type="email"
             placeholder="yourname@domain.com"
+            value={email}
             onChange={event => {
               setEmail(event.target.value)
             }}
           />
         </FormFieldSet>
 
+        {/* PASSWORD */}
         <FormFieldSet>
           <Label>Your password:</Label>
           <Input
             type="password"
             placeholder="a_secret_password"
+            value={password}
             onChange={event => {
               setPassword(event.target.value)
             }}
           />
         </FormFieldSet>
 
+        {/* SUBMIT BUTTON */}
         <InputSubmit
           block
           backgroundColor="green"
@@ -94,6 +98,7 @@ const FormRegister = props => {
           value="Register"
         />
 
+        {/* EXTRA LINKS */}
         <Extra>
           <Link to="/login">
             <Span scheme="light" type="extra">
@@ -101,17 +106,20 @@ const FormRegister = props => {
             </Span>
           </Link>
         </Extra>
-
-        {/* <Extra>
-          <Link to="/">
+        <Extra>
+          <Link to="/reset-password">
             <Span scheme="light" type="extra">
               Forgot your password? <b>Reset here</b>
             </Span>
           </Link>
-        </Extra> */}
+        </Extra>
       </FormContent>
     </Form>
   )
 }
 
-export default FormRegister
+const mapStateToProps = state => {
+  return {}
+}
+
+export default connect(mapStateToProps)(FormRegister)

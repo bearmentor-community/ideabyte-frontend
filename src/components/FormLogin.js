@@ -37,10 +37,6 @@ const FormLogin = props => {
     // dispatch action object to Redux reducer
     // it calls the reducer function in App.js
     props.dispatch(action)
-
-    // Set email & password to empty again
-    setEmail('')
-    setPassword('')
   }
 
   return (
@@ -52,6 +48,7 @@ const FormLogin = props => {
       <HorizontalRule color="yellow" />
 
       <FormContent>
+        {/* EMAIL */}
         <FormFieldSet>
           <Label>Your email address:</Label>
           <Input
@@ -63,17 +60,20 @@ const FormLogin = props => {
           />
         </FormFieldSet>
 
+        {/* PASSWORD */}
         <FormFieldSet>
           <Label>Your password:</Label>
           <Input
             type="password"
             placeholder="your_secret_passsword"
+            value={password}
             onChange={event => {
               setPassword(event.target.value)
             }}
           />
         </FormFieldSet>
 
+        {/* SUBMIT BUTTON */}
         <InputSubmit
           block
           backgroundColor="yellow"
@@ -81,6 +81,7 @@ const FormLogin = props => {
           value="Login"
         />
 
+        {/* EXTRA LINKS */}
         <Extra>
           <Link to="/register">
             <Span scheme="light" type="extra">
@@ -88,14 +89,13 @@ const FormLogin = props => {
             </Span>
           </Link>
         </Extra>
-
-        {/* <Extra>
-          <Link to="/">
+        <Extra>
+          <Link to="/reset-password">
             <Span scheme="light" type="extra">
               Forgot your password? <b>Reset here</b>
             </Span>
           </Link>
-        </Extra> */}
+        </Extra>
       </FormContent>
     </Form>
   )

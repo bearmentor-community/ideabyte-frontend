@@ -9,6 +9,7 @@ import Explore from './pages/Explore'
 import Idea from './pages/Idea'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
 
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route path={`/ideas/:id`} component={Idea} />
             <Route path={`/register`} component={Register} />
             <Route path={`/login`} component={Login} />
+            <Route path={`/reset-password`} component={ResetPassword} />
             <Route path={`/profile`} component={Profile} />
             <Route path={`/post`} component={Post} />
           </Switch>

@@ -15,7 +15,7 @@ export const initialState = {
   isAdmin: false, // will be true after we're logged in as admin
 
   // after we're logged in, we have a JSON Web Token (JWT)
-  token: '', // a string of JWT
+  token: null, // a string of JWT
 
   // these ideas will be retrieved from the backend /ideas
   ideas: [

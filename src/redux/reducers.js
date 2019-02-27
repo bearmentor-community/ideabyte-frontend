@@ -2,26 +2,49 @@ import { initialState } from './initialState'
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'REGISTER_USER':
+    ////////////////////////////////////////////////////////////////////////////
+    case 'GET_USER': {
       return {
-        // user: state.user,
-        // ideas: state.ideas,
-        // we can make is simpler with spread ... operator
+        // simpler to retrieve all other keys in state with spread operator
+        // so we don't have to specify each keys on by one
         ...state,
-        isAuthenticated: state.isAuthenticated
+        user: state.user
       }
-    case 'LOGIN_USER':
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    case 'REGISTER_USER': {
+      // Get the payload from the action
+      const payload = action.payload
+      console.log(payload)
+
+      return {
+        // simpler to retrieve all other keys in state with spread operator
+        ...state,
+        isAuthenticated: false
+      }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    case 'LOGIN_USER': {
       console.log(action.payload)
       return {
         ...state,
         isAuthenticated: true
       }
-    case 'LOGOUT_USER':
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    case 'LOGOUT_USER': {
       return {
         ...state,
         isAuthenticated: false
       }
-    default:
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    default: {
       return state
+    }
   }
 }
