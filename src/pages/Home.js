@@ -1,14 +1,19 @@
 import React from 'react'
 
-import Meta from '../layouts/Meta'
 import PageCTA from '../layouts/PageCTA'
+import Meta from '../layouts/Meta'
+import Center from '../layouts/Center'
+
 import IdeaCards from '../components/IdeaCards'
 
 const Home = () => {
   return (
     <PageCTA>
       <Meta />
-      <IdeaCards amount={6} />
+
+      <Center>
+        <IdeaCards amount={6} />
+      </Center>
     </PageCTA>
   )
 }

@@ -1,5 +1,9 @@
 import styled from '@emotion/styled'
 
+export const Form = styled.form`
+  width: 400px;
+`
+
 export const FormContent = styled.div`
   margin: 30px;
   margin-top: 30px;

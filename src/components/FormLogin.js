@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import Heading from './Heading'
@@ -7,6 +7,7 @@ import HorizontalRule from './HorizontalRule'
 import Span from './Span'
 
 import {
+  Form,
   FormContent,
   FormFieldSet,
   Label,
@@ -16,24 +17,32 @@ import {
 } from './FormStyledComponents'
 
 const FormLogin = props => {
-  return (
-    <form
-      onSubmit={event => {
-        event.preventDefault()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-        // create action object
-        const action = {
-          type: 'LOGIN_USER',
-          payload: {
-            email: 'email@example',
-            password: 'password'
-          }
-        }
-        // dispatch action object to Redux
-        // call the reducer function's switch case from App.js
-        props.dispatch(action)
-      }}
-    >
+  const onSubmit = event => {
+    // Prevent page reload because of form
+    event.preventDefault()
+
+    // create action object to be used in dispatch()
+    const action = {
+      type: 'LOGIN_USER',
+      payload: {
+        email: email,
+        password: password
+      }
+    }
+    // dispatch action object to Redux reducer
+    // it calls the reducer function in App.js
+    props.dispatch(action)
+
+    // Set email & password to empty again
+    setEmail('')
+    setPassword('')
+  }
+
+  return (
+    <Form onSubmit={onSubmit}>
       <Heading size={2} scheme="light">
         Login to your account
       </Heading>
@@ -45,12 +54,24 @@ const FormLogin = props => {
 
         <FormFieldSet>
           <Label>Your email address:</Label>
-          <Input type="email" placeholder="yourname@domain.com" />
+          <Input
+            type="email"
+            placeholder="yourname@domain.com"
+            onChange={event => {
+              setEmail(event.target.value)
+            }}
+          />
         </FormFieldSet>
 
         <FormFieldSet>
           <Label>Your password:</Label>
-          <Input type="password" placeholder="your_secret_passsword" />
+          <Input
+            type="password"
+            placeholder="your_secret_passsword"
+            onChange={event => {
+              setPassword(event.target.value)
+            }}
+          />
         </FormFieldSet>
 
         <InputSubmit
@@ -76,7 +97,7 @@ const FormLogin = props => {
           </Link>
         </Extra>
       </FormContent>
-    </form>
+    </Form>
   )
 }
 

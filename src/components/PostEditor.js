@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { EditorState, convertToRaw } from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg'
 import draftToHtml from 'draftjs-to-html'
@@ -24,7 +24,7 @@ class PostEditor extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Editor
           // editorState={this.state.editorState}
           toolbarClassName="rdw-editor-toolbar"
@@ -40,7 +40,7 @@ class PostEditor extends React.Component {
             convertToRaw(this.state.editorState.getCurrentContent())
           )}
         />
-      </div>
+      </Fragment>
     )
   }
 }

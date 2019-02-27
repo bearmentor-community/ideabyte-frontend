@@ -29,9 +29,7 @@ const FormPost = () => {
           onError={handleError} // preconfigured
           preload={true}
           render={({ onPick }) => (
-            <div>
-              <ButtonUpload onClick={onPick}>Pick Images</ButtonUpload>
-            </div>
+            <ButtonUpload onClick={onPick}>Pick Images</ButtonUpload>
           )}
         />
       )}

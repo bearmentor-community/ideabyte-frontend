@@ -3,15 +3,17 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Main = styled.main`
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   flex: 1;
 
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  @media all and (min-width: 1024px) {
     width: ${props => (props.width ? props.width : '1000px')};
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
-    width: 800px;
+    width: 600px;
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
@@ -19,7 +21,7 @@ const Main = styled.main`
   }
 
   @media all and (max-width: 480px) {
-    width: 480px;
+    width: 400px;
   }
 `
 

@@ -2,14 +2,15 @@ import React from 'react'
 import styled from '@emotion/styled'
 import ObjectID from 'bson-objectid'
 
-import Meta from '../layouts/Meta'
 import PageSimple from '../layouts/PageSimple'
+import Meta from '../layouts/Meta'
+import Center from '../layouts/Center'
 
 const IdeaCover = styled.section`
   margin-bottom: 40px;
   background: #333;
   background: linear-gradient(hsla(0, 0%, 20%, 0.8), hsla(0, 0%, 20%, 0.8)),
-    url('/assets/images/traveling.jpg') no-repeat center;
+    url(${props => props.image}) no-repeat center;
   background-size: cover;
   padding-top: 100px;
   padding-bottom: 5px;
@@ -45,6 +46,11 @@ const item = {
   date: '25 February 2019',
   location: 'Jakarta, Indonesia',
   slug: 'tripvesto-trip-planner',
+  images: [
+    '/assets/images/traveling.jpg',
+    '/assets/images/traveling.jpg',
+    '/assets/images/traveling.jpg'
+  ],
   detail: `<p>
             App to plan and gather your friends to travel. So it would be a very
             fun experience.
@@ -72,19 +78,28 @@ const Idea = () => {
     <PageSimple width="100%">
       <Meta title={item.title} />
 
-      <IdeaCover>
-        <IdeaHeader>
-          <IdeaHeading>{item.title}</IdeaHeading>
-          <IdeaMeta>
-            <li>{item.author}</li>
-            <li>{item.date}</li>
-            <li>{item.location}</li>
-          </IdeaMeta>
-        </IdeaHeader>
-      </IdeaCover>
+      <Center>
+        {/* Cover image */}
+        <IdeaCover image={item.images[0]}>
+          {/* Actual content such as title, author, date, location */}
+          <IdeaHeader>
+            <IdeaHeading>{item.title}</IdeaHeading>
+            <IdeaMeta>
+              <li>
+                by <b>{item.author}</b>
+              </li>
+              <li>
+                on <b>{item.date}</b>
+              </li>
+              <li>
+                at <b>{item.location}</b>
+              </li>
+            </IdeaMeta>
+          </IdeaHeader>
+        </IdeaCover>
 
-      <Section>
-        <div>
+        {/* Detailed description of the idea */}
+        <Section>
           <p>
             App to plan and gather your friends to travel. So it would be a very
             fun experience.
@@ -105,8 +120,8 @@ const Idea = () => {
             Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
             more.
           </p>
-        </div>
-      </Section>
+        </Section>
+      </Center>
     </PageSimple>
   )
 }

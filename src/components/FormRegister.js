@@ -6,6 +6,7 @@ import HorizontalRule from './HorizontalRule'
 import Span from './Span'
 
 import {
+  Form,
   FormContent,
   FormFieldSet,
   Label,
@@ -16,7 +17,7 @@ import {
 
 const FormRegister = () => {
   return (
-    <form
+    <Form
       onSubmit={event => {
         event.preventDefault()
       }}
@@ -70,7 +71,7 @@ const FormRegister = () => {
           </Link>
         </Extra>
       </FormContent>
-    </form>
+    </Form>
   )
 }
 
