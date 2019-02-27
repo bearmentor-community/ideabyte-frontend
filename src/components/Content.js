@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 const Main = styled.main`
   margin: 0 auto;
   flex: 1;
-  margin-top: 20px;
 
   @media all and (min-width: 1024px) and (max-width: 1280px) {
     width: ${props => (props.width ? props.width : '1000px')};

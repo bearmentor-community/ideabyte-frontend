@@ -80,8 +80,10 @@ create-react-app .
   - `layouts`: contains layout name, to be used with `pages`
   - `components`: contains variety of components
 - Install and use React Router
+- Install and use styling package such as `styled-components` or `@emotion/styled`
 - Implement all pages and components
 - Make sure all pages are still accessible
+- Install and use Redux and React Redux
 
 ## License
 
