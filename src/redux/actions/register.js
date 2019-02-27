@@ -1,3 +1,6 @@
+import { push } from 'connected-react-router'
+import { toast } from 'react-toastify'
+
 import request from '../request'
 
 // We made all the actions separated to ease us to inspect the flow
@@ -45,6 +48,25 @@ export const registerUser = payload => {
         console.info('response:', response)
         // REGISTER_USER_SUCCESS
         dispatch(registerUserSuccess(response))
+
+        // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
+        // Redirect to login page after register is success
+        dispatch(push('/login'))
+
+        // Notify visitor with toast
+        toast.success(
+          `Hello ${payload.name}, you are registered! Let's login`,
+          {
+            position: 'top-center',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false
+          }
+        )
+
+        // to be used later
         return response
       })
       .catch(error => {
