@@ -1,37 +1,15 @@
-# Data
+# Data Documentation
+
+The main objects are:
 
 - Users
--
+- Ideas
+
+Check corresponding with [`ideabyte-backend`](http://github.com/ideabyte/ideabyte-backend)
 
 ## Users
 
-Backend Database:
-
-```json
-{
-  "_id": ObjectID(),
-  "id": 1,
-  "name": "Joen Doe",
-  "email": "joendoe@example.com",
-  "salt": "zyxwvutsrqp",
-  "password": "zyxwvutsrqpabcdefghijklmnopqrstuvwxyz"
-}
-```
-
-Backend API:
-
 `http://backend.com/user/:id`
-
-```json
-{
-  "_id": ObjectID(),
-  "id": 1,
-  "name": "Joen Doe",
-  "email": "joendoe@example.com"
-}
-```
-
-Frontend Data:
 
 ```js
 const user = {
@@ -44,24 +22,7 @@ const user = {
 
 ## Ideas
 
-Backend Database & API:
-
 `http://backend.com/ideas`
-
-```json
-{
-  "_id": ObjectID(),
-  "id": 1,
-  "title": "Tripvesto Trip Planner",
-  "short": "App to plan and gather your friends to travel. Let's join us!",
-  "author": "Joen Doe",
-  "date": "2019/02/25",
-  "location": "Jakarta, Indonesia",
-  "slug": "tripvesto-trip-planner"
-}
-```
-
-Frontend Data:
 
 ```js
 const idea = {
@@ -76,41 +37,17 @@ const idea = {
 }
 ```
 
-## Redux Store
+## Redux Store's State
 
 ```js
-const store = {
-  // User from API
-  user: {
-    _id: ObjectID(),
-    id: 1,
-    name: "Joen Doe",
-    email: "joendoe@example.com"
-  },
+const state = {
+  // one user from API
+  user: {},
+  isAuthenticated: false,
 
-  // Ideas from API
+  // ideas from API
   ideas: [
-    {
-      _id: ObjectID(),
-      id: 1,
-      title: "Tripvesto Trip Planner",
-      short: "App to plan and gather your friends to travel. Let"s join us!",
-      author: "Joen Doe",
-      date: "2019/02/25",
-      location: "Jakarta, Indonesia",
-      slug: "tripvesto-trip-planner"
-    },
-    {
-      _id: ObjectID(),
-      id: 1,
-      title: "Tripvesto Trip Planner",
-      short: "App to plan and gather your friends to travel. Let"s join us!",
-      author: "Joen Doe",
-      date: "2019/02/25",
-      location: "Jakarta, Indonesia",
-      slug: "tripvesto-trip-planner"
-    }
-    // ...
+    // idea objects
   ]
 }
 ```

@@ -2,6 +2,11 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b455ba2f-b8b4-4637-baa2-9bd90f146de4/deploy-status)](https://app.netlify.com/sites/ideabyte/deploys)
 
+Check other documentations here:
+
+- [Data Documentation](README_DATA.md)
+- [React Documentation](README_REACT.md)
+
 ## Setup
 
 Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.

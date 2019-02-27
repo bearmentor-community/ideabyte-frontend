@@ -52,8 +52,6 @@ const FormLogin = props => {
       <HorizontalRule color="yellow" />
 
       <FormContent>
-        <h1>{props.user.name}</h1>
-
         <FormFieldSet>
           <Label>Your email address:</Label>
           <Input
