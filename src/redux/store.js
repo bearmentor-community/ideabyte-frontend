@@ -1,4 +1,5 @@
-import { createStore, applyMiddleware, compose } from 'redux' // a function, so it's camelCase
+import { createStore, applyMiddleware } from 'redux' // a function, so it's camelCase
+import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger'
 
 // REDUX INITIAL STATE
@@ -16,11 +17,12 @@ import { reducer } from './reducer'
 // Then pass it into Redux's Provider component
 // So we can call it later in any Components through connect function
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
   reducer,
-  /* preloadedState, */
-  composeEnhancers(applyMiddleware(logger))
+  composeWithDevTools(
+    applyMiddleware(logger)
+    // other store enhancers if any
+  )
 )
 
 export default store
