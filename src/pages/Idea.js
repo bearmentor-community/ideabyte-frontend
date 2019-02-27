@@ -1,4 +1,5 @@
 import React from 'react'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import ObjectID from 'bson-objectid'
 
@@ -7,18 +8,16 @@ import Meta from '../layouts/Meta'
 import Center from '../layouts/Center'
 
 const IdeaCover = styled.section`
-  margin-bottom: 40px;
   background: #333;
   background: linear-gradient(hsla(0, 0%, 20%, 0.8), hsla(0, 0%, 20%, 0.8)),
     url(${props => props.image}) no-repeat center;
   background-size: cover;
   padding-top: 100px;
   padding-bottom: 5px;
-`
-
-const IdeaHeader = styled.div`
-  width: 600px;
-  margin: 0 auto;
+  border-radius: 0 0 10px 10px;
+  @media all and (max-width: 480px) {
+    border-radius: 0;
+  }
 `
 
 const IdeaHeading = styled.h2`
@@ -32,9 +31,34 @@ const IdeaMeta = styled.ul`
   color: #fff;
 `
 
-const Section = styled.section`
+const base = css`
   width: 600px;
   margin: 0 auto;
+
+  @media all and (min-width: 1024px) {
+    width: ${props => (props.width ? props.width : '1000px')};
+  }
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    width: 600px;
+  }
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    width: 500px;
+  }
+  @media all and (max-width: 480px) {
+    width: 400px;
+  }
+`
+
+const IdeaHeader = styled.div`
+  ${base}
+`
+
+const IdeaBody = styled.section`
+  ${base}
+`
+
+const IdeaDetail = styled.section`
+  padding: 10px;
 `
 
 const item = {
@@ -98,29 +122,31 @@ const Idea = () => {
           </IdeaHeader>
         </IdeaCover>
 
-        {/* Detailed description of the idea */}
-        <Section>
-          <p>
-            App to plan and gather your friends to travel. So it would be a very
-            fun experience.
-          </p>
-          <ol>
-            <li>Search for existing trip plans</li>
-            <li>Create your own planned trip</li>
-            <li>Determine how many people can join</li>
-            <li>Set up the place and list of activities</li>
-            <li>Schedule for date and time</li>
-            <li>Post the trip to Tripvesto</li>
-            <li>Wait and watch until anyone’s interested join your trip</li>
-            <li>Enjoy your trip with new friends</li>
-          </ol>
-          <p>Hopefully this idea really resonates with you!</p>
-          <p>Please send a feedback to tripvesto@gmail.com</p>
-          <p>
-            Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
-            more.
-          </p>
-        </Section>
+        <IdeaBody>
+          {/* Detailed description of the idea */}
+          <IdeaDetail>
+            <p>
+              App to plan and gather your friends to travel. So it would be a
+              very fun experience.
+            </p>
+            <ol>
+              <li>Search for existing trip plans</li>
+              <li>Create your own planned trip</li>
+              <li>Determine how many people can join</li>
+              <li>Set up the place and list of activities</li>
+              <li>Schedule for date and time</li>
+              <li>Post the trip to Tripvesto</li>
+              <li>Wait and watch until anyone’s interested join your trip</li>
+              <li>Enjoy your trip with new friends</li>
+            </ol>
+            <p>Hopefully this idea really resonates with you!</p>
+            <p>Please send a feedback to tripvesto@gmail.com</p>
+            <p>
+              Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
+              more.
+            </p>
+          </IdeaDetail>
+        </IdeaBody>
       </Center>
     </PageSimple>
   )

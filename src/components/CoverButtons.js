@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
   margin: 40px 0;
 `
 
-const CTAButton = styled.button`
+const CoverButton = styled.button`
   background: ${props =>
     props.color === 'green'
       ? 'hsla(145, 50%, 62%, 1)'
@@ -35,17 +35,17 @@ const CTAButton = styled.button`
   }
 `
 
-const CTA = ({ children }) => {
+const CoverButtons = ({ children }) => {
   return (
     <StyledDiv>
       <Link to="/register">
-        <CTAButton color="green">Get Started</CTAButton>
+        <CoverButton color="green">Get Started</CoverButton>
       </Link>
       <Link to="/explore">
-        <CTAButton color="yellow">Explore Ideas</CTAButton>
+        <CoverButton color="yellow">Explore Ideas</CoverButton>
       </Link>
     </StyledDiv>
   )
 }
 
-export default CTA
+export default CoverButtons

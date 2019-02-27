@@ -3,10 +3,10 @@ import React from 'react'
 import Header from './Header'
 import Navigation from './Navigation'
 import Heading from './Heading'
-import CTA from './CTA'
+import CoverButtons from './CoverButtons'
 import SearchBar from './SearchBar'
 
-const HeaderCTA = () => {
+const HeaderCoverButtons = () => {
   return (
     <Header>
       <Navigation />
@@ -15,10 +15,10 @@ const HeaderCTA = () => {
         <br />
         with the world
       </Heading>
-      <CTA />
+      <CoverButtons />
       <SearchBar />
     </Header>
   )
 }
 
-export default HeaderCTA
+export default HeaderCoverButtons

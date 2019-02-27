@@ -1,18 +1,18 @@
 import React from 'react'
 
 import Page from './Page'
-import HeaderCTA from '../components/HeaderCTA'
+import HeaderCoverButtons from '../components/HeaderCoverButtons'
 import Content from '../components/Content'
 import Footer from '../components/Footer'
 
-const PageCTA = ({ children }) => {
+const PageCoverButtons = ({ children }) => {
   return (
     <Page>
-      <HeaderCTA />
+      <HeaderCoverButtons />
       <Content>{children}</Content>
       <Footer />
     </Page>
   )
 }
 
-export default PageCTA
+export default PageCoverButtons

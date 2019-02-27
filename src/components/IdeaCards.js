@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { connect } from 'react-redux'
 
 import IdeaCard from './IdeaCard'
 
@@ -9,16 +10,20 @@ const Section = styled.section`
   justify-content: center;
 `
 
-const IdeaCards = ({ amount }) => {
-  const IDEAS = Array.apply(null, { length: amount }).map(Number.call, Number)
-
+const IdeaCards = props => {
   return (
     <Section>
-      {IDEAS.map((item, index) => {
-        return <IdeaCard key={index} item={item} index={index} />
+      {props.ideas.map((item, index) => {
+        return <IdeaCard key={index} item={item} />
       })}
     </Section>
   )
 }
 
-export default IdeaCards
+const mapStateToProps = state => {
+  return {
+    ideas: state.ideas
+  }
+}
+
+export default connect(mapStateToProps)(IdeaCards)

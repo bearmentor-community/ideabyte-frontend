@@ -46,22 +46,11 @@ const Icon = styled.span`
   margin-right: 10px;
 `
 
-const IdeaCard = ({ index }) => {
-  const item = {
-    _id: ObjectID(),
-    id: index + 1,
-    title: `Tripvesto ${index}`,
-    short: `App to plan and gather your friends to travel. Let's join us!`,
-    author: 'Joen Doe',
-    date: '25 February 2019',
-    location: 'Jakarta, Indonesia',
-    slug: 'tripvesto-trip-planner'
-  }
-
+const IdeaCard = ({ item }) => {
   return (
     <Link to="/ideas/1">
       <Card>
-        <CardImage src={`/assets/images/traveling.jpg`} alt="Card Image" />
+        <CardImage src={item.images[0]} alt="Card Image" />
         <CardData>
           <Heading size={3} align="left" margin="0">
             {item.title}
