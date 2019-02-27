@@ -7,6 +7,26 @@ Check other documentations here:
 - [Data Documentation](README_DATA.md)
 - [React Documentation](README_REACT.md)
 
+## Tech Stack
+
+- React: To component-based web application
+  - React Helmet: To change the title when we change the page in Router
+  - React hot reload: To reload the changes in development without full page reload
+  - React Router: To manage multiple pages/routes of the application
+- Redux: To managing global state in store
+  - Redux Devtools extension: To inspect all Redux behavior
+  - Redux Logger: To log our actions in the console
+  - Redux Thunk: To asynchronous operations in reducer
+- CSS in JS: To style the components without CSS file
+  - Emotion: To style the components flexibly with `styled` or other ways
+  - `styled-components`: To style the components with `styled`
+- Axios: To request/fetch data to/from the backend API server
+- `bson-objectid`: To mock an ObjectID as dummy data purpose
+- `dayjs`: To convert from any date to better formatted date
+- Draft.js: To make the `textarea` with WYSIWYG editor
+- Filestack: To upload and retrieve images
+- JWT Decoder: To decode JWT that is saved in the browserStorage
+
 ## Setup
 
 Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.
