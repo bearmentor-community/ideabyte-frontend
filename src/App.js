@@ -12,12 +12,12 @@ import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
 
-import reduxStore from './redux/store'
+import store from './redux/store'
 
 class App extends React.Component {
   render() {
     return (
-      <Provider store={reduxStore}>
+      <Provider store={store}>
         <Router>
           <Switch>
             <Route exact path={`/`} component={Home} />
