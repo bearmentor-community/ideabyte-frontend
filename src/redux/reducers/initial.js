@@ -9,12 +9,7 @@ const initialState = {
   // will be used if still loading somewhere
   isLoading: false,
   // will be used if data fetching to API is still ongoing
-  isFetching: false,
-
-  //////////////////////////////////////////////////////////////////////////////
-  // before we're logged in, the auth/admin conditions are false
-  isAuthenticated: false, // will be true after we're logged in
-  isAdmin: false // will be true after we're logged in as admin
+  isFetching: false
 }
 
 // Reducers are pure functions

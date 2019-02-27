@@ -31,7 +31,7 @@ const FormLogin = props => {
 
     // If all fields are exist
     if (email && password) {
-      // dispatch payload object to Redux action
+      // a specific action dispatch in login actions
       // it calls the reducer function
       props.dispatch(
         // this is a thunk in actions
@@ -40,6 +40,14 @@ const FormLogin = props => {
           password: password
         })
       )
+
+      // a global action dispatch
+      props.dispatch({
+        type: 'SET_IS_AUTHENTICATED',
+        payload: {
+          isAuthenticated: true
+        }
+      })
     } else {
       console.error('One of the register fields are not entered yet')
     }

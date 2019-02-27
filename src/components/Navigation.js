@@ -51,7 +51,9 @@ const Logo = styled.img`
 `
 
 const Navigation = props => {
-  const isAuthenticated = props.isAuthenticated // from Redux state
+  // from Redux state.user
+  const isAuthenticated = props.isAuthenticated
+  console.log(isAuthenticated)
 
   return (
     <Nav>
@@ -128,8 +130,9 @@ const Navigation = props => {
 // Function to map the specified state to componet's props
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.isAuthenticated
-    // accessible through props.isAuthenticated
+    // get the value from the store, specifically
+    isAuthenticated: state.user.isAuthenticated
+    // then it's accessible through props.isAuthenticated
   }
 }
 

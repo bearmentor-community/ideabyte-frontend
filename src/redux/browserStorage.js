@@ -1,14 +1,20 @@
-import jwtDecode from 'jwt-decode'
+// import jwtDecode from 'jwt-decode'
 
 const browserStorage = {
-  setToken: token => {
-    console.info('SET_TOKEN')
-    localStorage.setItem('token', token)
+  // Set key's value into storage
+  // doesn't need to return
+  setKey: (keyName, value) => {
+    localStorage.setItem(keyName, value)
   },
 
-  getToken: () => {
-    console.info('GET_TOKEN')
-    localStorage.getItem('token')
+  // Get key's value from storage
+  // return the value
+  getKey: keyName => {
+    return localStorage.getItem(keyName)
+  },
+
+  decodeToken: token => {
+    // use jwtDecode
   }
 }
 

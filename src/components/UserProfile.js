@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { connect } from 'react-redux'
 
 import Button from './Button'
 import Avatar from './Avatar'
+
+import { logoutUser } from '../redux/actions/logout'
 
 const Center = styled.section`
   display: flex;
@@ -29,38 +32,54 @@ const Name = styled.h2`
   margin: 0;
   margin-bottom: 10px;
 `
+
 const Email = styled.h3`
   font-weight: normal;
   margin: 0;
 `
 
-const user = {
-  avatar: '/assets/images/avatar.jpg',
-  name: 'Joen Doe',
-  email: 'joendoe@example.com'
+const UserProfile = props => {
+  const logout = () => {
+    if (props.user) props.dispatch(logoutUser(props.user))
+  }
+
+  if (props.user) {
+    return (
+      <Center>
+        <Section>
+          <Avatar
+            src="/assets/images/avatar.jpg"
+            alt={`User Avatar of ${props.user.name}`}
+          />
+          <SubSection>
+            <Name>{props.user.name}</Name>
+            <Email>{props.user.email}</Email>
+          </SubSection>
+        </Section>
+
+        <Section>
+          <Button backgroundColor="green" color="white">
+            Post Idea
+          </Button>
+          <Button onClick={logout} backgroundColor="red" color="white">
+            Logout
+          </Button>
+        </Section>
+      </Center>
+    )
+  } else {
+    return (
+      <Center>
+        <Section>YOU ARE NOT LOGGED IN. REDIRECTING...</Section>
+      </Center>
+    )
+  }
 }
 
-const UserProfile = () => {
-  return (
-    <Center>
-      <Section>
-        <Avatar src={user.avatar} alt={`User Avatar of ${user.name}`} />
-        <SubSection>
-          <Name>{user.name}</Name>
-          <Email>{user.email}</Email>
-        </SubSection>
-      </Section>
-
-      <Section>
-        <Button backgroundColor="green" color="white">
-          Post Idea
-        </Button>
-        <Button backgroundColor="red" color="white">
-          Logout
-        </Button>
-      </Section>
-    </Center>
-  )
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
 }
 
-export default UserProfile
+export default connect(mapStateToProps)(UserProfile)
