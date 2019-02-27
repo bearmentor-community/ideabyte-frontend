@@ -124,6 +124,8 @@ const Navigation = props => {
   )
 }
 
+// Get data from Redux store
+// Function to map the specified state to componet's props
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.isAuthenticated
@@ -131,20 +133,21 @@ const mapStateToProps = state => {
   }
 }
 
+// Connect the Redux store's state to the Component as props
 export default connect(mapStateToProps)(Navigation)
 
 /**
- * 1. Connect is a Higher Order Function
+ * This is how connect function works
+ *
+ * 1. Connect is a Higher Order Function, so it requires another function/Component
  * connect(function)(Component)
  *
- * 2. Connect function can return other function
+ * 2. Connect function can return other function to be used again
  * const connect = (Component) => {
- *   // ...
- *
- *   const newComponent = (Component) => {
- *     // ...
+ *   // someCodeHere
+ *   const newComponentFunction = (Component) => {
+ *     // someCodeHere
  *   }
- *
- *   return newComponent
+ *   return newComponentFunction
  * }
  */

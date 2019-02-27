@@ -91,20 +91,18 @@ const FormLogin = props => {
           </Link>
         </Extra>
 
-        <Extra>
+        {/* <Extra>
           <Link to="/">
             <Span scheme="light" type="extra">
               Forgot your password? <b>Reset here</b>
             </Span>
           </Link>
-        </Extra>
+        </Extra> */}
       </FormContent>
     </Form>
   )
 }
 
-// GET DATA FROM REDUX STORE
-// Function to map the specified state to componet's props
 const mapStateToProps = state => {
   return {
     user: state.user
