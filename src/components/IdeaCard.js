@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
-import ObjectID from 'bson-objectid'
 
 import Heading from './Heading'
 import Paragraph from './Paragraph'

@@ -2,7 +2,6 @@ import React from 'react' // a component, so it's TitleCase
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom' // a component, so it's TitleCase
 import { createStore } from 'redux' // a function, so it's camelCase
 import { Provider } from 'react-redux' // a component, so it's TitleCase
-import ObjectID from 'bson-objectid' // create fake ObjectID
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -15,40 +14,17 @@ import Post from './pages/Post'
 
 // REDUX INITIAL STATE
 // Prepare dummy data when the app starts
-
-import { initialState } from './redux/initialState'
+// import { initialState } from './redux/initialState'
 
 // REDUX REDUCER
-// Will be called when dispatch is called
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'REGISTER_USER':
-      return {
-        // user: state.user,
-        // ideas: state.ideas,
-        // we can make is simpler with spread ... operator
-        ...state,
-        isAuthenticated: state.isAuthenticated
-      }
-    case 'LOGIN_USER':
-      console.log(action.payload)
-      return {
-        ...state,
-        isAuthenticated: true
-      }
-    case 'LOGOUT_USER':
-      return {
-        ...state,
-        isAuthenticated: false
-      }
-    default:
-      return state
-  }
-}
+// Will be used to get data or modify data in the store's state
+// Note: initialState is being used in reducer
+import { reducer } from './redux/reducers'
 
 // REDUX CREATE STORE
-
+// Put the reducer inside the store
+// Then pass it into Redux's Provider component
+// So we can call it later in any Components through connect function
 const reduxStore = createStore(
   reducer,
   // Add Redux DevTools Extension
@@ -57,7 +33,6 @@ const reduxStore = createStore(
 )
 
 // REACT APP COMPONENT
-
 class App extends React.Component {
   render() {
     return (
