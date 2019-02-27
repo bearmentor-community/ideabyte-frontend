@@ -53,7 +53,6 @@ const Logo = styled.img`
 const Navigation = props => {
   // from Redux state.user
   const isAuthenticated = props.isAuthenticated
-  console.log(isAuthenticated)
 
   return (
     <Nav>

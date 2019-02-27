@@ -2,6 +2,7 @@ import { push } from 'connected-react-router'
 import { toast } from 'react-toastify'
 
 import request from '../request'
+import browserStorage from '../browserStorage'
 
 export const logoutUserBegin = () => ({
   type: 'LOGOUT_USER_BEGIN'
@@ -31,22 +32,25 @@ export const logoutUser = payload => {
     // Use Promise instead of async/await because it's tricky in thunk
     request({
       method: 'get',
-      url: '/users/logout',
-      data: payload
+      url: '/users/logout'
     })
       .then(response => {
         dispatch(logoutUserSuccess(response))
+
+        // Remove isAuthenticated in the storage
+        browserStorage.removeKey('isAuthenticated')
+        // Remove token in the storage
+        browserStorage.removeKey('token')
 
         // Redirect to login page after logout is success
         dispatch(push('/'))
 
         // Notify visitor with toast
-        toast.success(`You are logged out! See you later`, {
+        toast.info(`You are logged out! See you later`, {
           position: 'top-center',
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
           draggable: false
         })
 
@@ -63,7 +67,6 @@ export const logoutUser = payload => {
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
           draggable: false
         })
       })

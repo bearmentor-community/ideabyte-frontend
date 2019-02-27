@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 
 const StyledButton = styled.button`
@@ -33,12 +32,4 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ backgroundColor, color, children }) => {
-  return (
-    <StyledButton backgroundColor={backgroundColor} color={color}>
-      {children}
-    </StyledButton>
-  )
-}
-
-export default Button
+export default StyledButton

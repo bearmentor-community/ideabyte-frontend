@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
+import { push } from 'connected-react-router'
 
 import Button from './Button'
 import Avatar from './Avatar'
@@ -40,10 +41,13 @@ const Email = styled.h3`
 
 const UserProfile = props => {
   const logout = () => {
-    if (props.user) props.dispatch(logoutUser(props.user))
+    // only logoutUser if the user is actually authenticated
+    if (props.user.isAuthenticated) {
+      props.dispatch(logoutUser(props.user))
+    }
   }
 
-  if (props.user) {
+  if (props.user.isAuthenticated) {
     return (
       <Center>
         <Section>
@@ -68,6 +72,8 @@ const UserProfile = props => {
       </Center>
     )
   } else {
+    props.dispatch(push('/'))
+
     return (
       <Center>
         <Section>YOU ARE NOT LOGGED IN. REDIRECTING...</Section>

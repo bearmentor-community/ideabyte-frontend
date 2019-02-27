@@ -53,10 +53,8 @@ export const loginUser = payload => {
       data: payload
     })
       .then(response => {
-        console.info('response:', response)
         // LOGIN_USER_SUCCESS
         dispatch(loginUserSuccess(response))
-        console.log(response)
 
         // Set state.user to contain user's data from response
         dispatch(
@@ -68,6 +66,8 @@ export const loginUser = payload => {
 
         // Set isAuthenticated to true in the storage
         browserStorage.setKey('isAuthenticated', true)
+        // Set token in the storage
+        browserStorage.setKey('token', response.data.token)
 
         // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
         // Redirect to profile page after login is success
@@ -81,7 +81,6 @@ export const loginUser = payload => {
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
             draggable: false
           }
         )
@@ -90,7 +89,6 @@ export const loginUser = payload => {
         return response
       })
       .catch(error => {
-        console.error('error:', error)
         // LOGIN_USER_ERROR
         dispatch(loginUserError(error))
 
@@ -103,7 +101,6 @@ export const loginUser = payload => {
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
           draggable: false
         })
       })

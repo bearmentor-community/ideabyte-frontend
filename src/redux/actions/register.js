@@ -61,7 +61,6 @@ export const registerUser = payload => {
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
             draggable: false
           }
         )
@@ -80,7 +79,6 @@ export const registerUser = payload => {
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
           draggable: false
         })
       })

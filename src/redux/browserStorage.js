@@ -13,6 +13,11 @@ const browserStorage = {
     return localStorage.getItem(keyName)
   },
 
+  // Remove key from the storage
+  removeKey: keyName => {
+    return localStorage.removeItem(keyName)
+  },
+
   decodeToken: token => {
     // use jwtDecode
   }
