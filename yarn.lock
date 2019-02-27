@@ -7543,9 +7543,9 @@ react-dev-utils@^7.0.3:
     strip-ansi "5.0.0"
     text-table "0.2.0"
 
-react-dom@^16.8.3:
+"react-dom@npm:@hot-loader/react-dom":
   version "16.8.3"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.3.tgz#ae236029e66210783ac81999d3015dfc475b9c32"
+  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.8.3.tgz#eda02b457b2d1dea2d107f4b63e0b9723b88e775"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
