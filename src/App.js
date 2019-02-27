@@ -13,6 +13,7 @@ import Login from './pages/Login'
 import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
+import NotFound from './pages/NotFound'
 
 // We replace the regular store with enhanced configureStore()
 import configureStore, { history } from './redux/configureStore'
@@ -42,6 +43,7 @@ class App extends React.Component {
             <Route path={`/reset-password`} component={ResetPassword} />
             <Route path={`/profile`} component={Profile} />
             <Route path={`/post`} component={Post} />
+            <Route component={NotFound} />
           </Switch>
         </ConnectedRouter>
       </Provider>
