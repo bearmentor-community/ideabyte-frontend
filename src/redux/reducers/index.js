@@ -1,10 +1,10 @@
-import { initialState } from './initialState'
-import request from './request'
+import initialState from '../initialState'
+import request from '../request'
 
 // Reducers are pure functions
 // They should not have any side effects nor mutate the state
 // They have to return a copy
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     ////////////////////////////////////////////////////////////////////////////
     case 'GET_USER': {
@@ -72,3 +72,5 @@ export const reducer = (state = initialState, action) => {
     }
   }
 }
+
+export default reducer

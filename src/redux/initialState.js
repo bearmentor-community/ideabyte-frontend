@@ -1,6 +1,6 @@
 import ObjectID from 'bson-objectid' // create fake ObjectID
 
-export const initialState = {
+const initialState = {
   //////////////////////////////////////////////////////////////////////////////
   // this specific user will be retrieved from the backend /users/:id
   user: {
@@ -87,3 +87,5 @@ export const initialState = {
     }
   ]
 }
+
+export default initialState

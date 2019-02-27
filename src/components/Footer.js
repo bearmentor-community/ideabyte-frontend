@@ -25,7 +25,11 @@ const Footer = () => {
   return (
     <StyledFooter>
       <p>
-        <button onClick={notify}>💡</button>
+        <button onClick={notify}>
+          <span role="img" aria-label="notify-bulb">
+            💡
+          </span>
+        </button>
       </p>
       <p>Idea Byte (PT. Ideabyte Teknologi Edukasi) &copy; 2019 </p>
     </StyledFooter>
