@@ -23,18 +23,6 @@ import { initialState } from './redux/initialState'
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_IS_AUTHENTICATED':
-      return {
-        isAuthenticated: state.isAuthenticated
-      }
-    case 'GET_PROFILE':
-      return {
-        user: state.user
-      }
-    case 'GET_IDEAS':
-      return {
-        ideas: state.ideas
-      }
     case 'REGISTER_USER':
       return {
         // user: state.user,
