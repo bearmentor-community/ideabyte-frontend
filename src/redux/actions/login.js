@@ -59,8 +59,9 @@ export const loginUser = payload => {
         // Set state.user to contain user's data from response
         dispatch(
           setUserState({
-            name: '',
-            email: ''
+            token: response.data.token,
+            name: response.data.name,
+            email: response.data.email
           })
         )
 
@@ -69,6 +70,10 @@ export const loginUser = payload => {
         // Set token in the storage
         browserStorage.setKey('token', response.data.token)
 
+        // to be used later
+        return response
+      })
+      .then(finished => {
         // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
         // Redirect to profile page after login is success
         dispatch(push('/profile'))
@@ -84,9 +89,6 @@ export const loginUser = payload => {
             draggable: false
           }
         )
-
-        // to be used later
-        return response
       })
       .catch(error => {
         // LOGIN_USER_ERROR

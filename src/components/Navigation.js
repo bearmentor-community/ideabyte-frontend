@@ -51,9 +51,6 @@ const Logo = styled.img`
 `
 
 const Navigation = props => {
-  // from Redux state.user
-  const isAuthenticated = props.isAuthenticated
-
   return (
     <Nav>
       <NavUl>
@@ -84,7 +81,7 @@ const Navigation = props => {
         </NavLi>
 
         {/* if isAuthenticated is false, show the register link */}
-        {!isAuthenticated && (
+        {!props.isAuthenticated && (
           <NavLi>
             <Link to="/register">
               <Span scheme="dark">Register</Span>
@@ -92,7 +89,7 @@ const Navigation = props => {
           </NavLi>
         )}
         {/* if isAuthenticated is false, show the login link */}
-        {!isAuthenticated && (
+        {!props.isAuthenticated && (
           <NavLi>
             <Link to="/login">
               <Span scheme="dark">Login</Span>
@@ -101,7 +98,7 @@ const Navigation = props => {
         )}
 
         {/* if isAuthenticated is true, show the post link */}
-        {isAuthenticated && (
+        {props.isAuthenticated && (
           <NavLi>
             <Link to="/post">
               <Span scheme="dark" color="#6FCF97">
@@ -111,7 +108,7 @@ const Navigation = props => {
           </NavLi>
         )}
         {/* if isAuthenticated is true, show the profile link */}
-        {isAuthenticated && (
+        {props.isAuthenticated && (
           <NavLi>
             <Link to="/profile">
               <Span scheme="dark" color="#F2C94C">

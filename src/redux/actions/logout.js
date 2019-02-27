@@ -24,6 +24,10 @@ export const logoutUserError = error => ({
   }
 })
 
+export const removeUserState = () => ({
+  type: 'REMOVE_USER_STATE'
+})
+
 export const logoutUser = payload => {
   return dispatch => {
     dispatch(logoutUserBegin())
@@ -37,11 +41,17 @@ export const logoutUser = payload => {
       .then(response => {
         dispatch(logoutUserSuccess(response))
 
+        // Remove user state
+        dispatch(removeUserState())
         // Remove isAuthenticated in the storage
         browserStorage.removeKey('isAuthenticated')
         // Remove token in the storage
         browserStorage.removeKey('token')
 
+        // to be used later
+        return response
+      })
+      .then(finished => {
         // Redirect to login page after logout is success
         dispatch(push('/'))
 
@@ -53,9 +63,6 @@ export const logoutUser = payload => {
           closeOnClick: true,
           draggable: false
         })
-
-        // to be used later
-        return response
       })
       .catch(error => {
         // LOGOUT_USER_ERROR

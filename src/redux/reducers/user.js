@@ -10,9 +10,9 @@ const initialState = {
 
   //////////////////////////////////////////////////////////////////////////////
   // before we're logged in, the auth/admin conditions are false
-  // or we can check what's in the storage
-  isAuthenticated: browserStorage.getKey('isAuthenticated') || false, // will be true after we're logged in
-  isAdmin: false, // will be true after we're logged in as admin
+  // or we can check what's currently in the storage
+  isAuthenticated: browserStorage.getKey('isAuthenticated') || false,
+  isAdmin: browserStorage.getKey('isAdmin') || false,
 
   //////////////////////////////////////////////////////////////////////////////
   // we can also interpolate the decoded token to plain object
@@ -26,6 +26,7 @@ const initialState = {
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     ////////////////////////////////////////////////////////////////////////////
+    // SET IS AUTHENTICATED AFTER LOGIN
     case 'SET_IS_AUTHENTICATED': {
       return {
         ...state,
@@ -34,11 +35,18 @@ export default function userReducer(state = initialState, action) {
     }
 
     ////////////////////////////////////////////////////////////////////////////
+    // SET USER STATE AFTER LOGIN
     case 'SET_USER_STATE': {
       return {
         ...state,
         user: action.payload.user
       }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // REMOVE USER STATE AFTER LOGOUT
+    case 'REMOVE_USER_STATE': {
+      return {}
     }
 
     ////////////////////////////////////////////////////////////////////////////
