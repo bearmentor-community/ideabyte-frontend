@@ -1,50 +1,53 @@
 import { initialState } from './initialState'
+import request from './request'
 
-export const reducer = (state = initialState, action) => {
+export const reducers = async (state = initialState, action) => {
   switch (action.type) {
     ////////////////////////////////////////////////////////////////////////////
-    case 'GET_USER': {
+    case 'GET_USER':
       return {
         // simpler to retrieve all other keys in state with spread operator
         // so we don't have to specify each keys on by one
         ...state,
         user: state.user
       }
-    }
 
     ////////////////////////////////////////////////////////////////////////////
-    case 'REGISTER_USER': {
+    case 'REGISTER_USER':
       // Get the payload from the action
       const payload = action.payload
-      console.log(payload)
+
+      // Get the response after requesting to backend API
+      // It's a slow process
+      const response = await request({
+        method: 'post',
+        url: '/users/register',
+        data: payload
+      })
 
       return {
-        // simpler to retrieve all other keys in state with spread operator
+        // simpler way to retrieve all other keys in state
+        // with the spread operator ...
         ...state,
-        isAuthenticated: false
+        latestResponse: response
       }
-    }
 
     ////////////////////////////////////////////////////////////////////////////
-    case 'LOGIN_USER': {
-      console.log(action.payload)
+    case 'LOGIN_USER':
       return {
         ...state,
         isAuthenticated: true
       }
-    }
 
     ////////////////////////////////////////////////////////////////////////////
-    case 'LOGOUT_USER': {
+    case 'LOGOUT_USER':
       return {
         ...state,
         isAuthenticated: false
       }
-    }
 
     ////////////////////////////////////////////////////////////////////////////
-    default: {
+    default:
       return state
-    }
   }
 }

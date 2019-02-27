@@ -103,7 +103,7 @@ const FormLogin = props => {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    latestResponse: state.latestResponse
   }
 }
 

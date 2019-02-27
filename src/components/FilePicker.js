@@ -15,7 +15,7 @@ const handleSuccess = result => {
 }
 
 const handleError = error => {
-  console.log(error) // an Object
+  console.log(error)
 }
 
 const FormPost = () => {

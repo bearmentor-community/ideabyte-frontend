@@ -119,7 +119,9 @@ const FormRegister = props => {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    latestResponse: state.latestResponse
+  }
 }
 
 export default connect(mapStateToProps)(FormRegister)

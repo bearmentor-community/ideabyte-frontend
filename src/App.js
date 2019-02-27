@@ -19,15 +19,15 @@ import Post from './pages/Post'
 
 // REDUX REDUCER
 // Will be used to get data or modify data in the store's state
-// Note: initialState is being used in reducer
-import { reducer } from './redux/reducers'
+// Note: initialState is being used in the reducers function's parameter
+import { reducers } from './redux/reducers'
 
 // REDUX CREATE STORE
 // Put the reducer inside the store
 // Then pass it into Redux's Provider component
 // So we can call it later in any Components through connect function
 const reduxStore = createStore(
-  reducer,
+  reducers,
   // Add Redux DevTools Extension
   // https://github.com/zalmoxisus/redux-devtools-extension#11-basic-store
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

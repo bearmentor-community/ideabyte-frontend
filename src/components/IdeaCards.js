@@ -21,6 +21,8 @@ const IdeaCards = props => {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
+
   return {
     ideas: state.ideas
   }

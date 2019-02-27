@@ -1,6 +1,7 @@
 import ObjectID from 'bson-objectid' // create fake ObjectID
 
 export const initialState = {
+  //////////////////////////////////////////////////////////////////////////////
   // this specific user will be retrieved from the backend /users/:id
   user: {
     _id: ObjectID(),
@@ -10,13 +11,22 @@ export const initialState = {
     email: 'joendoe@example.com'
   },
 
+  //////////////////////////////////////////////////////////////////////////////
+  // will be used if fetching is still ongoing
+  isFetching: true,
+  // latest response object for debugging purpose
+  latestResponse: null,
+
+  //////////////////////////////////////////////////////////////////////////////
   // before we're logged in, the conditions are false
   isAuthenticated: false, // will be true after we're logged in
   isAdmin: false, // will be true after we're logged in as admin
 
+  //////////////////////////////////////////////////////////////////////////////
   // after we're logged in, we have a JSON Web Token (JWT)
   token: null, // a string of JWT
 
+  //////////////////////////////////////////////////////////////////////////////
   // these ideas will be retrieved from the backend /ideas
   ideas: [
     {
