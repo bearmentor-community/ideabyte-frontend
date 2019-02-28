@@ -38,7 +38,7 @@ export const postNewIdea = payload => {
       .catch(error => {
         dispatch(postNewIdeaError(error))
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
-          position: 'top-center',
+          position: 'top-left',
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,

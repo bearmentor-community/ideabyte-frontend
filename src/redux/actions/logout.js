@@ -55,7 +55,7 @@ export const logoutUser = payload => {
 
         // Notify visitor with toast
         toast.info(`You are logged out! See you later`, {
-          position: 'top-center',
+          position: 'top-left',
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -68,7 +68,7 @@ export const logoutUser = payload => {
 
         // Notify visitor with toast
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
-          position: 'top-center',
+          position: 'top-left',
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
