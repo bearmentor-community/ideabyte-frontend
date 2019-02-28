@@ -28,6 +28,7 @@ export const removeUserState = () => ({
   type: 'REMOVE_USER_STATE'
 })
 
+// logoutUser is a thunk
 export const logoutUser = payload => {
   return dispatch => {
     dispatch(logoutUserBegin())
