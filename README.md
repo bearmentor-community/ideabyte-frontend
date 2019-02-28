@@ -11,7 +11,7 @@ Check other documentations here:
 
 - React: To component-based web application
   - React Helmet: To change the title when we change the page in Router
-  - React hot reload: To reload the changes in development without full page reload
+  - React Hot Reload: To reload the changes in development without full page reload
   - React Router: To manage multiple pages/routes of the application
 - Redux: To managing global state in store
   - Redux Devtools extension: To inspect all Redux behavior

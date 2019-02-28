@@ -48,9 +48,9 @@ const FormPost = () => {
 
         <FormFieldSet>
           <Label>Detailed description and steps to actualize the idea:</Label>
-          <TextArea name="idea-details" cols="80" rows="20" />
           {/* Draft.js WYSIWYG can replace TextArea */}
           <PostEditor />
+          <TextArea name="idea-details" cols="80" rows="20" />
         </FormFieldSet>
 
         <InputSubmit backgroundColor="green" type="submit" value="Post Idea" />
