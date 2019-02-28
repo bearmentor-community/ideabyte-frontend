@@ -43,7 +43,6 @@ const idea = {
 const state = {
   // one user from API
   user: {},
-  isAuthenticated: false,
 
   // ideas from API
   ideas: [

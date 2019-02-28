@@ -1,5 +1,3 @@
-// import jwtDecode from 'jwt-decode'
-
 const browserStorage = {
   // Set key's value into storage
   // doesn't need to return
@@ -16,10 +14,6 @@ const browserStorage = {
   // Remove key from the storage
   removeKey: keyName => {
     return localStorage.removeItem(keyName)
-  },
-
-  decodeToken: token => {
-    // use jwtDecode
   }
 }
 

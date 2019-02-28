@@ -5,7 +5,7 @@ const UserIdeas = props => {
     <div>
       <ul>
         {props.ideas.map((item, index) => {
-          return <li>{item.title}</li>
+          return <li key={index}>{item.title}</li>
         })}
       </ul>
     </div>

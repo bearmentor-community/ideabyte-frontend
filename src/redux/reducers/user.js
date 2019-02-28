@@ -6,13 +6,13 @@ import browserStorage from '../browserStorage'
 const initialState = {
   //////////////////////////////////////////////////////////////////////////////
   // after we're logged in, we will have a JSON Web Token (JWT)
-  // token: null, // a string of JWT
+  token: browserStorage.getKey('token') || null, // a string of JWT
 
   //////////////////////////////////////////////////////////////////////////////
   // before we're logged in, the auth/admin conditions are false
   // or we can check what's currently in the storage
   isAuthenticated: browserStorage.getKey('isAuthenticated') || false,
-  isAdmin: browserStorage.getKey('isAdmin') || false
+  isAdmin: browserStorage.getKey('isAdmin') || null
 
   //////////////////////////////////////////////////////////////////////////////
   // we can also interpolate the decoded token to plain object
