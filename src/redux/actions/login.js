@@ -64,15 +64,33 @@ export const loginUser = payload => {
         dispatch(
           setUserState({
             token: response.data.token,
-            name: response.data.name,
-            email: response.data.email
+            name: response.data.user.name,
+            email: response.data.user.email,
+            isAuthenticated: true
           })
         )
 
         // to be used later
         return response
       })
-      .then(finished => {
+      .catch(error => {
+        // LOGIN_USER_ERROR
+        dispatch(loginUserError(error))
+
+        // Set isAuthenticated to false in the storage
+        browserStorage.setKey('isAuthenticated', false)
+        //
+
+        // Notify visitor with toast
+        toast.error(`Sorry ${payload.name}, there's something wrong`, {
+          position: 'top-center',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: false
+        })
+      })
+      .finally(finished => {
         // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
         // Redirect to profile page after login is success
         dispatch(push('/profile'))
@@ -88,22 +106,6 @@ export const loginUser = payload => {
             draggable: false
           }
         )
-      })
-      .catch(error => {
-        // LOGIN_USER_ERROR
-        dispatch(loginUserError(error))
-
-        // Set isAuthenticated to false in the storage
-        browserStorage.setKey('isAuthenticated', false)
-
-        // Notify visitor with toast
-        toast.error(`Sorry ${payload.name}, there's something wrong`, {
-          position: 'top-center',
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          draggable: false
-        })
       })
   }
 }

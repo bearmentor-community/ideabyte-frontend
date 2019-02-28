@@ -127,7 +127,7 @@ const Navigation = props => {
 const mapStateToProps = state => {
   return {
     // get the value from the store, specifically
-    isAuthenticated: state.user.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated || false
     // then it's accessible through props.isAuthenticated
   }
 }
