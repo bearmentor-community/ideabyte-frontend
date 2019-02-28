@@ -1,4 +1,5 @@
-import ObjectID from 'bson-objectid'
+// import ObjectID from 'bson-objectid'
+
 import browserStorage from '../browserStorage'
 
 // this specific user will be retrieved from the backend API /users/:id

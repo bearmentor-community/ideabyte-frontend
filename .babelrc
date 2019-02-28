@@ -4,6 +4,14 @@
       "plugins": ["emotion"]
     },
     "development": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ]
+      ],
       "plugins": [
         [
           "emotion",

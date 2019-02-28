@@ -32,3 +32,10 @@ if (module.hot) {
     render()
   })
 }
+
+// https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-hot-reload-functional-components
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    render()
+  })
+}

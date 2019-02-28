@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom' // a component, so it's TitleCa
 import { Provider } from 'react-redux' // a component, so it's TitleCase
 import { ConnectedRouter } from 'connected-react-router'
 
+////////////////////////////////////////////////////////////////////////////////
+// PAGES
 import Home from './pages/Home'
 import About from './pages/About'
 import Explore from './pages/Explore'
@@ -15,8 +17,11 @@ import Profile from './pages/Profile'
 import Post from './pages/Post'
 import NotFound from './pages/NotFound'
 
+////////////////////////////////////////////////////////////////////////////////
+// REDUX STORE
 // We replace the regular store with enhanced configureStore()
 import configureStore, { history } from './redux/configureStore'
+import rootReducer from './redux/reducers'
 // import store from './redux/store'
 const store = configureStore(/* provide initial state if any */)
 
@@ -25,6 +30,8 @@ const store = configureStore(/* provide initial state if any */)
 // and pass the history object as a prop.
 // Place ConnectedRouter as a child of react-redux's Provider.
 
+////////////////////////////////////////////////////////////////////////////////
+// REACT COMPONENT
 class App extends React.Component {
   render() {
     return (
@@ -49,6 +56,13 @@ class App extends React.Component {
       </Provider>
     )
   }
+}
+
+// https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-hot-reload-reducers
+if (module.hot) {
+  module.hot.accept('./redux/reducers', () => {
+    store.replaceReducer(rootReducer(history))
+  })
 }
 
 export default App
