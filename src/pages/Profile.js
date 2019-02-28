@@ -16,12 +16,15 @@ import { decodeToken } from '../helpers'
 
 const fakeIdeas = [
   {
+    id: 1,
     title: 'My own idea 1'
   },
   {
+    id: 2,
     title: 'My own idea 2'
   },
   {
+    id: 3,
     title: 'My own idea 3'
   }
 ]
