@@ -47,9 +47,6 @@ export const logoutUser = payload => {
         browserStorage.removeKey('isAuthenticated')
         // Remove token in the storage
         browserStorage.removeKey('token')
-
-        // to be used later
-        return response
       })
       .then(finished => {
         // Redirect to login page after logout is success
@@ -58,7 +55,7 @@ export const logoutUser = payload => {
         // Notify visitor with toast
         toast.info(`You are logged out! See you later`, {
           position: 'top-center',
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           draggable: false
@@ -71,7 +68,7 @@ export const logoutUser = payload => {
         // Notify visitor with toast
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
           position: 'top-center',
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           draggable: false

@@ -82,7 +82,7 @@ export const loginUser = payload => {
           `${payload.email}, you are logged in! This is your profile`,
           {
             position: 'top-center',
-            autoClose: 3000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             draggable: false
@@ -99,7 +99,7 @@ export const loginUser = payload => {
         // Notify visitor with toast
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
           position: 'top-center',
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           draggable: false
