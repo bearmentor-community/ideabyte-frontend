@@ -37,10 +37,7 @@ export default function userReducer(state = initialState, action) {
     ////////////////////////////////////////////////////////////////////////////
     // SET USER STATE AFTER LOGIN
     case 'SET_USER_STATE': {
-      return {
-        ...state,
-        user: action.payload.user
-      }
+      return action.payload.user
     }
 
     ////////////////////////////////////////////////////////////////////////////

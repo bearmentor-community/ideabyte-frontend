@@ -6,9 +6,22 @@ const MenuSpan = styled.span`
   color: ${props => props.color};
   transition: 0.2s;
 
+  padding: 2px 6px;
+  border-radius: 4px;
+  /* add border when active */
+  border: ${props =>
+    props.active
+      ? '2px solid hsla(0, 0%, 100%, 1)'
+      : '2px solid hsla(0, 0%, 0%, 0)'};
+
   &:hover {
     color: ${props =>
       props.scheme === 'dark' ? 'hsla(0, 0%, 80%, 1)' : 'hsla(0, 0%, 30%, 1)'};
+    /* add border when active */
+    border: ${props =>
+      props.active
+        ? '2px solid hsla(0, 100%, 100%, 0.5)'
+        : '2px solid hsla(0, 0%, 0%, 0)'};
   }
 `
 

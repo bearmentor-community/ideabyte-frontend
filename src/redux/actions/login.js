@@ -56,6 +56,10 @@ export const loginUser = payload => {
         // LOGIN_USER_SUCCESS
         dispatch(loginUserSuccess(response))
 
+        // Set isAuthenticated to true in the storage
+        browserStorage.setKey('isAuthenticated', true)
+        // Set token in the storage
+        browserStorage.setKey('token', response.data.token)
         // Set state.user to contain user's data from response
         dispatch(
           setUserState({
@@ -64,11 +68,6 @@ export const loginUser = payload => {
             email: response.data.email
           })
         )
-
-        // Set isAuthenticated to true in the storage
-        browserStorage.setKey('isAuthenticated', true)
-        // Set token in the storage
-        browserStorage.setKey('token', response.data.token)
 
         // to be used later
         return response
