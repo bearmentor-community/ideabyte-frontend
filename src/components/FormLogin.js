@@ -25,7 +25,7 @@ const FormLogin = props => {
   const [password, setPassword] = useState('')
 
   // Submit function
-  const onSubmit = event => {
+  const onSubmit = async event => {
     // Prevent page reload because of form
     event.preventDefault()
 
@@ -33,7 +33,7 @@ const FormLogin = props => {
     if (email && password) {
       // a specific action dispatch in login actions
       // it calls the reducer function
-      props.dispatch(
+      await props.dispatch(
         // this is a thunk in actions
         loginUser({
           email: email,
@@ -42,7 +42,7 @@ const FormLogin = props => {
       )
 
       // a global action dispatch
-      props.dispatch({
+      await props.dispatch({
         type: 'SET_IS_AUTHENTICATED',
         payload: {
           isAuthenticated: true
