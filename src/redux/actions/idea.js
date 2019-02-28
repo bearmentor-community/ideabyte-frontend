@@ -45,7 +45,7 @@ export const getIdeas = payload => {
         dispatch(getIdeasError(error))
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
           position: 'top-left',
-          autoClose: 1000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           draggable: false

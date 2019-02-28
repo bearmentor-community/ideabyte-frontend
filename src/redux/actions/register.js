@@ -58,7 +58,7 @@ export const registerUser = payload => {
           `Hello ${payload.name}, you are registered! Let's login`,
           {
             position: 'top-left',
-            autoClose: 1000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             draggable: false
@@ -76,7 +76,7 @@ export const registerUser = payload => {
         // Notify visitor with toast
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
           position: 'top-left',
-          autoClose: 1000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           draggable: false
