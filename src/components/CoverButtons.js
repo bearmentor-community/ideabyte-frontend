@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from '@emotion/styled'
 
 import Link from './Link'
@@ -35,12 +36,15 @@ const CoverButton = styled.button`
   }
 `
 
-const CoverButtons = ({ children }) => {
+const CoverButtons = props => {
   return (
     <StyledDiv>
-      <Link to="/register">
-        <CoverButton color="green">Get Started</CoverButton>
-      </Link>
+      {/* render get started button if not authenticated yet */}
+      {!props.isAuthenticated && (
+        <Link to="/register">
+          <CoverButton color="green">Get Started</CoverButton>
+        </Link>
+      )}
       <Link to="/explore">
         <CoverButton color="yellow">Explore Ideas</CoverButton>
       </Link>
@@ -48,4 +52,10 @@ const CoverButtons = ({ children }) => {
   )
 }
 
-export default CoverButtons
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.user.isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(CoverButtons)

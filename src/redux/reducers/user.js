@@ -11,15 +11,15 @@ const initialState = {
   // before we're logged in, the auth/admin conditions are false
   // or we can check what's currently in the storage
   isAuthenticated: browserStorage.getKey('isAuthenticated') || false,
-  isAdmin: browserStorage.getKey('isAdmin') || false,
+  isAdmin: browserStorage.getKey('isAdmin') || false
 
   //////////////////////////////////////////////////////////////////////////////
   // we can also interpolate the decoded token to plain object
   // _id: ObjectID(),
   // id: 1,
   // avatar: '/assets/images/avatar.jpg',
-  name: 'Joen Doe',
-  email: 'joendoe@example.com'
+  // name: 'Joen Doe',
+  // email: 'joendoe@example.com'
 }
 
 export default function userReducer(state = initialState, action) {

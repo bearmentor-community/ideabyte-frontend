@@ -102,7 +102,7 @@ const Navigation = props => {
           <NavLi>
             <Link to="/post">
               <Span scheme="dark" color="#6FCF97">
-                Post Idea
+                Post
               </Span>
             </Link>
           </NavLi>
@@ -112,7 +112,7 @@ const Navigation = props => {
           <NavLi>
             <Link to="/profile">
               <Span scheme="dark" color="#F2C94C">
-                My Profile
+                Profile
               </Span>
             </Link>
           </NavLi>
