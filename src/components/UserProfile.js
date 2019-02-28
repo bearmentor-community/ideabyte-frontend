@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import Button from './Button'
 import Avatar from './Avatar'
 
 const Center = styled.section`
@@ -49,15 +48,6 @@ const UserProfile = props => {
           <Name>{props.user.name}</Name>
           <Email>{props.user.email}</Email>
         </SubSection>
-      </Section>
-
-      <Section>
-        <Button backgroundColor="green" color="white">
-          Post Idea
-        </Button>
-        <Button onClick={props.logout} backgroundColor="red" color="white">
-          Logout
-        </Button>
       </Section>
     </Center>
   )
