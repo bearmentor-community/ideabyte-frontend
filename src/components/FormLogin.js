@@ -21,8 +21,10 @@ import { loginUser } from '../redux/actions/login'
 const FormLogin = props => {
   // React Hooks
   // So we can use state without having to use class/extends syntax
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
 
   // Submit function
   const onSubmit = async event => {
@@ -30,17 +32,16 @@ const FormLogin = props => {
     event.preventDefault()
 
     // If all fields are exist
-    if (email && password) {
+    if (formData) {
       // a specific action dispatch in login actions
       // it calls the reducer function
       await props.dispatch(
         // this is a thunk in actions
         loginUser({
-          email: email,
-          password: password
+          email: formData.email,
+          password: formData.password
         })
       )
-
       // a global action dispatch
       await props.dispatch({
         type: 'SET_IS_AUTHENTICATED',
@@ -49,7 +50,7 @@ const FormLogin = props => {
         }
       })
     } else {
-      console.error('One of the register fields are not entered yet')
+      console.error('One of the login fields are not entered yet')
     }
   }
 
@@ -69,7 +70,10 @@ const FormLogin = props => {
             type="email"
             placeholder="yourname@domain.com"
             onChange={event => {
-              setEmail(event.target.value)
+              setFormData({
+                ...formData, // email, name
+                email: event.target.value
+              })
             }}
           />
         </FormFieldSet>
@@ -80,9 +84,11 @@ const FormLogin = props => {
           <Input
             type="password"
             placeholder="your_secret_passsword"
-            value={password}
             onChange={event => {
-              setPassword(event.target.value)
+              setFormData({
+                ...formData, // email, name
+                password: event.target.value
+              })
             }}
           />
         </FormFieldSet>

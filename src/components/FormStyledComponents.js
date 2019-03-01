@@ -49,6 +49,10 @@ export const ButtonUpload = styled.button`
   margin-top: 10px;
   padding: 15px 20px;
   transition: 0.2s;
+
+  &:hover {
+    transform: translate(0, -1px);
+  }
 `
 
 export const InputSubmit = styled.input`
@@ -84,6 +88,7 @@ export const InputSubmit = styled.input`
   margin-right: ${props => (!props.block ? '30px' : '')};
 
   &:hover {
+    transform: translate(0, -1px);
     background: ${props =>
       props.backgroundColor === 'green'
         ? 'hsla(145, 50%, 72%, 1)'

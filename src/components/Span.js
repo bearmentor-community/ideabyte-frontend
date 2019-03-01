@@ -15,6 +15,7 @@ const MenuSpan = styled.span`
       : '2px solid hsla(0, 0%, 0%, 0)'};
 
   &:hover {
+    transform: translate(0, -1px);
     color: ${props =>
       props.scheme === 'dark' ? 'hsla(0, 0%, 80%, 1)' : 'hsla(0, 0%, 30%, 1)'};
     /* add border when active */

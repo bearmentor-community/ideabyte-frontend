@@ -27,6 +27,7 @@ const CoverButton = styled.button`
   transition: 0.2s;
 
   &:hover {
+    transform: translate(0, -1px);
     background: ${props =>
       props.color === 'green'
         ? 'hsla(145, 50%, 72%, 1)'
