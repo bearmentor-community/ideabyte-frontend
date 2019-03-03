@@ -45,11 +45,19 @@ const FormPost = props => {
     })
   }
 
-  const onFilePicker = event => {
-    console.log('onFilePicker', event.target)
-    setState({
-      ...state
+  const onSuccess = response => {
+    // console.info('response', response)
+    const files = response.filesUploaded.map(item => {
+      return item.url
     })
+    setState({
+      ...state,
+      images: files
+    })
+  }
+
+  const onError = error => {
+    console.error(error)
   }
 
   // const onPostEditor = event => {
@@ -83,9 +91,9 @@ const FormPost = props => {
       <Heading size={2} scheme="light">
         Any good idea, {props.user.name}?
       </Heading>
-
       <HorizontalRule color="green" />
 
+      {/* //////////////////////////////////////////////////////////////// */}
       <FormContent>
         <FormFieldSet>
           <Label>Title:</Label>
@@ -97,6 +105,7 @@ const FormPost = props => {
           />
         </FormFieldSet>
 
+        {/* //////////////////////////////////////////////////////////////// */}
         <FormFieldSet>
           <Label>Short description:</Label>
           <Input
@@ -107,6 +116,7 @@ const FormPost = props => {
           />
         </FormFieldSet>
 
+        {/* //////////////////////////////////////////////////////////////// */}
         <FormFieldSet>
           <Label>Location:</Label>
           <Input
@@ -117,12 +127,14 @@ const FormPost = props => {
           />
         </FormFieldSet>
 
+        {/* //////////////////////////////////////////////////////////////// */}
         <FormFieldSet>
           <Label>Images and photos:</Label>
           {/* File picker with Filestack service */}
-          <FilePicker name="images" onFilePicker={onFilePicker} />
+          <FilePicker name="images" onSuccess={onSuccess} onError={onError} />
         </FormFieldSet>
 
+        {/* //////////////////////////////////////////////////////////////// */}
         <FormFieldSet>
           <Label>Detailed description and steps to actualize the idea:</Label>
           {/* Draft.js WYSIWYG can replace TextArea */}
@@ -130,6 +142,7 @@ const FormPost = props => {
           <TextArea name="details" cols="80" rows="20" onChange={onChange} />
         </FormFieldSet>
 
+        {/* //////////////////////////////////////////////////////////////// */}
         <InputSubmit backgroundColor="green" type="submit" value="Post Idea" />
         {/* <InputSubmit color="red" type="button" value="Cancel" /> */}
       </FormContent>

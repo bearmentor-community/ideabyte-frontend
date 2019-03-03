@@ -10,23 +10,15 @@ const filestackOptions = {
   maxFiles: 5
 }
 
-const handleSuccess = result => {
-  console.info(result)
-}
-
-const handleError = error => {
-  console.error(error)
-}
-
-const FormPost = () => {
+const FormPost = props => {
   return (
     <Fragment>
       {filestackApiKey && (
         <ReactFilestack
           apikey={filestackApiKey} // preconfigured
           options={filestackOptions} // preconfigured
-          onSuccess={handleSuccess} // preconfigured
-          onError={handleError} // preconfigured
+          onSuccess={props.onSuccess} // preconfigured
+          onError={props.onError} // preconfigured
           preload={true}
           render={({ onPick }) => (
             <ButtonUpload onClick={onPick}>Pick Images</ButtonUpload>
