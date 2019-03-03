@@ -26,40 +26,30 @@ export const postNewIdeaError = error => ({
 
 // postNewIdea is a thunk
 export const postNewIdea = payload => {
-  return dispatch => {
+  return async dispatch => {
     dispatch(postNewIdeaBegin())
 
     console.log('postNewIdea() request:', request)
+    console.log('postNewIdea() payload:', payload)
 
-    request({
-      method: 'post',
-      url: '/ideas',
-      data: {
-        author: payload.author,
-        title: payload.title,
-        description: payload.description,
-        date: payload.date,
-        location: payload.location,
-        slug: payload.slug,
-        images: payload.images,
-        details: payload.details
-      }
-    })
-      .then(response => {
-        dispatch(postNewIdeaSuccess(response))
-
-        // Redirect to the newly posted idea
-        dispatch(push('/profile'))
+    // try catch on request
+    try {
+      const response = await request({
+        method: 'post',
+        url: '/ideas',
+        data: payload
       })
-      .catch(error => {
-        dispatch(postNewIdeaError(error))
-        toast.error(`Sorry ${payload.name}, there's something wrong`, {
-          position: 'top-left',
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          draggable: false
-        })
+      dispatch(postNewIdeaSuccess(response))
+      dispatch(push('/profile')) // Redirect to the newly posted idea
+    } catch (error) {
+      dispatch(postNewIdeaError(error))
+      toast.error(`Sorry ${payload.name}, there's something wrong`, {
+        position: 'top-left',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: false
       })
+    }
   }
 }

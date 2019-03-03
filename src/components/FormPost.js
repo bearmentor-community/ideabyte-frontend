@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Heading from './Heading'
 import HorizontalRule from './HorizontalRule'
 import FilePicker from './FilePicker'
+import FilePreview from './FilePreview'
 // import PostEditor from './PostEditor'
 
 import {
@@ -15,7 +16,7 @@ import {
   InputSubmit
 } from './FormStyledComponents'
 
-import { postNewIdea } from '../redux/actions/post'
+// import { postNewIdea } from '../redux/actions/post'
 
 import { decodeToken } from '../helpers'
 import browserStorage from '../redux/browserStorage'
@@ -32,7 +33,8 @@ const FormPost = props => {
     description: '',
     location: '',
     slug: '', // first-second-third
-    images: [], // array of objects
+    images: [], // array of string
+    imagesString: '',
     details: `` // HTML string
   })
 
@@ -73,18 +75,19 @@ const FormPost = props => {
         event.preventDefault()
 
         const payload = {
-          author: state.author,
           title: state.title,
           description: state.description,
           date: new Date(),
           location: state.location, // City, Country
-          slug: state.title.split(' ').join('-'), // first-second-third
-          images: state.images, // array of objects
+          slug: state.title
+            .toLowerCase()
+            .split(' ')
+            .join('-'), // first-second-third
+          images: state.images > 0 ? state.images : [state.imagesString], // array of strings
           details: state.details // HTML string
         }
 
         console.log(payload)
-
         // props.dispatch(postNewIdea(payload))
       }}
     >
@@ -129,9 +132,19 @@ const FormPost = props => {
 
         {/* //////////////////////////////////////////////////////////////// */}
         <FormFieldSet>
-          <Label>Images and photos:</Label>
+          <Label>Multiple Images or one Image URL:</Label>
           {/* File picker with Filestack service */}
           <FilePicker name="images" onSuccess={onSuccess} onError={onError} />
+          <Input
+            name="imagesString"
+            type="text"
+            placeholder="URL of one image"
+            onChange={onChange}
+          />
+          <FilePreview
+            images={state.images}
+            imagesString={state.imagesString}
+          />
         </FormFieldSet>
 
         {/* //////////////////////////////////////////////////////////////// */}
