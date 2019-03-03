@@ -34,27 +34,36 @@ const store = configureStore(/* provide initial state if any */)
 // REACT COMPONENT
 class App extends React.Component {
   render() {
-    return (
-      // Regular Redux Provider
-      <Provider store={store}>
-        {/* place ConnectedRouter under Provider */}
-        <ConnectedRouter history={history}>
-          {/* our usual react-router v4 routing */}
-          <Switch>
-            <Route exact path={`/`} component={Home} />
-            <Route path={`/about`} component={About} />
-            <Route path={`/explore`} component={Explore} />
-            <Route path={`/ideas/:id`} component={Idea} />
-            <Route path={`/register`} component={Register} />
-            <Route path={`/login`} component={Login} />
-            <Route path={`/reset-password`} component={ResetPassword} />
-            <Route path={`/profile`} component={Profile} />
-            <Route path={`/post`} component={Post} />
-            <Route component={NotFound} />
-          </Switch>
-        </ConnectedRouter>
-      </Provider>
-    )
+    // Check if BACKEND_API_URL is exist
+    if (!process.env.REACT_APP_BACKEND_API_URL) {
+      return (
+        <div>
+          <h1>Idea Byte Backend REST API is not detected</h1>
+        </div>
+      )
+    } else {
+      return (
+        // Regular Redux Provider
+        <Provider store={store}>
+          {/* place ConnectedRouter under Provider */}
+          <ConnectedRouter history={history}>
+            {/* our usual react-router v4 routing */}
+            <Switch>
+              <Route exact path={`/`} component={Home} />
+              <Route path={`/about`} component={About} />
+              <Route path={`/explore`} component={Explore} />
+              <Route path={`/ideas/:id`} component={Idea} />
+              <Route path={`/register`} component={Register} />
+              <Route path={`/login`} component={Login} />
+              <Route path={`/reset-password`} component={ResetPassword} />
+              <Route path={`/profile`} component={Profile} />
+              <Route path={`/post`} component={Post} />
+              <Route component={NotFound} />
+            </Switch>
+          </ConnectedRouter>
+        </Provider>
+      )
+    }
   }
 }
 
