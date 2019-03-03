@@ -21,9 +21,12 @@ class PostEditor extends React.Component {
       editorState: editorState
     })
     // convert to HTML string
-    this.props.onPostEditor(
-      draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+    const HTMLString = draftToHtml(
+      convertToRaw(this.state.editorState.getCurrentContent())
     )
+    console.log('HTMLString', HTMLString)
+
+    this.props.onPostEditor(HTMLString)
   }
 
   render() {

@@ -80,8 +80,6 @@ const FormPost = props => {
           details: state.details // HTML string
         }
 
-        console.log(payload)
-
         props.dispatch(postNewIdea(payload))
       }}
     >
@@ -145,8 +143,8 @@ const FormPost = props => {
         <FormFieldSet>
           <Label>Detailed description and steps to actualize the idea:</Label>
           {/* Draft.js WYSIWYG can replace TextArea */}
-          {/* <TextArea name="details" cols="80" rows="20" onChange={onChange} /> */}
-          <PostEditor name="details" onPostEditor={onPostEditor} />
+          <TextArea name="details" cols="80" rows="20" onChange={onChange} />
+          {/* <PostEditor name="details" onPostEditor={onPostEditor} /> */}
         </FormFieldSet>
 
         {/* //////////////////////////////////////////////////////////////// */}
