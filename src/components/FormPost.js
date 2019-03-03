@@ -5,7 +5,7 @@ import Heading from './Heading'
 import HorizontalRule from './HorizontalRule'
 import FilePicker from './FilePicker'
 import FilePreview from './FilePreview'
-// import PostEditor from './PostEditor'
+import PostEditor from './PostEditor'
 
 import {
   FormContent,
@@ -16,12 +16,7 @@ import {
   InputSubmit
 } from './FormStyledComponents'
 
-import { decodeToken } from '../helpers'
-import browserStorage from '../redux/browserStorage'
 import { postNewIdea } from '../redux/actions/post'
-
-const token = browserStorage.getKey('token')
-const user = decodeToken(token)
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -63,7 +58,7 @@ const FormPost = props => {
   const onPostEditor = editorState => {
     setState({
       ...state,
-      editorState: editorState
+      details: editorState
     })
   }
 
@@ -84,6 +79,8 @@ const FormPost = props => {
           images: state.images > 0 ? state.images : [state.imagesString], // array of strings
           details: state.details // HTML string
         }
+
+        console.log(payload)
 
         props.dispatch(postNewIdea(payload))
       }}
@@ -148,8 +145,8 @@ const FormPost = props => {
         <FormFieldSet>
           <Label>Detailed description and steps to actualize the idea:</Label>
           {/* Draft.js WYSIWYG can replace TextArea */}
-          <TextArea name="details" cols="80" rows="20" onChange={onChange} />
-          {/* <PostEditor name="details" onPostEditor={onPostEditor} /> */}
+          {/* <TextArea name="details" cols="80" rows="20" onChange={onChange} /> */}
+          <PostEditor name="details" onPostEditor={onPostEditor} />
         </FormFieldSet>
 
         {/* //////////////////////////////////////////////////////////////// */}
