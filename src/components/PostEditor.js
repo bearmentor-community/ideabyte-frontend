@@ -34,7 +34,6 @@ class PostEditor extends React.Component {
         />
         <TextArea
           cols="80"
-          rows="20"
           disabled
           value={draftToHtml(
             convertToRaw(this.state.editorState.getCurrentContent())
