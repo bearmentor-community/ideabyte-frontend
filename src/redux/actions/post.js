@@ -40,7 +40,8 @@ export const postNewIdea = payload => {
         data: payload
       })
       dispatch(postNewIdeaSuccess(response))
-      dispatch(push('/profile')) // Redirect to the newly posted idea
+      // Redirect to the newly posted idea
+      dispatch(push(`/ideas/${response.data.result.id}`))
     } catch (error) {
       dispatch(postNewIdeaError(error))
       toast.error(`Sorry ${payload.name}, there's something wrong`, {
