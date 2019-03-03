@@ -8,7 +8,8 @@ const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:8000',
   timeout: 2000,
   headers: {
-    Authorization: token || 'abcdef', // will be replaced by actual token header
+    // will be replaced by actual token header
+    Authorization: `Bearer ${token}` || '',
     'X-Custom-Header': 'ideabyte-frontend'
   }
 })
