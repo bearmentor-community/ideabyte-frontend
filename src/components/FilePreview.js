@@ -13,7 +13,6 @@ const Image = styled.img`
 
 const FilePreview = props => {
   const images = props.images > 0 ? props.imagesString : [props.imagesString]
-  console.log(images.length)
 
   return (
     <Fragment>

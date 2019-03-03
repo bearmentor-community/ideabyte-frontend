@@ -29,9 +29,6 @@ export const postNewIdea = payload => {
   return async dispatch => {
     dispatch(postNewIdeaBegin())
 
-    console.log('postNewIdea() request:', request)
-    console.log('postNewIdea() payload:', payload)
-
     // try catch on request
     try {
       const response = await request({

@@ -20,6 +20,7 @@ class PostEditor extends React.Component {
     this.setState({
       editorState: editorState
     })
+    this.props.onPostEditor(this.state.editorState)
   }
 
   render() {

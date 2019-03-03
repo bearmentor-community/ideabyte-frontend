@@ -16,10 +16,9 @@ import {
   InputSubmit
 } from './FormStyledComponents'
 
-// import { postNewIdea } from '../redux/actions/post'
-
 import { decodeToken } from '../helpers'
 import browserStorage from '../redux/browserStorage'
+import { postNewIdea } from '../redux/actions/post'
 
 const token = browserStorage.getKey('token')
 const user = decodeToken(token)
@@ -28,7 +27,6 @@ const user = decodeToken(token)
 
 const FormPost = props => {
   const [state, setState] = useState({
-    author: user.sub,
     title: '',
     description: '',
     location: '',
@@ -62,12 +60,12 @@ const FormPost = props => {
     console.error(error)
   }
 
-  // const onPostEditor = event => {
-  //   console.log('onPostEditor', event.target)
-  //   setState({
-  //     ...state
-  //   })
-  // }
+  const onPostEditor = editorState => {
+    setState({
+      ...state,
+      editorState: editorState
+    })
+  }
 
   return (
     <form
@@ -87,8 +85,7 @@ const FormPost = props => {
           details: state.details // HTML string
         }
 
-        console.log(payload)
-        // props.dispatch(postNewIdea(payload))
+        props.dispatch(postNewIdea(payload))
       }}
     >
       <Heading size={2} scheme="light">
@@ -151,8 +148,8 @@ const FormPost = props => {
         <FormFieldSet>
           <Label>Detailed description and steps to actualize the idea:</Label>
           {/* Draft.js WYSIWYG can replace TextArea */}
-          {/* <PostEditor name="details" onPostEditor={onPostEditor} /> */}
           <TextArea name="details" cols="80" rows="20" onChange={onChange} />
+          {/* <PostEditor name="details" onPostEditor={onPostEditor} /> */}
         </FormFieldSet>
 
         {/* //////////////////////////////////////////////////////////////// */}
