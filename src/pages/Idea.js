@@ -1,11 +1,14 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import ObjectID from 'bson-objectid'
 
 import PageSimple from '../layouts/PageSimple'
 import Meta from '../layouts/Meta'
 import Center from '../layouts/Center'
+
+import request from '../redux/request'
+
+import { itemExample as item } from '../examples/idea'
 
 const IdeaCover = styled.section`
   background: #333;
@@ -61,95 +64,69 @@ const IdeaDetail = styled.section`
   padding: 10px;
 `
 
-const item = {
-  _id: ObjectID(),
-  id: 1,
-  title: `Tripvesto`,
-  description: `App to plan and gather your friends to travel. Let's join us!`,
-  author: 'Joen Doe',
-  date: '25 February 2019',
-  location: 'Jakarta, Indonesia',
-  slug: 'tripvesto-trip-planner',
-  images: [
-    '/assets/images/traveling.jpg',
-    '/assets/images/traveling.jpg',
-    '/assets/images/traveling.jpg'
-  ],
-  details: `<p>
-            App to plan and gather your friends to travel. So it would be a very
-            fun experience.
-          </p>
-          <ol>
-            <li>Search for existing trip plans</li>
-            <li>Create your own planned trip</li>
-            <li>Determine how many people can join</li>
-            <li>Set up the place and list of activities</li>
-            <li>Schedule for date and time</li>
-            <li>Post the trip to Tripvesto</li>
-            <li>Wait and watch until anyone’s interested join your trip</li>
-            <li>Enjoy your trip with new friends</li>
-          </ol>
-          <p>Hopefully this idea really resonates with you!</p>
-          <p>Please send a feedback to tripvesto@gmail.com</p>
-          <p>
-            Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
-            more.
-          </p>`
-}
+class Idea extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      item: {}
+    }
+  }
 
-const Idea = () => {
-  return (
-    <PageSimple width="100%">
-      <Meta title={item.title} />
+  componentDidMount = async () => {
+    const response = await request({
+      method: 'get',
+      url: `/ideas/${this.props.match.params.id}`
+    })
+    const item = response.data.item
+    this.setState({
+      item: item
+    })
+  }
 
-      <Center>
-        {/* Cover image */}
-        <IdeaCover image={item.images[0]}>
-          {/* Actual content such as title, author, date, location */}
-          <IdeaHeader>
-            <IdeaHeading>{item.title}</IdeaHeading>
-            <IdeaMeta>
-              <li>
-                by <b>{item.author}</b>
-              </li>
-              <li>
-                on <b>{item.date}</b>
-              </li>
-              <li>
-                at <b>{item.location}</b>
-              </li>
-            </IdeaMeta>
-          </IdeaHeader>
-        </IdeaCover>
+  render() {
+    if (this.state.item) {
+      return (
+        <PageSimple width="100%">
+          <Meta title={this.state.item.title} />
 
-        <IdeaBody>
-          {/* Detailed description of the idea */}
-          <IdeaDetail>
-            <p>
-              App to plan and gather your friends to travel. So it would be a
-              very fun experience.
-            </p>
-            <ol>
-              <li>Search for existing trip plans</li>
-              <li>Create your own planned trip</li>
-              <li>Determine how many people can join</li>
-              <li>Set up the place and list of activities</li>
-              <li>Schedule for date and time</li>
-              <li>Post the trip to Tripvesto</li>
-              <li>Wait and watch until anyone’s interested join your trip</li>
-              <li>Enjoy your trip with new friends</li>
-            </ol>
-            <p>Hopefully this idea really resonates with you!</p>
-            <p>Please send a feedback to tripvesto@gmail.com</p>
-            <p>
-              Visit <a href="https://tripvesto.com">Tripvesto.com</a> to learn
-              more.
-            </p>
-          </IdeaDetail>
-        </IdeaBody>
-      </Center>
-    </PageSimple>
-  )
+          <Center>
+            {/* Cover image */}
+            {/* <IdeaCover image={this.state.item.images[0]}> */}
+            <IdeaCover image="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+              {/* Actual content such as title, author, date, location */}
+              <IdeaHeader>
+                <IdeaHeading>{this.state.item.title}</IdeaHeading>
+                <IdeaMeta>
+                  <li>
+                    by <b>{this.state.item.author}</b>
+                  </li>
+                  <li>
+                    on <b>{this.state.item.date}</b>
+                  </li>
+                  <li>
+                    at <b>{this.state.item.location}</b>
+                  </li>
+                </IdeaMeta>
+              </IdeaHeader>
+            </IdeaCover>
+
+            <IdeaBody>
+              {/* Detailed description of the idea */}
+              <IdeaDetail>
+                <p>{JSON.stringify(this.state.item.details)}</p>
+              </IdeaDetail>
+            </IdeaBody>
+          </Center>
+        </PageSimple>
+      )
+    } else {
+      return (
+        <PageSimple>
+          <h1>IDEA DOESN'T EXIST</h1>
+        </PageSimple>
+      )
+    }
+  }
 }
 
 export default Idea
