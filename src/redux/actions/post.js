@@ -1,7 +1,8 @@
 import { push } from 'connected-react-router'
 
+import { toast } from 'react-toastify'
+
 import request from '../request'
-import browserStorage from '../browserStorage'
 
 export const postNewIdeaBegin = () => ({
   type: 'POST_NEW_IDEA_BEGIN'
@@ -28,12 +29,27 @@ export const postNewIdea = payload => {
   return dispatch => {
     dispatch(postNewIdeaBegin())
 
+    console.log('postNewIdea() request:', request)
+
     request({
       method: 'post',
-      url: '/ideas'
+      url: '/ideas',
+      data: {
+        author: payload.author,
+        title: payload.title,
+        description: payload.description,
+        date: payload.date,
+        location: payload.location,
+        slug: payload.slug,
+        images: payload.images,
+        details: payload.details
+      }
     })
       .then(response => {
         dispatch(postNewIdeaSuccess(response))
+
+        // Redirect to the newly posted idea
+        dispatch(push('/profile'))
       })
       .catch(error => {
         dispatch(postNewIdeaError(error))

@@ -1,12 +1,20 @@
 // import ObjectID from 'bson-objectid'
 
+import { decodeToken } from '../../helpers'
 import browserStorage from '../browserStorage'
+
+const token = browserStorage.getKey('token')
+const user = decodeToken(token)
 
 // this specific user will be retrieved from the backend API /users/:id
 const initialState = {
   //////////////////////////////////////////////////////////////////////////////
   // after we're logged in, we will have a JSON Web Token (JWT)
-  token: browserStorage.getKey('token') || null, // a string of JWT
+  token: token || null, // a string of JWT
+
+  //////////////////////////////////////////////////////////////////////////////
+  name: user.name || null,
+  email: user.email || null,
 
   //////////////////////////////////////////////////////////////////////////////
   // before we're logged in, the auth/admin conditions are false

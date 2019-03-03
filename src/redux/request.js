@@ -1,10 +1,14 @@
 import axios from 'axios'
 
+import browserStorage from './browserStorage'
+
+const token = browserStorage.getKey('token') || null
+
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:8000',
   timeout: 2000,
   headers: {
-    Authorization: 'abcdef', // will be replaced by actual token header
+    Authorization: token || 'abcdef', // will be replaced by actual token header
     'X-Custom-Header': 'ideabyte-frontend'
   }
 })
