@@ -13,6 +13,7 @@ const initialState = {
   token: token || null, // a string of JWT
 
   //////////////////////////////////////////////////////////////////////////////
+  // only get user data if user is exist
   name: user ? user.name : null,
   email: user ? user.email : null,
 

@@ -8,8 +8,6 @@ import Center from '../layouts/Center'
 
 import request from '../redux/request'
 
-import { itemExample as item } from '../examples/idea'
-
 const IdeaCover = styled.section`
   background: #333;
   background: linear-gradient(hsla(0, 0%, 20%, 0.8), hsla(0, 0%, 20%, 0.8)),
