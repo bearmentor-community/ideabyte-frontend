@@ -7,6 +7,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build && ./create-redirects.sh",
     "test": "react-app-rewired test --env=jsdom",
+    "serve": "serve -s build",
     "eject": "react-scripts eject"
   },
   "repository": {
@@ -22,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/ideabyte/ideabyte-frontend/issues"
   },
-  "homepage": "https://github.com/ideabyte/ideabyte-frontend#readme",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -44,6 +44,7 @@
     "draftjs-to-html": "0.8.4",
     "filestack-react": "2.0.2",
     "jwt-decode": "2.2.0",
+    "react": "16.8.3",
     "react-app-rewire-hot-loader": "2.0.1",
     "react-app-rewired": "2.1.0",
     "react-dom": "npm:@hot-loader/react-dom",
@@ -54,11 +55,13 @@
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
     "react-toastify": "4.5.2",
-    "react": "16.8.3",
+    "redux": "4.0.1",
     "redux-devtools-extension": "2.13.8",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
-    "redux": "4.0.1",
     "styled-components": "4.1.3"
+  },
+  "devDependencies": {
+    "serve": "^10.1.2"
   }
 }
