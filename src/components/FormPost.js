@@ -13,7 +13,7 @@ import {
   FormFieldSet,
   Label,
   Input,
-  TextArea,
+  // TextArea,
   InputSubmit
 } from './FormStyledComponents'
 
@@ -144,7 +144,7 @@ const FormPost = props => {
         <FormFieldSet>
           <Label>Detailed description and steps to actualize the idea:</Label>
           {/* Draft.js WYSIWYG can replace TextArea */}
-          <TextArea name="details" cols="80" rows="10" onChange={onChange} />
+          {/* <TextArea name="details" cols="80" rows="10" onChange={onChange} /> */}
           <PostEditor name="details" onPostEditor={onPostEditor} />
         </FormFieldSet>
 

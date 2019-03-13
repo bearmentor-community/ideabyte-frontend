@@ -1,0 +1,10 @@
+.rdw-editor-main {
+  border: 2px solid #bdbdbd;
+  border-radius: 4px;
+  min-height: 200px;
+  padding: 10px;
+}
+
+.public-DraftStyleDefault-block {
+  margin: 0;
+}

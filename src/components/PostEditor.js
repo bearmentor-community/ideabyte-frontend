@@ -4,10 +4,10 @@ import { Editor } from 'react-draft-wysiwyg'
 import draftToHtml from 'draftjs-to-html'
 // import htmlToDraft from 'html-to-draftjs'
 
-import { TextArea } from './FormStyledComponents'
+import { TextAreaPreview } from './FormStyledComponents'
 
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
-
+import '../styles/draft.css'
 class PostEditor extends React.Component {
   constructor(props) {
     super(props)
@@ -39,8 +39,9 @@ class PostEditor extends React.Component {
           editorClassName="rdw-editor-main"
           onEditorStateChange={this.onChange}
         />
-        <TextArea
+        <TextAreaPreview
           cols="80"
+          rows="10"
           disabled
           value={draftToHtml(
             convertToRaw(this.state.editorState.getCurrentContent())

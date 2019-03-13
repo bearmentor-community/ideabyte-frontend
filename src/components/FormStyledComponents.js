@@ -38,6 +38,18 @@ export const TextArea = styled.textarea`
   width: 100%;
 `
 
+export const TextAreaPreview = styled.textarea`
+  box-sizing: border-box;
+  display: block;
+  font-size: 14px;
+  padding: 10px;
+  border: 2px solid #bdbdbd;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+  opacity: 0.2;
+`
+
 export const ButtonUpload = styled.button`
   background: hsla(0, 0%, 20%, 1);
   color: #fff;
