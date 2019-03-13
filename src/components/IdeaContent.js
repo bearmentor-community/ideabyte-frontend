@@ -5,6 +5,9 @@ import dayjs from 'dayjs'
 import { DotLoader } from 'react-spinners'
 import ReactHtmlParser from 'react-html-parser'
 
+import Link from '../components/Link'
+import Span from '../components/Span'
+
 const Section = styled.section``
 
 const SectionSmall = styled.section`
@@ -81,7 +84,11 @@ const IdeaContent = ({ idea, isLoading }) => {
                     👤
                   </span>
                 </Icon>{' '}
-                {idea.author.name}
+                <Link to={`/users/${idea.author.id}`}>
+                  <Span type="extra" scheme="dark">
+                    {idea.author.name}
+                  </Span>
+                </Link>
               </IdeaMeta>
               <IdeaMeta>
                 <Icon>
@@ -89,7 +96,7 @@ const IdeaContent = ({ idea, isLoading }) => {
                     📅
                   </span>
                 </Icon>{' '}
-                {dayjs(idea.datetime).format('D MMMM YYYY')}
+                {dayjs(idea.datetime).format('D MMMM YYYY, HH:mm')}
               </IdeaMeta>
               <IdeaMeta>
                 <Icon>
