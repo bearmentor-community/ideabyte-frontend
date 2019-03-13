@@ -3,6 +3,7 @@ import { connectRouter } from 'connected-react-router'
 
 import initialReducer from './initial'
 import ideasReducer from './ideas'
+import ideaReducer from './idea'
 import userReducer from './user'
 import registerReducer from './register'
 import loginReducer from './login'
@@ -18,6 +19,7 @@ export default history =>
     router: connectRouter(history),
     initial: initialReducer,
     ideas: ideasReducer,
+    idea: ideaReducer,
     user: userReducer,
     register: registerReducer,
     login: loginReducer,

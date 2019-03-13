@@ -34,8 +34,6 @@ export const getOneIdea = payload => {
       url: `/ideas/${payload.id}`
     })
       .then(response => {
-        console.log(response)
-
         dispatch(getOneIdeaSuccess(response))
       })
       .catch(error => {

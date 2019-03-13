@@ -2,14 +2,14 @@ const initialState = {
   latestResponse: null,
   latestError: null,
   isLoading: false,
-  data: []
+  data: {}
   // the ideas will be retrieved from the backend API /ideas/:id
 }
 
 const ideaReducer = (state = initialState, action) => {
   switch (action.type) {
     ////////////////////////////////////////////////////////////////////////////
-    case 'GET_IDEAS_BEGIN': {
+    case 'GET_ONE_IDEA_BEGIN': {
       return {
         ...state,
         isLoading: true,
@@ -19,7 +19,7 @@ const ideaReducer = (state = initialState, action) => {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    case 'GET_IDEAS_SUCCESS': {
+    case 'GET_ONE_IDEA_SUCCESS': {
       return {
         ...state,
         isLoading: false,
@@ -29,7 +29,7 @@ const ideaReducer = (state = initialState, action) => {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    case 'GET_IDEAS_ERROR': {
+    case 'GET_ONE_IDEA_ERROR': {
       return {
         ...state,
         isLoading: false,
