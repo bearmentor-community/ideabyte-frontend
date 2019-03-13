@@ -23,11 +23,6 @@ const Card = styled.div`
   }
 `
 
-// const CardImage = styled.img`
-//   border-radius: 4px 4px 0 0;
-//   width: 100%;
-// `
-
 const CardData = styled.div`
   padding: 20px;
 `
@@ -43,19 +38,17 @@ const CardMeta = styled.p`
   font-size: 14px;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-ideas: flex-end;
 `
 
 const Icon = styled.span`
   margin-right: 10px;
 `
 
-const IdeaCard = ({ item }) => {
+const IdeaCard = ({ idea }) => {
   return (
-    <Link to={`/ideas/${item.id}`}>
+    <Link to={`/ideas/${idea.id}`}>
       <Card>
-        {/* <CardImage src={item.images[0]} alt={item.title} /> */}
-
         <PreloadImage
           style={{
             position: 'relative',
@@ -63,15 +56,15 @@ const IdeaCard = ({ item }) => {
             height: '200px',
             backgroundColor: '#222222'
           }}
-          src={item.images[0]}
-          alt={item.title}
+          src={idea.images[0]}
+          alt={idea.title}
         />
 
         <CardData>
           <Heading size={3} align="left" margin="0">
-            {item.title}
+            {idea.title}
           </Heading>
-          <Paragraph>{item.description}</Paragraph>
+          <Paragraph>{idea.description}</Paragraph>
         </CardData>
         <CardMetas>
           <CardMeta>
@@ -80,7 +73,7 @@ const IdeaCard = ({ item }) => {
                 👤
               </span>
             </Icon>{' '}
-            {item.author.name}
+            {idea.author.name}
           </CardMeta>
           <CardMeta>
             <Icon>
@@ -88,7 +81,7 @@ const IdeaCard = ({ item }) => {
                 📅
               </span>
             </Icon>{' '}
-            {dayjs(item.datetime).format('D MMMM YYYY')}
+            {dayjs(idea.datetime).format('D MMMM YYYY')}
           </CardMeta>
           <CardMeta>
             <Icon>
@@ -96,7 +89,7 @@ const IdeaCard = ({ item }) => {
                 📍
               </span>
             </Icon>{' '}
-            {item.location}
+            {idea.location}
           </CardMeta>
         </CardMetas>
       </Card>

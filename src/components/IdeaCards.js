@@ -22,8 +22,8 @@ const IdeaCards = ({ isLoading, ideas }) => {
   if (!isLoading) {
     return (
       <Section>
-        {ideas.map((item, index) => {
-          return <IdeaCard key={index} item={item} />
+        {ideas.map((idea, index) => {
+          return <IdeaCard key={index} idea={idea} />
         })}
       </Section>
     )

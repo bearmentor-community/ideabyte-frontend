@@ -9,19 +9,19 @@ const Main = styled.main`
   flex: 1;
 
   @media all and (min-width: 1024px) {
-    width: ${props => (props.width ? props.width : '1000px')};
+    width: ${props => (props.width ? props.width : '1200px')};
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
-    width: 600px;
+    width: 800px;
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 500px;
+    width: 600px;
   }
 
   @media all and (max-width: 480px) {
-    width: 400px;
+    width: 420px;
   }
 
   width: 320px;
