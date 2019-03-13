@@ -85,7 +85,7 @@ const FormPost = props => {
       }}
     >
       <Heading size={2} scheme="light">
-        Any good idea, {props.user.name}?
+        Any good idea, {props.profile.name}?
       </Heading>
       <HorizontalRule color="green" />
 
@@ -158,7 +158,7 @@ const FormPost = props => {
 
 const mapStateToProps = state => {
   return {
-    user: state.user || 'Unknown'
+    profile: state.profile || 'Unknown'
   }
 }
 
