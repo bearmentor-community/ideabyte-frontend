@@ -8,6 +8,7 @@ import FilePreview from './FilePreview'
 import PostEditor from './PostEditor'
 
 import {
+  Form,
   FormContent,
   FormFieldSet,
   Label,
@@ -63,7 +64,7 @@ const FormPost = props => {
   }
 
   return (
-    <form
+    <Form
       onSubmit={event => {
         event.preventDefault()
 
@@ -151,7 +152,7 @@ const FormPost = props => {
         <InputSubmit backgroundColor="green" type="submit" value="Post Idea" />
         {/* <InputSubmit color="red" type="button" value="Cancel" /> */}
       </FormContent>
-    </form>
+    </Form>
   )
 }
 

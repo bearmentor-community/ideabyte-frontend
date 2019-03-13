@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const Form = styled.form`
-  width: 400px;
+  width: 800px;
 `
 
 export const FormContent = styled.div`
