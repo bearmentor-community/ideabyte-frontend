@@ -8,9 +8,7 @@ import dayjs from 'dayjs'
 import Heading from './Heading'
 import Paragraph from './Paragraph'
 
-const CardOuter = styled.div`
-  flex: 1;
-`
+const CardOuter = styled.div``
 
 const Card = styled.div`
   background: #fafafa;

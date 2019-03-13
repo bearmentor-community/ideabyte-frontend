@@ -8,7 +8,7 @@ import IdeaCard from './IdeaCard'
 const Section = styled.section`
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
+  justify-content: center;
 `
 
 const IdeaCards = ({ isLoading, ideas }) => {
