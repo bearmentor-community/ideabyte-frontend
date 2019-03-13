@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import PageSimple from '../layouts/PageSimple'
 import Meta from '../layouts/Meta'
-import Center from '../layouts/Center'
+import CenterStick from '../layouts/CenterStick'
 
 import IdeaContent from '../components/IdeaContent'
 
@@ -24,9 +24,9 @@ const Idea = ({ idea, isLoading, dispatch }) => {
     <PageSimple width="100%">
       <Meta title={idea.title} />
 
-      <Center>
+      <CenterStick>
         <IdeaContent />
-      </Center>
+      </CenterStick>
     </PageSimple>
   )
 }

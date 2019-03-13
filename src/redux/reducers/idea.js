@@ -3,7 +3,7 @@ const initialState = {
   latestError: null,
   isLoading: false,
   data: {}
-  // the ideas will be retrieved from the backend API /ideas/:id
+  // the idea will be retrieved from the backend API /ideas/:id
 }
 
 const ideaReducer = (state = initialState, action) => {

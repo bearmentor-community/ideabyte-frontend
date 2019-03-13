@@ -1,16 +1,19 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import dayjs from 'dayjs'
+
+const Section = styled.section`
+  width: 100%;
+`
 
 const IdeaCover = styled.section`
   background: #333;
   background: linear-gradient(hsla(0, 0%, 20%, 0.8), hsla(0, 0%, 20%, 0.8)),
-    url(${props => props.image}) no-repeat center;
+    url(${props => (props.image ? props.image : '/assets/images/picture.jpg')})
+      no-repeat center;
   background-size: cover;
   padding-top: 100px;
-  padding-bottom: 5px;
   border-radius: 0 0 10px 10px;
   @media all and (max-width: 480px) {
     border-radius: 0;
@@ -21,71 +24,72 @@ const IdeaHeading = styled.h2`
   text-align: left;
   color: #fff;
   padding-left: 20px;
+  padding-bottom: 20px;
   margin: 0;
 `
 
-const IdeaMeta = styled.ul`
+const IdeaMetas = styled.div`
+  padding: 20px;
+  padding-top: 0;
+  font-weight: bold;
   color: #fff;
 `
 
-const base = css`
-  width: 600px;
-  margin: 0 auto;
-
-  @media all and (min-width: 1024px) {
-    width: 1200px;
-  }
-  @media all and (min-width: 768px) and (max-width: 1024px) {
-    width: 800px;
-  }
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 600px;
-  }
-  @media all and (max-width: 480px) {
-    width: 420px;
-  }
+const IdeaMeta = styled.p`
+  margin: 4px 0;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `
 
-const IdeaHeader = styled.div`
-  ${base}
+const Icon = styled.span`
+  margin-right: 10px;
 `
 
-const IdeaBody = styled.section`
-  ${base}
-`
+const IdeaHeader = styled.div``
+
+const IdeaBody = styled.section``
 
 const IdeaDetail = styled.section`
   padding: 10px;
 `
 
 const IdeaContent = ({ idea, isLoading }) => {
-  console.log(idea)
-
-  if (isLoading) {
+  if (!isLoading && idea.author) {
     return (
-      <div>
-        <h1>LOADING ONE IDEA...</h1>
-      </div>
-    )
-  } else {
-    return (
-      <Fragment>
+      <Section>
         {/* Cover image */}
         <IdeaCover image={idea.images[0]}>
           {/* Actual content such as title, author, date, location */}
           <IdeaHeader>
             <IdeaHeading>{idea.title}</IdeaHeading>
-            <IdeaMeta>
-              <li>
-                <b>{idea.author.name}</b>
-              </li>
-              <li>
-                <b>{idea.datetime}</b>
-              </li>
-              <li>
-                <b>{idea.location}</b>
-              </li>
-            </IdeaMeta>
+            <IdeaMetas>
+              <IdeaMeta>
+                <Icon>
+                  <span role="img" aria-label="author">
+                    👤
+                  </span>
+                </Icon>{' '}
+                {idea.author.name}
+              </IdeaMeta>
+              <IdeaMeta>
+                <Icon>
+                  <span role="img" aria-label="date">
+                    📅
+                  </span>
+                </Icon>{' '}
+                {dayjs(idea.datetime).format('D MMMM YYYY')}
+              </IdeaMeta>
+              <IdeaMeta>
+                <Icon>
+                  <span role="img" aria-label="location">
+                    📍
+                  </span>
+                </Icon>{' '}
+                {idea.location}
+              </IdeaMeta>
+            </IdeaMetas>
           </IdeaHeader>
         </IdeaCover>
 
@@ -95,7 +99,13 @@ const IdeaContent = ({ idea, isLoading }) => {
             <p>{JSON.stringify(idea.details)}</p>
           </IdeaDetail>
         </IdeaBody>
-      </Fragment>
+      </Section>
+    )
+  } else {
+    return (
+      <Section>
+        <h1>LOADING ONE IDEA</h1>
+      </Section>
     )
   }
 }
