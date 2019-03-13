@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import PageSimple from '../layouts/PageSimple'
-import Meta from '../layouts/Meta'
-import Center from '../layouts/Center'
 
 import UserContent from '../components/UserContent'
 

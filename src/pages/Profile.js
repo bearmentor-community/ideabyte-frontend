@@ -29,21 +29,21 @@ const fakeIdeas = [
   }
 ]
 
-const Profile = props => {
+const Profile = ({ profile, dispatch }) => {
   // only render is both isAuthenticated & token are exist
-  if (props.user.isAuthenticated && props.user.token) {
+  if (profile.isAuthenticated && profile.token) {
     const navigateToPostPage = () => {
-      // only navigate to post if the user isAuthenticated
-      props.user.isAuthenticated && props.dispatch(push('/post'))
+      // only navigate to post if the profile isAuthenticated
+      profile.isAuthenticated && dispatch(push('/post'))
     }
 
     const logoutUserFromProfile = () => {
-      // only logoutUser if the user isAuthenticated
-      props.user.isAuthenticated && props.dispatch(logoutUser(props.user))
+      // only logoutUser if the profile isAuthenticated
+      profile.isAuthenticated && dispatch(logoutUser(profile))
     }
 
     // only use helpers.decodeToken() when token is available
-    const decodedUser = decodeToken(props.user.token)
+    const decodedUser = decodeToken(profile.token)
 
     // actual render
     return (
@@ -58,7 +58,7 @@ const Profile = props => {
             navigateToPostPage={navigateToPostPage}
             logoutUserFromProfile={logoutUserFromProfile}
           />
-          {/* user's posted ideas list */}
+          {/* profile's posted ideas list */}
           <UserIdeas ideas={fakeIdeas} />
 
           <HorizontalRule color="yellow" />
@@ -75,7 +75,7 @@ const Profile = props => {
       <PageSimple>
         <Meta title="Redirecting..." />
 
-        {props.dispatch(push('/'))}
+        {dispatch(push('/'))}
       </PageSimple>
     )
   }
@@ -84,7 +84,7 @@ const Profile = props => {
 const mapStateToProps = state => {
   return {
     // might contain name, email, token, isAuthenticated
-    user: state.user
+    profile: state.profile
   }
 }
 

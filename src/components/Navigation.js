@@ -47,7 +47,7 @@ const Logo = styled.img`
   }
 `
 
-const Navigation = props => {
+const Navigation = ({ isAuthenticated }) => {
   return (
     <Nav>
       <NavUl>
@@ -78,7 +78,7 @@ const Navigation = props => {
         </NavLi>
 
         {/* if isAuthenticated is false, show the register link */}
-        {!props.isAuthenticated && (
+        {!isAuthenticated && (
           <NavLi>
             <Link to="/register">
               <Span scheme="dark">Register</Span>
@@ -86,7 +86,7 @@ const Navigation = props => {
           </NavLi>
         )}
         {/* if isAuthenticated is false, show the login link */}
-        {!props.isAuthenticated && (
+        {!isAuthenticated && (
           <NavLi>
             <Link to="/login">
               <Span scheme="dark">Login</Span>
@@ -95,7 +95,7 @@ const Navigation = props => {
         )}
 
         {/* if isAuthenticated is true, show the post link */}
-        {props.isAuthenticated && (
+        {isAuthenticated && (
           <NavLi>
             <Link to="/post">
               <Span scheme="dark" color="#6FCF97">
@@ -105,7 +105,7 @@ const Navigation = props => {
           </NavLi>
         )}
         {/* if isAuthenticated is true, show the profile link */}
-        {props.isAuthenticated && (
+        {isAuthenticated && (
           <NavLi>
             <Link to="/profile">
               <Span scheme="dark" color="#F2C94C">
@@ -124,8 +124,8 @@ const Navigation = props => {
 const mapStateToProps = state => {
   return {
     // get the value from the store, specifically
-    isAuthenticated: state.user.isAuthenticated || false
-    // then it's accessible through props.isAuthenticated
+    isAuthenticated: state.profile.isAuthenticated || false
+    // then it's accessible through isAuthenticated
   }
 }
 

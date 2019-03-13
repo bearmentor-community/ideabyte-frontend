@@ -19,6 +19,12 @@ const UserContent = ({ user, isLoading }) => {
   } else {
     return (
       <section>
+        <DotLoader
+          sizeUnit={'px'}
+          size={100}
+          color={'#f1c84b'}
+          loading={true}
+        />
         <h1>Loading User's Profile...</h1>
       </section>
     )
