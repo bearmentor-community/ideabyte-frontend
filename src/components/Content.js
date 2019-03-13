@@ -23,6 +23,8 @@ const Main = styled.main`
   @media all and (max-width: 480px) {
     width: 400px;
   }
+
+  width: 320px;
 `
 
 const Content = ({ width, children }) => {

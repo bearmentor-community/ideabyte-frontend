@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
+
+import PreloadImage from 'react-preload-image'
 import dayjs from 'dayjs'
 
 import Heading from './Heading'
@@ -9,7 +11,8 @@ import Paragraph from './Paragraph'
 const Card = styled.div`
   background: #fafafa;
   border-radius: 4px;
-  width: 300px;
+  width: 320px;
+  max-height: 480px;
   margin: 10px;
   color: #333;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
@@ -22,6 +25,7 @@ const Card = styled.div`
 
 const CardImage = styled.img`
   border-radius: 4px 4px 0 0;
+  width: 100%;
 `
 
 const CardData = styled.div`
@@ -50,7 +54,19 @@ const IdeaCard = ({ item }) => {
   return (
     <Link to={`/ideas/${item.id}`}>
       <Card>
-        <CardImage src={item.images[0]} alt={item.title} />
+        {/* <CardImage src={item.images[0]} alt={item.title} /> */}
+
+        <PreloadImage
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '200px',
+            backgroundColor: '#222222'
+          }}
+          src={item.images[0]}
+          alt={item.title}
+        />
+
         <CardData>
           <Heading size={3} align="left" margin="0">
             {item.title}

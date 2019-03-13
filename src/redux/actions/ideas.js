@@ -22,10 +22,6 @@ export const getIdeasError = error => ({
   }
 })
 
-export const removeUserState = () => ({
-  type: 'REMOVE_USER_STATE'
-})
-
 // getIdeas is a thunk
 export const getIdeas = payload => {
   return dispatch => {
@@ -38,11 +34,14 @@ export const getIdeas = payload => {
       url: '/ideas'
     })
       .then(response => {
+        console.log(response)
+
         dispatch(getIdeasSuccess(response))
       })
       .catch(error => {
         dispatch(getIdeasError(error))
-        toast.error(`Sorry ${payload.name}, there's something wrong`, {
+
+        toast.error(`Sorry, there's something wrong`, {
           position: 'top-left',
           autoClose: 2000,
           hideProgressBar: false,

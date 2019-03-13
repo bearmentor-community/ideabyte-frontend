@@ -11,8 +11,9 @@ const ideasReducer = (state = initialState, action) => {
     ////////////////////////////////////////////////////////////////////////////
     case 'GET_IDEAS_BEGIN': {
       return {
-        ideas: state.ideas,
+        ...state,
         isLoading: true,
+        latestResponse: null,
         latestError: null
       }
     }
@@ -32,8 +33,8 @@ const ideasReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        latestError: action.payload.error,
-        latestResponse: null
+        latestResponse: null,
+        latestError: action.payload.error
       }
     }
 
