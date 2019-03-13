@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const StyledCenter = styled.div`
-  margin-top: 40px;
+  margin-top: 10px;
 `
 
 const Center = ({ children }) => {

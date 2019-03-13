@@ -23,10 +23,10 @@ const Card = styled.div`
   }
 `
 
-const CardImage = styled.img`
-  border-radius: 4px 4px 0 0;
-  width: 100%;
-`
+// const CardImage = styled.img`
+//   border-radius: 4px 4px 0 0;
+//   width: 100%;
+// `
 
 const CardData = styled.div`
   padding: 20px;
