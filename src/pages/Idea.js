@@ -9,13 +9,13 @@ import IdeaContent from '../components/IdeaContent'
 
 import { getOneIdea } from '../redux/actions/idea'
 
-const Idea = ({ idea, isLoading, dispatch }) => {
+const Idea = ({ match, idea, isLoading, dispatch }) => {
   // asynchronous get ideas from backend API
   // just like in componentDidMount()
   useEffect(() => {
     dispatch(
       getOneIdea({
-        id: 1
+        id: match.params.id
       })
     )
   }, []) // prevent data update
