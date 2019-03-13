@@ -15,6 +15,7 @@ import Login from './pages/Login'
 import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
+import User from './pages/User'
 import NotFound from './pages/NotFound'
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +59,7 @@ class App extends React.Component {
               <Route path={`/reset-password`} component={ResetPassword} />
               <Route path={`/profile`} component={Profile} />
               <Route path={`/post`} component={Post} />
+              <Route path={`/users/:id`} component={User} />
               <Route component={NotFound} />
             </Switch>
           </ConnectedRouter>

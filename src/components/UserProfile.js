@@ -45,8 +45,8 @@ const UserProfile = props => {
           alt={`User Avatar of ${props.name}`}
         />
         <SubSection>
-          <Name>{props.name ? props.name : '.....'}</Name>
-          <Email>{props.email ? props.email : '.....'}</Email>
+          <Name>{props.name ? props.name : 'loading name...'}</Name>
+          <Email>{props.email ? props.email : 'loading email...'}</Email>
         </SubSection>
       </Section>
     </Center>
