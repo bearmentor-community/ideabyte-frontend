@@ -51,6 +51,7 @@
     "react-draft-wysiwyg": "1.13.1",
     "react-helmet": "5.2.0",
     "react-hot-loader": "4.7.1",
+    "react-html-parser": "2.0.2",
     "react-preload-image": "1.0.4",
     "react-redux": "6.0.1",
     "react-router-dom": "4.3.1",

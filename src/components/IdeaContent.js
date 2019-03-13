@@ -2,9 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from '@emotion/styled'
 import dayjs from 'dayjs'
+import { DotLoader } from 'react-spinners'
+import ReactHtmlParser from 'react-html-parser'
 
-const Section = styled.section`
-  width: 100%;
+const Section = styled.section``
+
+const SectionSmall = styled.section`
+  margin-top: 20px;
+`
+
+const CenterSmall = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const IdeaCover = styled.section`
@@ -96,16 +106,26 @@ const IdeaContent = ({ idea, isLoading }) => {
         <IdeaBody>
           {/* Detailed description of the idea */}
           <IdeaDetail>
-            <p>{JSON.stringify(idea.details)}</p>
+            {/* Use ReactHtmlParser instead of dangerous approach */}
+            {/* <div dangerouslySetInnerHTML={{ __html: idea.details }} /> */}
+            {ReactHtmlParser(idea.details)}
           </IdeaDetail>
         </IdeaBody>
       </Section>
     )
   } else {
     return (
-      <Section>
-        <h1>LOADING ONE IDEA</h1>
-      </Section>
+      <SectionSmall>
+        <CenterSmall>
+          <DotLoader
+            sizeUnit={'px'}
+            size={100}
+            color={'#f1c84b'}
+            loading={true}
+          />
+          <h1>LOADING ONE IDEA...</h1>
+        </CenterSmall>
+      </SectionSmall>
     )
   }
 }
