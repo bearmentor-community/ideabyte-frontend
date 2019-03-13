@@ -21,7 +21,7 @@ const Idea = ({ idea, isLoading, dispatch }) => {
   }, []) // prevent data update
 
   return (
-    <PageSimple width="100%">
+    <PageSimple>
       <Meta title={idea.title} />
 
       <CenterStick>

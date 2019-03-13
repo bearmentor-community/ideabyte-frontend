@@ -8,6 +8,10 @@ import dayjs from 'dayjs'
 import Heading from './Heading'
 import Paragraph from './Paragraph'
 
+const CardOuter = styled.div`
+  flex: 1;
+`
+
 const Card = styled.div`
   background: #fafafa;
   border-radius: 4px;
@@ -47,53 +51,55 @@ const Icon = styled.span`
 
 const IdeaCard = ({ idea }) => {
   return (
-    <Link to={`/ideas/${idea.id}`}>
-      <Card>
-        <PreloadImage
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '200px',
-            backgroundColor: '#222222'
-          }}
-          src={idea.images[0]}
-          alt={idea.title}
-        />
+    <CardOuter>
+      <Link to={`/ideas/${idea.id}`}>
+        <Card>
+          <PreloadImage
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '200px',
+              backgroundColor: '#222222'
+            }}
+            src={idea.images[0]}
+            alt={idea.title}
+          />
 
-        <CardData>
-          <Heading size={3} align="left" margin="0">
-            {idea.title}
-          </Heading>
-          <Paragraph>{idea.description}</Paragraph>
-        </CardData>
-        <CardMetas>
-          <CardMeta>
-            <Icon>
-              <span role="img" aria-label="author">
-                👤
-              </span>
-            </Icon>{' '}
-            {idea.author.name}
-          </CardMeta>
-          <CardMeta>
-            <Icon>
-              <span role="img" aria-label="date">
-                📅
-              </span>
-            </Icon>{' '}
-            {dayjs(idea.datetime).format('D MMMM YYYY')}
-          </CardMeta>
-          <CardMeta>
-            <Icon>
-              <span role="img" aria-label="location">
-                📍
-              </span>
-            </Icon>{' '}
-            {idea.location}
-          </CardMeta>
-        </CardMetas>
-      </Card>
-    </Link>
+          <CardData>
+            <Heading size={3} align="left" margin="0">
+              {idea.title}
+            </Heading>
+            <Paragraph>{idea.description}</Paragraph>
+          </CardData>
+          <CardMetas>
+            <CardMeta>
+              <Icon>
+                <span role="img" aria-label="author">
+                  👤
+                </span>
+              </Icon>{' '}
+              {idea.author.name}
+            </CardMeta>
+            <CardMeta>
+              <Icon>
+                <span role="img" aria-label="date">
+                  📅
+                </span>
+              </Icon>{' '}
+              {dayjs(idea.datetime).format('D MMMM YYYY')}
+            </CardMeta>
+            <CardMeta>
+              <Icon>
+                <span role="img" aria-label="location">
+                  📍
+                </span>
+              </Icon>{' '}
+              {idea.location}
+            </CardMeta>
+          </CardMetas>
+        </Card>
+      </Link>
+    </CardOuter>
   )
 }
 

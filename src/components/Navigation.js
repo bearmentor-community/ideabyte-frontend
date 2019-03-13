@@ -14,10 +14,7 @@ const NavUl = styled.ul`
   display: flex;
   align-items: center;
   margin: 5px 0;
-
-  @media all and (max-width: 768px) {
-    padding-left: 0;
-  }
+  padding-left: 0;
 `
 
 const NavLi = styled.li`

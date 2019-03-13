@@ -7,6 +7,7 @@ const Main = styled.main`
   justify-content: center;
   margin: 0 auto;
   flex: 1;
+  width: 320px;
 
   @media all and (min-width: 1024px) {
     width: ${props => (props.width ? props.width : '1200px')};
@@ -23,12 +24,10 @@ const Main = styled.main`
   @media all and (max-width: 480px) {
     width: 420px;
   }
-
-  width: 320px;
 `
 
-const Content = ({ width, children }) => {
-  return <Main width={width}>{children}</Main>
+const Content = ({ children }) => {
+  return <Main>{children}</Main>
 }
 
 export default Content
