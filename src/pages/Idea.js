@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
@@ -37,16 +38,16 @@ const base = css`
   margin: 0 auto;
 
   @media all and (min-width: 1024px) {
-    width: 1000px;
+    width: 1200px;
   }
   @media all and (min-width: 768px) and (max-width: 1024px) {
-    width: 600px;
+    width: 800px;
   }
   @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 500px;
+    width: 600px;
   }
   @media all and (max-width: 480px) {
-    width: 400px;
+    width: 420px;
   }
 `
 
@@ -62,71 +63,54 @@ const IdeaDetail = styled.section`
   padding: 10px;
 `
 
-class Idea extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      item: {}
-    }
-  }
+const Idea = async props => {
+  if (idea) {
+    return (
+      <PageSimple width="100%">
+        <Meta title={idea.title} />
 
-  componentDidMount = async () => {
-    const response = await request({
-      method: 'get',
-      url: `/ideas/${this.props.match.params.id}`
-    })
-    const item = response.data.item
+        <Center>
+          {/* Cover image */}
+          <IdeaCover image={idea.images[0]}>
+            {/* Actual content such as title, author, date, location */}
+            <IdeaHeader>
+              <IdeaHeading>{idea.title}</IdeaHeading>
+              <IdeaMeta>
+                <li>
+                  <b>{idea.author.name}</b>
+                </li>
+                <li>
+                  <b>{idea.date}</b>
+                </li>
+                <li>
+                  <b>{idea.location}</b>
+                </li>
+              </IdeaMeta>
+            </IdeaHeader>
+          </IdeaCover>
 
-    this.props.dispatch()
-    this.setState({
-      item: item
-    })
-  }
-
-  render() {
-    if (this.state.item) {
-      return (
-        <PageSimple width="100%">
-          <Meta title={this.state.item.title} />
-
-          <Center>
-            {/* Cover image */}
-            {/* <IdeaCover image={this.state.item.images[0]}> */}
-            <IdeaCover image="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
-              {/* Actual content such as title, author, date, location */}
-              <IdeaHeader>
-                <IdeaHeading>{this.state.item.title}</IdeaHeading>
-                <IdeaMeta>
-                  <li>
-                    by <b>{this.state.item.author}</b>
-                  </li>
-                  <li>
-                    on <b>{this.state.item.date}</b>
-                  </li>
-                  <li>
-                    at <b>{this.state.item.location}</b>
-                  </li>
-                </IdeaMeta>
-              </IdeaHeader>
-            </IdeaCover>
-
-            <IdeaBody>
-              {/* Detailed description of the idea */}
-              <IdeaDetail>
-                <p>{JSON.stringify(this.state.item.details)}</p>
-              </IdeaDetail>
-            </IdeaBody>
-          </Center>
-        </PageSimple>
-      )
-    } else {
-      return (
-        <PageSimple>
-          <h1>IDEA DOESN'T EXIST</h1>
-        </PageSimple>
-      )
-    }
+          <IdeaBody>
+            {/* Detailed description of the idea */}
+            <IdeaDetail>
+              <p>{JSON.stringify(idea.details)}</p>
+            </IdeaDetail>
+          </IdeaBody>
+        </Center>
+      </PageSimple>
+    )
+  } else {
+    return (
+      <PageSimple>
+        <h1>IDEA DOESN'T EXIST</h1>
+      </PageSimple>
+    )
   }
 }
 
-export default Idea
+const mapStateToProps = state => {
+  return {
+    idea: state.idea
+  }
+}
+
+export default connect(mapStateToProps)(Idea)
