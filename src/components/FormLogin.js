@@ -83,7 +83,6 @@ const FormLogin = props => {
           <Label>Your password:</Label>
           <Input
             type="password"
-            placeholder="your_secret_passsword"
             onChange={event => {
               setFormData({
                 ...formData, // email, name

@@ -17,7 +17,7 @@ export const loginUserSuccess = response => {
   return {
     type: 'LOGIN_USER_SUCCESS',
     payload: {
-      response
+      response: response
     }
   }
 }
@@ -26,14 +26,14 @@ export const loginUserSuccess = response => {
 export const loginUserError = error => ({
   type: 'LOGIN_USER_ERROR',
   payload: {
-    error
+    error: error
   }
 })
 
 export const setUserState = user => ({
   type: 'SET_USER_STATE',
   payload: {
-    user
+    user: user
   }
 })
 
@@ -60,6 +60,10 @@ export const loginUser = payload => {
         browserStorage.setKey('isAuthenticated', true)
         // Set token in the storage
         browserStorage.setKey('token', response.data.token)
+
+        return response
+      })
+      .then(response => {
         // Set state.user to contain user's data from response
         dispatch(
           setUserState({
@@ -69,9 +73,23 @@ export const loginUser = payload => {
             isAuthenticated: true
           })
         )
+      })
+      .then(finished => {
+        // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
+        // Redirect to profile page after login is success
+        dispatch(push('/profile'))
 
-        // to be used later
-        return response
+        // Notify visitor with toast
+        toast.success(
+          `${payload.email}, you are logged in! This is your profile`,
+          {
+            position: 'top-left',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: false
+          }
+        )
       })
       .catch(error => {
         // LOGIN_USER_ERROR
@@ -89,23 +107,6 @@ export const loginUser = payload => {
           closeOnClick: true,
           draggable: false
         })
-      })
-      .finally(finished => {
-        // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
-        // Redirect to profile page after login is success
-        dispatch(push('/profile'))
-
-        // Notify visitor with toast
-        toast.success(
-          `${payload.email}, you are logged in! This is your profile`,
-          {
-            position: 'top-left',
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            draggable: false
-          }
-        )
       })
   }
 }

@@ -3,8 +3,8 @@
 import { decodeToken } from '../../helpers'
 import browserStorage from '../browserStorage'
 
-const token = browserStorage.getKey('token')
-const user = decodeToken(token)
+const token = browserStorage.getKey('token') || null
+const user = token ? decodeToken(token) : null
 
 // this specific user will be retrieved from the backend API /users/:id
 const initialState = {
@@ -13,8 +13,9 @@ const initialState = {
   token: token || null, // a string of JWT
 
   //////////////////////////////////////////////////////////////////////////////
-  name: user.name || null,
-  email: user.email || null,
+  // only get user data if user is exist
+  name: user ? user.name : null,
+  email: user ? user.email : null,
 
   //////////////////////////////////////////////////////////////////////////////
   // before we're logged in, the auth/admin conditions are false
