@@ -31,6 +31,7 @@ const CardData = styled.div`
 const CardMetas = styled.div`
   padding: 20px;
   padding-top: 0;
+  font-weight: bold;
 `
 
 const CardMeta = styled.p`
@@ -42,33 +43,46 @@ const CardMeta = styled.p`
 `
 
 const Icon = styled.span`
-  color: hsla(45, 86%, 62%, 1);
   margin-right: 10px;
 `
 
 const IdeaCard = ({ item }) => {
   return (
-    <Link to="/ideas/1">
+    <Link to={`/ideas/${item.id}`}>
       <Card>
-        <CardImage src={item.images[0]} alt="Card Image" />
+        <CardImage src={item.images[0]} alt={item.title} />
         <CardData>
           <Heading size={3} align="left" margin="0">
             {item.title}
           </Heading>
-          <Paragraph>{item.short}</Paragraph>
+          <Paragraph>{item.description}</Paragraph>
         </CardData>
         <CardMetas>
           <CardMeta>
-            <Icon>⬤</Icon> {item.author}
+            <Icon>
+              <span role="img" aria-label="author">
+                👤
+              </span>
+            </Icon>{' '}
+            {item.author.name}
           </CardMeta>
           <CardMeta>
-            <Icon>⬤</Icon> {dayjs(item.date).format('DD MMMM YYYY')}
+            <Icon>
+              <span role="img" aria-label="date">
+                📅
+              </span>
+            </Icon>{' '}
+            {dayjs(item.datetime).format('D MMMM YYYY')}
           </CardMeta>
           <CardMeta>
-            <Icon>⬤</Icon> {item.location}
+            <Icon>
+              <span role="img" aria-label="location">
+                📍
+              </span>
+            </Icon>{' '}
+            {item.location}
           </CardMeta>
         </CardMetas>
-        {/* <p>{JSON.stringify(item)}</p> */}
       </Card>
     </Link>
   )

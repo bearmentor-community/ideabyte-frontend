@@ -76,6 +76,8 @@ class Idea extends React.Component {
       url: `/ideas/${this.props.match.params.id}`
     })
     const item = response.data.item
+
+    this.props.dispatch()
     this.setState({
       item: item
     })
