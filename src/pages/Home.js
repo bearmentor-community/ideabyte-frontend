@@ -14,7 +14,7 @@ const Home = ({ dispatch }) => {
   // just like in componentDidMount()
   useEffect(() => {
     dispatch(getIdeas())
-  })
+  }, [])
 
   return (
     <PageCoverButtons>

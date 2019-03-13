@@ -15,7 +15,7 @@ const Explore = ({ dispatch }) => {
   // just like in componentDidMount()
   useEffect(() => {
     dispatch(getIdeas())
-  })
+  }, [])
 
   return (
     <PageSearch>
