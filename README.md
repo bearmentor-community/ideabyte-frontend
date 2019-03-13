@@ -4,8 +4,8 @@
 
 Check other documentations here:
 
-- [Data Documentation](README_DATA.md)
 - [React Documentation](README_REACT.md)
+- [Data Documentation](https://github.com/ideabyte/ideabyte/blob/master/README_FRONTEND_DATA.md)
 
 ## Tech Stack
 
@@ -37,9 +37,11 @@ Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.
 
 Then you fill the env variables. To get the Filestack API Key, go to https://www.filestack.com then **Sign Up Free** for an account. After logged in, you can get your API Key.
 
+After which, change your variable values.
+
 ```txt
-REACT_APP_BACKEND_API_URL=http://localhost:0000 # change this
-REACT_APP_FILESTACK_API_KEY=your_api_key_from_filestack_here # change this
+REACT_APP_BACKEND_API_URL=http://localhost:0000
+REACT_APP_FILESTACK_API_KEY=your_api_key_from_filestack_here
 ```
 
 ## Development
@@ -69,8 +71,8 @@ In deployment server such as Netlify, this build process should run automaticall
 You can use Netlify to deploy. After which, you have to configure the environment variables as well.
 
 ```txt
-REACT_APP_BACKEND_API_URL=
-REACT_APP_FILESTACK_API_KEY=
+REACT_APP_BACKEND_API_URL=https://ideabyte.herokuapp.com
+REACT_APP_FILESTACK_API_KEY=your_api_key_from_filestack_here
 ```
 
 ## Project Development Steps
