@@ -42,10 +42,10 @@ const FormPost = props => {
   }
 
   const onSuccess = response => {
-    // console.info('response', response)
     const files = response.filesUploaded.map(item => {
       return item.url
     })
+
     setState({
       ...state,
       images: files
@@ -77,9 +77,11 @@ const FormPost = props => {
             .toLowerCase()
             .split(' ')
             .join('-'), // first-second-third
-          images: state.images > 0 ? state.images : [state.imagesString], // array of strings
+          images: state.images, // array of strings
           details: state.details // HTML string
         }
+
+        console.log(payload)
 
         props.dispatch(postNewIdea(payload))
       }}
@@ -128,16 +130,16 @@ const FormPost = props => {
           <Label>Multiple Images or one Image URL:</Label>
           {/* File picker with Filestack service */}
           <FilePicker name="images" onSuccess={onSuccess} onError={onError} />
-          <Input
+          {/* <Input
             name="imagesString"
             type="text"
             placeholder="URL of one image"
             onChange={onChange}
-          />
-          <FilePreview
+          /> */}
+          {/* <FilePreview
             images={state.images}
             imagesString={state.imagesString}
-          />
+          /> */}
         </FormFieldSet>
 
         {/* //////////////////////////////////////////////////////////////// */}
