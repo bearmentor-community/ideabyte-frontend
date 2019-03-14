@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import Heading from './Heading'
 import HorizontalRule from './HorizontalRule'
 import FilePicker from './FilePicker'
-import FilePreview from './FilePreview'
 import PostEditor from './PostEditor'
+// import FilePreview from './FilePreview'
 
 import {
   Form,

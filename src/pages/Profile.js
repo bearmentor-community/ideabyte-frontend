@@ -8,8 +8,8 @@ import Center from '../layouts/Center'
 
 import UserProfile from '../components/UserProfile'
 import UserButtons from '../components/UserButtons'
-import UserIdeas from '../components/UserIdeas'
 import HorizontalRule from '../components/HorizontalRule'
+// import UserIdeas from '../components/UserIdeas'
 
 import { logoutUser } from '../redux/actions/logout'
 import { decodeToken } from '../helpers'
