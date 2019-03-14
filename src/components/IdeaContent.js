@@ -23,7 +23,7 @@ const CenterSmall = styled.div`
 const IdeaCover = styled.section`
   background: #333;
   background: linear-gradient(hsla(0, 0%, 20%, 0.8), hsla(0, 0%, 20%, 0.8)),
-    url(${props => (props.image ? props.image : '/assets/images/picture.jpg')})
+    url(${props => (props.image ? props.image : '/assets/images/blank.jpg')})
       no-repeat center;
   background-size: cover;
   padding-top: 100px;

@@ -24,8 +24,6 @@ class PostEditor extends React.Component {
     const HTMLString = draftToHtml(
       convertToRaw(this.state.editorState.getCurrentContent())
     )
-    console.log('HTMLString', HTMLString)
-
     this.props.onPostEditor(HTMLString)
   }
 
