@@ -17,6 +17,10 @@ const IdeaListItem = styled.div`
   }
 `
 
+const IdeaImage = styled.img`
+  width: 100px;
+`
+
 const IdeaTitle = styled.h3`
   margin: 0;
 `
@@ -32,7 +36,7 @@ const UserIdeas = ({ ideas }) => {
               <Link to={`/ideas/${idea.id}`}>
                 <IdeaListItem key={index}>
                   {idea.images[0] && (
-                    <img src={idea.images[0]} alt={idea.title} />
+                    <IdeaImage src={idea.images[0]} alt={idea.title} />
                   )}
                   <IdeaTitle>{idea.title}</IdeaTitle>
                 </IdeaListItem>
