@@ -74,7 +74,7 @@ export const loginUser = payload => {
           })
         )
       })
-      .then(finished => {
+      .then(response => {
         // https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action
         // Redirect to profile page after login is success
         dispatch(push('/profile'))

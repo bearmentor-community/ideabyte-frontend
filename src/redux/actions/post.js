@@ -29,25 +29,37 @@ export const postNewIdea = payload => {
   return async dispatch => {
     dispatch(postNewIdeaBegin())
 
-    // try catch on request
-    try {
-      const response = await request({
-        method: 'post',
-        url: '/ideas',
-        data: payload
+    request({
+      method: 'post',
+      url: '/ideas',
+      data: payload
+    })
+      .then(response => {
+        // POST_NEW_IDEA_SUCCESS
+        dispatch(postNewIdeaSuccess(response))
+        return response
       })
-      dispatch(postNewIdeaSuccess(response))
-      // Redirect to the newly posted idea
-      dispatch(push(`/ideas/${response.data.result.id}`))
-    } catch (error) {
-      dispatch(postNewIdeaError(error))
-      toast.error(`Sorry ${payload.name}, there's something wrong`, {
-        position: 'top-left',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: false
+      .then(response => {
+        // Redirect to the newly posted idea
+        dispatch(push(`/ideas/${response.data.result.id}`))
+        // Notify visitor with toast
+        toast.success(`Your idea is posted!`, {
+          position: 'top-left',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: false
+        })
       })
-    }
+      .catch(error => {
+        dispatch(postNewIdeaError(error))
+        toast.error(`Sorry ${payload.name}, there's something wrong`, {
+          position: 'top-left',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: false
+        })
+      })
   }
 }

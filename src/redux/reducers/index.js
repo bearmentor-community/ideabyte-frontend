@@ -9,6 +9,7 @@ import registerReducer from './register'
 import loginReducer from './login'
 import logoutReducer from './logout'
 import userReducer from './user'
+import postReducer from './post'
 
 // https://github.com/supasate/connected-react-router#usage
 // Create a function that takes history as an argument and returns a root reducer.
@@ -25,5 +26,6 @@ export default history =>
     register: registerReducer,
     login: loginReducer,
     logout: logoutReducer,
-    user: userReducer
+    user: userReducer,
+    post: postReducer
   })
