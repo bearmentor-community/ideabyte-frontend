@@ -41,7 +41,8 @@ export const postNewIdea = payload => {
       })
       .then(response => {
         // Redirect to the newly posted idea
-        dispatch(push(`/ideas/${response.data.result.id}`))
+        dispatch(push(`/ideas/${response.data.resultIdea.id}`))
+
         // Notify visitor with toast
         toast.success(`Your idea is posted!`, {
           position: 'top-left',
@@ -53,6 +54,7 @@ export const postNewIdea = payload => {
       })
       .catch(error => {
         dispatch(postNewIdeaError(error))
+
         toast.error(`Sorry ${payload.name}, there's something wrong`, {
           position: 'top-left',
           autoClose: 2000,
