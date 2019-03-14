@@ -1,7 +1,7 @@
 import { push } from 'connected-react-router'
-
 import { toast } from 'react-toastify'
 
+import browserStorage from '../browserStorage'
 import request from '../request'
 
 export const postNewIdeaBegin = () => ({
@@ -29,9 +29,14 @@ export const postNewIdea = payload => {
   return async dispatch => {
     dispatch(postNewIdeaBegin())
 
+    const token = browserStorage.getKey('token')
+
     request({
       method: 'post',
       url: '/ideas',
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
       data: payload
     })
       .then(response => {
