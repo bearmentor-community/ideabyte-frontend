@@ -5,6 +5,7 @@ import { DotLoader } from 'react-spinners'
 import Meta from '../layouts/Meta'
 import Center from '../layouts/Center'
 import UserProfile from '../components/UserProfile'
+import UserIdeas from '../components/UserIdeas'
 
 const UserContent = ({ user, isLoading }) => {
   if (!isLoading) {
@@ -13,6 +14,7 @@ const UserContent = ({ user, isLoading }) => {
         <Meta title={user.name} />
         <Center>
           <UserProfile name={user.name} email={user.email} />
+          <UserIdeas ideas={user.ideas} />
         </Center>
       </section>
     )

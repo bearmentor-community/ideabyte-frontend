@@ -14,21 +14,6 @@ import HorizontalRule from '../components/HorizontalRule'
 import { logoutUser } from '../redux/actions/logout'
 import { decodeToken } from '../helpers'
 
-const fakeIdeas = [
-  {
-    id: 1,
-    title: 'My own idea 1'
-  },
-  {
-    id: 2,
-    title: 'My own idea 2'
-  },
-  {
-    id: 3,
-    title: 'My own idea 3'
-  }
-]
-
 const Profile = ({ profile, dispatch }) => {
   // only render is both isAuthenticated & token are exist
   if (profile.isAuthenticated && profile.token) {
@@ -59,7 +44,7 @@ const Profile = ({ profile, dispatch }) => {
             logoutUserFromProfile={logoutUserFromProfile}
           />
           {/* profile's posted ideas list */}
-          <UserIdeas ideas={fakeIdeas} />
+          {/* <UserIdeas ideas={fakeIdeas} /> */}
 
           <HorizontalRule color="yellow" />
 
